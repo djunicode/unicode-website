@@ -17,4 +17,8 @@ before_script:
   - python manage.py migrate
 
 script:
-  - python manage.py test
+  - flake8
+  - python3 manage.py test
+
+notifications:
+    slack: djunicode:QEDBwaRLN7zF7ARWJpW6r8SR
