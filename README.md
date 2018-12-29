@@ -8,7 +8,7 @@
 Python: 3.6.7 version\
 Django: 2.1.4 version
 
-<hr><hr><hr>
+<hr>
 
 #### How do I install prerequisites?
 
