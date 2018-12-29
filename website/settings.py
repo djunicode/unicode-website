@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # Custom apps
     'profiles',
     'blog',
+    'projects'
 ]
 
 

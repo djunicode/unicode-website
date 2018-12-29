@@ -15,7 +15,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     cover = models.ImageField(upload_to='blog/%Y/%m/%d/', blank=True)
     content = models.TextField()
-    slug = models.SlugField()
+    slug = models.SlugField(blank=True)
     tag = models.CharField(max_length=255)
     technologies = MultiSelectField(choices=TECHNOLOGIES_CHOICES)
     create_date = models.DateTimeField(auto_now_add=True)
@@ -34,4 +34,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text
-        

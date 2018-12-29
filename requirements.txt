@@ -1,2 +1,5 @@
 Django==2.1.4
-flake8
+django-multiselectfield==0.1.8
+flake8==3.6.0
+Pillow==5.3.0
+pytz==2018.7
