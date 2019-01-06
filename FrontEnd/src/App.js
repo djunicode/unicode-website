@@ -15,10 +15,11 @@ class App extends Component {
         marginTop: 117,
         marginBottom: 161,
         padding: 0,
-        width: 1920
+        width: "100%"
     },
     background:{
-      background: "#F8F8F8"
+      background: "#F8F8F8",
+      marginTop: 114
     }
   }
   render() {

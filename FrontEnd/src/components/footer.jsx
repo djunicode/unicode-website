@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import twitter from './logo/T1.png';
 import Link from './logo/L1.png';
 import Git from './logo/G1.png';
+import CCC from './logo/3C.PNG';
 
 class Foot extends Component {
     state = {  }
@@ -60,19 +61,24 @@ class Foot extends Component {
                 opacity: "0.71"
             },
             CCC:{
-                color: "#FFFFFF",
-                opacity: "0.09",
-                fontSize: 146,
-                letterHeight: 199,
-                marginLeft: "50%",
-                transform: "translateX(-50%)",
+                // color: "#FFFFFF",
+                // opacity: "0.09",
+                // fontSize: 146,
+                // letterHeight: 199,
+                // marginLeft: "50%",
+                // transform: "translateX(-50%)",
                 position: "absolute",
-                bottom: 0
+                bottom: 0,
+                // maxWidth: "1905px"
             }
         }
         render() { 
         return ( 
             <div style={this.styles.wrappper} >
+            <div className="openSans-146-800" >
+                {/* <span>code.create.collaborate.</span> */}
+                <img src={CCC} style={this.styles.CCC} width="100%" />
+            </div>
                 <div style={this.styles.div3}>
                 <ul style={this.styles.ul} >
                         <li style={this.styles.li3} ><img src={twitter} width="32"/></li>
@@ -89,9 +95,6 @@ class Foot extends Component {
                     </ul>
                 </div>
                 <div style={this.styles.div2} >© 2017-2018 All Rights Reserved</div>
-                <div style={this.styles.CCC} className="openSans-146-800" >
-                code.create.collaborate.
-                </div>
             </div>
          );
     }

@@ -5,7 +5,7 @@ class LowerText extends Component {
     styles={
         container:{
             height: 196,
-            width: 1364,
+            maxWidth: 1364,
             marginLeft: "50%",
             transform: "translateX(-50%)",
             fontSize: 20,

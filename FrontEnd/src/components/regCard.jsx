@@ -136,7 +136,7 @@ class RegCard extends Component {
                         <Grid item xs={12}>
                         <TextField
                         id="outlined-name"
-                        label="Contact No."
+                        label="Email"
                         value={this.state.name}
                         margin="normal"
                         variant="outlined"
