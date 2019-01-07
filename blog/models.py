@@ -1,6 +1,5 @@
 from multiselectfield import MultiSelectField
 from django.contrib.auth import get_user_model
-from django.utils import timezone
 from django.db import models
 
 User = get_user_model()
@@ -24,7 +23,7 @@ class Post(models.Model):
     tag = models.CharField(max_length=255)
     technologies = MultiSelectField(choices=TECHNOLOGIES_CHOICES)
     draft = models.BooleanField(default=False)
-    publish = models.DateField(default=timezone.now())
+    publish = models.DateField()
     updated = models.DateTimeField(auto_now=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 

@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-from django.utils import timezone
 from multiselectfield import MultiSelectField
 
 User = get_user_model()
@@ -22,7 +21,7 @@ class Project(models.Model):
     description = models.TextField()
     slug = models.SlugField(blank=True)
     technologies = MultiSelectField(choices=TECHNOLOGIES_CHOICES)
-    year = models.DateField(default=timezone.now())
+    year = models.DateField()
     repo_link = models.CharField(max_length=255)
 
     def __str__(self):

@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-from django.utils import timezone
 from multiselectfield import MultiSelectField
 
 User = get_user_model()
@@ -21,8 +20,8 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     profile_pic = models.ImageField(upload_to=upload_location, blank=True)
     bio = models.CharField(max_length=255, blank=True)
-    date_joined = models.DateField(default=timezone.now())
-    date_passed = models.DateField(default=timezone.now())
+    date_joined = models.DateField()
+    date_passed = models.DateField()
     stack = MultiSelectField(choices=STACK_CHOICES, max_choices=2)
     github_link = models.CharField(max_length=255, blank=True)
     linkedin_link = models.CharField(max_length=255, blank=True)
