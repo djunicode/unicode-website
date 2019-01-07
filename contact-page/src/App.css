@@ -1,0 +1,41 @@
+.text1 {
+  position: absolute;
+  top: 29px;
+  left: 174px;
+  font-size: 250px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  opacity: 100%;
+  color: rgba(255,255,255,0.17);
+}
+
+.text2 {
+  position: absolute;
+  top: 165.1px;
+  left: 742px;
+  color: rgba(69,69,69,1);
+  font-size: 74px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+
+}
+
+.image {
+  position: relative;
+  text-align: centre;
+  
+}
+
+.space {
+    margin-top: 343px;
+}
+
+.follow{
+  left: 879px;
+  top: 1199.1px;
+  position: absolute;
+  color: #000000;
+  font-size: 18px;
+  text-align: centre;
+  font-family: 'Open Sans', sans-serif;
+}
