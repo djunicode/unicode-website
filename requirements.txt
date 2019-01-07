@@ -1,2 +1,8 @@
+autopep8==1.4.3
 Django==2.1.4
-flake8
+django-multiselectfield==0.1.8
+flake8==3.6.0
+mccabe==0.6.1
+pycodestyle==2.4.0
+pyflakes==2.0.0
+pytz==2018.9
