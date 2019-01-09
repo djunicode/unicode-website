@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import unicode from '../images/UNICODE_LOGO.PNG';
-import { AppBar, Toolbar , createMuiTheme, MuiThemeProvider, Typography, Button } from '@material-ui/core';
+import { AppBar, Toolbar , createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 
 const theme=createMuiTheme(
     {
@@ -40,6 +40,17 @@ class Head extends Component {
         },
         grow: {
           flexGrow: 1,
+        },
+        flex: {
+            marginRight: 162,
+            display: "flex",
+            width: "100%",
+            justifyContent: "flex-end"
+        },
+        btn:{
+            marginLeft: 33,
+            marginTop: 46,
+            padding: 0
         }
       };
       handleBtn=()=>{
@@ -54,7 +65,9 @@ class Head extends Component {
                 position="fixed"
                 color="primary" >
                     <Toolbar >
-                        <img src={unicode} style={this.styles.logo} width="237px" />
+                        <img src={unicode} alt="logo" style={this.styles.logo} width="237px" />
+                        <div style={this.styles.flex}>
+                        </div>
                     </Toolbar>
                 </AppBar>
                 </MuiThemeProvider>

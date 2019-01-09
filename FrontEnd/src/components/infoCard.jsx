@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import {Paper, Typography, Button, createMuiTheme, MuiThemeProvider} from '@material-ui/core';
+import {Paper} from '@material-ui/core';
 import '../css/fonts.css';
 import rup from '../images/RS.PNG';
 import buttonImage from '../images/BUTTON.PNG';
 
 class infoCard extends Component {
     state = { 
-        hovered: false
+        hovered: false,
+        width:0,
+        height:0,
+        collapse: false
      }
     styles={
         container:{
@@ -43,6 +46,14 @@ class infoCard extends Component {
             top: 277,
             left: 0
         },
+        btnDesign:{
+            display: "inline",
+            position: "absolute",
+            left: 467,
+            top: 314,
+            textAlign: "center",
+            color: "#FFFFFF"
+        },
         tech:{
             lineHeight: "24px",
             letterSpacing: "0.150em",
@@ -55,14 +66,6 @@ class infoCard extends Component {
             position: "absolute",
             top: 373,
             left: 0
-        },
-        btnDesign:{
-            display: "inline",
-            position: "absolute",
-            left: 467,
-            top: 314,
-            textAlign: "center",
-            color: "#FFFFFF"
         },
         buyBtnContainer:{
             position: "relative",
@@ -80,6 +83,14 @@ class infoCard extends Component {
             height: 36
         }
     }
+    handleExpand=()=>{
+        if(this.state.collapse){
+            this.setState({collapse: false});
+        }
+        else{
+            this.setState({collapse: true});
+        }
+    }
     handleMouse=()=>{
         if(this.state.hovered){
             this.setState({hovered: false});
@@ -90,15 +101,68 @@ class infoCard extends Component {
             // console.log(this.state.hovered);
         }
     }
+    componentDidMount() {
+        this.updateWindowDimensions();
+        window.addEventListener('resize', this.updateWindowDimensions);
+      }
+      
+      componentWillUnmount() {
+        window.removeEventListener('resize', this.updateWindowDimensions);
+      }
+      
+      updateWindowDimensions=()=> {
+        this.setState({ width: window.innerWidth, height: window.innerHeight });
+        if(this.state.width>1600){
+            this.setState({collapse: false});
+        }
+        else{
+            this.setState({collapse: true});
+        }
+      }
     render() { 
+        // let cardWidth= 31.87*(this.state.width)/100;
+        // let cardHeight= 20.83*(this.state.height)/100;
+        console.log(this.state.width);
+        console.log(this.state.height);
         let myStyle={
             paper:{
-                width: 612,
-                height: 400,
+                // width: `${31.87*(this.state.width)/100}px`,
+                height: `${this.state.width>1550?400:500}px`,
+                width: `${this.state.width<1228?612:31.87*(this.state.width)/100}px`,
                 padding: "37px 37px 57px 51px",
                 boxShadow: `#d6d6d6 ${this.state.hovered ? '12px 12px 16px' : '4px 4px 16px'}`,
                 borderRadius: 10,
                 transition: "linear 0.2s"
+            },
+            btnDesign:{
+                display: "inline",
+                position: "absolute",
+                right: `${2.29*612/100}px`,
+                top: `${78.5*(this.state.width>1550?400:500)/100}px`,
+                // bottom: `${5.88*612/100}px`,
+                textAlign: "center",
+                color: "#FFFFFF"
+            },
+            date:{
+                lineHeight: "27px",
+                position: "absolute",
+                top: `${93.25*(this.state.width>1550?400:500)/100}px`,
+                left: 0
+            },
+            category:{
+                lineHeight: "19px",
+                letterSpacing: "0.150em",
+                color: "#445DFF",
+                position:"absolute",
+                top: `${69.25*(this.state.width>1550?400:500)/100}px`,
+                left: 0
+            },
+            tech:{
+                lineHeight: "24px",
+                letterSpacing: "0.150em",
+                position:"absolute",
+                top: `${76.5*(this.state.width>1550?400:500)/100}px`,
+                left: 0
             }
         }
 
@@ -115,27 +179,26 @@ class infoCard extends Component {
                     </div>
 
                     <div className="openSans-18-400" style={this.styles.subText}>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, dicta non esse porro corrupti facilis nisi magnam perspiciatis eius quia enim ullam, accusantium reiciendis quibusdam laudantium ipsum exercitationem? Temporibus veniam fugit, dicta architecto quod fugiat voluptas sit. Excepturi, libero et?                        
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, placeat. Tempore sunt qui id ipsum laborum! Perferendis reprehenderit impedit tempora!
+                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
                     </div>
 
-                    <div className="roboto-18-400" style={this.styles.category}>
+                    <div className="roboto-18-400" style={myStyle.category}>
                         {this.props.category}                        
                     </div>
 
-                    <div className="openSans-18-400" style={this.styles.tech}>
+                    <div className="openSans-18-400" style={myStyle.tech}>
                         {this.props.tech}
                     </div>
 
-                    <div className="openSans-20-600" style={this.styles.date}>
+                    <div className="openSans-20-600" style={myStyle.date}>
                         {this.props.date}
                     </div>
 
                     {/* Button */}
 
-                    <div className="openSans-26-600" style={this.styles.btnDesign}>
+                    <div className="openSans-26-600" style={myStyle.btnDesign}>
                         <div style={this.styles.buyBtnContainer}>
-                            <img src={buttonImage} alt="" width="131" />
+                            <img src={buttonImage} alt="btnImg" width="131" />
                                 <img src={rup} alt="buttonBackground" height="23" style={this.styles.rup} />
                                 <div style={this.styles.price}>
                                     {this.props.price}

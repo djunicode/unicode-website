@@ -77,13 +77,13 @@ class Foot extends Component {
             <div style={this.styles.wrappper} >
             <div className="openSans-146-800" >
                 {/* <span>code.create.collaborate.</span> */}
-                <img src={CCC} style={this.styles.CCC} width="100%" />
+                <img src={CCC} alt="3C's" style={this.styles.CCC} width="100%" />
             </div>
                 <div style={this.styles.div3}>
                 <ul style={this.styles.ul} >
-                        <li style={this.styles.li3} ><img src={twitter} width="32"/></li>
-                        <li style={this.styles.li3} ><img src={Link} width="32"/></li>
-                        <li style={this.styles.li3} ><img src={Git} width="32"/></li>
+                        <li style={this.styles.li3} ><img alt="twitter" src={twitter} width="32"/></li>
+                        <li style={this.styles.li3} ><img alt="linkedIn" src={Link} width="32"/></li>
+                        <li style={this.styles.li3} ><img alt="gitHub" src={Git} width="32"/></li>
                     </ul>
                 </div>
                 <div style={this.styles.div1} >
