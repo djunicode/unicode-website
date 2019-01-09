@@ -66,8 +66,6 @@ class Head extends Component {
                 color="primary" >
                     <Toolbar >
                         <img src={unicode} alt="logo" style={this.styles.logo} width="237px" />
-                        <div style={this.styles.flex}>
-                        </div>
                     </Toolbar>
                 </AppBar>
                 </MuiThemeProvider>

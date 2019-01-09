@@ -6,11 +6,11 @@ class LowerText extends Component {
         container:{
             height: 196,
             maxWidth: 1364,
-            marginLeft: "50%",
-            transform: "translateX(-50%)",
             fontSize: 20,
             letterHeight: "27px",
-            marginBottom: 256
+            marginBottom: 256,
+            marginTop: 160,
+            marginLeft: 24
         }
     }
     render() { 
