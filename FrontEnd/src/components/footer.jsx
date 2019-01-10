@@ -84,7 +84,7 @@ class Foot extends Component {
                         <li style={this.styles.li3} ><img alt="twitter" src={twitter} width="32"/></li>
                         <li style={this.styles.li3} ><img alt="linkedIn" src={Link} width="32"/></li>
                         <li style={this.styles.li3} ><img alt="gitHub" src={Git} width="32"/></li>
-                    </ul>
+                </ul>
                 </div>
                 <div style={this.styles.div1} >
                     <ul style={this.styles.ul} >

@@ -25,9 +25,7 @@ class ENname extends Component {
         eveFont:{
             height: 33,
             color: "#FFFFFF",
-            position: "absolute",
-            top: 42,
-            left: 170,
+            marginTop: 12,
             lineHeight: "24px"
         },
         eveNameFont:{
@@ -35,31 +33,38 @@ class ENname extends Component {
             color: "#000000",
             position: "absolute",
             top: 172,
-            left: 249,
+            left: "12.96%",
             lineHeight: "57px",
             fontSize: 42
         },
-        posi:{
-            position: "absolute",
-            top: 32,
-            left: 128
+        flex:{
+            display: "flex"
+        },
+        posiWrap:{
+            display: "flex",
+            marginLeft: "7.29%",
+            marginTop: 49
         }
     }
     render() { 
         return ( 
             <div>
                 <div style={this.styles.event}>
-                    <MuiThemeProvider theme={theme}>
-                        <IconButton color="primary" style={this.styles.posi}>
-                            <ArrowBackIcon />
-                        </IconButton>
-                    </MuiThemeProvider>
-                    <div 
-                    className="openSans-24-700"
-                    style={this.styles.eveFont}
-                    >
-                        <div>
-                            Events
+                    <div style={this.styles.flex}>
+                        <div style={this.styles.posiWrap}>
+                            <MuiThemeProvider theme={theme}>
+                                <IconButton color="primary" >
+                                    <ArrowBackIcon />
+                                </IconButton>
+                            </MuiThemeProvider>
+                            <div 
+                            className="openSans-24-700"
+                            style={this.styles.eveFont}
+                            >
+                                <div>
+                                    Events
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
