@@ -1,9 +1,9 @@
 from django.db import models
 from djangp.conf import settings
 from multiselectfield import MultiSelectField
-# Create your models here.
 
-TECHNOLOGIES_CHOICES=(
+
+TECHNOLOGIES_CHOICES = (
     ('web', 'Web Development'),
     ('app', 'App Development'),
 )
