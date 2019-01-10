@@ -29,7 +29,8 @@ class RegCard extends Component {
             height: 599,
             padding: "106px 276px 105px 276px",
             boxShadow: "#d6d6d6 4px 4px 16px",
-            borderRadius: 10
+            borderRadius: 10,
+            marginBottom: 120
 
         },
         inpLarge:{
@@ -49,14 +50,20 @@ class RegCard extends Component {
             
           },
           mymargin: {
-            top: 80
+            top: 80,
+            padding: "11.1px 44px 10.9px 44px",
+            
+          },
+          space: {
+              marginTop: 196.9,
+            
           }
     }
     render() { 
 
         return ( 
 
-            <div>
+            <div style={this.styles.space}>
                 <Paper style={this.styles.paper}>
                 <MuiThemeProvider theme={theme}>
                 <form>

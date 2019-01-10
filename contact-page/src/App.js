@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import telephone from './telephone.png';
+
 import NavBar from './components/NavBar.js';
 import RegCard from './components/ContactForm.js';
 import {Grid} from '@material-ui/core'
 import './App.css';
+import Image from './components/Image.js';
+import Head from './components/header.js';
+import Follow from './components/Follow.js';
+import Footer from './components/footer';
 
 class App extends Component {
 
@@ -15,17 +19,22 @@ class App extends Component {
   render() {
     return (
       <div style={this.styles.background}>
-
-        <NavBar />
-        <div className="image">
-        <img src={telephone} height="963" width="1920" />
-        <div className="text1">GET IN TOUCH</div>
-        <div className="text2">GET IN TOUCH</div>
-        </div>
-        <div className="space">
-        <div className="follow">
-          FOLLOW US ON
-        </div>
+      <Head />
+        <Grid 
+        container
+        justify="center"
+        >
+        
+        <Image />
+        <Grid 
+        item xs={12}>
+          <Grid container direction="row" justify="center">
+            <Grid item>
+            <Follow />
+            </Grid>
+          </Grid>
+        </Grid>
+        
         <Grid 
             container
             alignItems="center"
@@ -35,7 +44,9 @@ class App extends Component {
 
         <RegCard />
         </Grid>
-        </div>
+        <Footer />
+        
+        </Grid>
       </div>
     );
   }
