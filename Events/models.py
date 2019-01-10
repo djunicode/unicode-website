@@ -13,7 +13,7 @@ class Event(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     technologies = MultiSelectField(choices=TECHNOLOGIES_CHOICES)
-    slug = SlugField(blank=True)
+    slug = models.SlugField(blank=True)
     date = models.DateTimeField(auto_now=True)
     event_amount = models.PositiveSmallIntegerField(default=0)
 
@@ -22,13 +22,13 @@ class Event(models.Model):
 
 
 class Participant(models.Model):
-    event = models.ForeignKey('Event',on_delete=models.CASCADE)
+    event = models.ForeignKey('Event' , on_delete=models.CASCADE)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     sap_id = models.CharField(max_length=11)
-    email = models.EmailField(max_length=255,unique=True)
+    email = models.EmailField(max_length=255 , unique=True)
     contact = models.CharField(max_length=10)
 
     def __str__(self):
-        name = self.first_name +self.last_name
+        name = self.first_name + self.last_name
         return name
