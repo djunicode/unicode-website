@@ -1,0 +1,53 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.paper{
+    width: 612px;
+    height: 400px;
+    padding: 37px 37px 57px 51px;
+    box-shadow: #d6d6d6 12px 12px 12px;
+    border-radius: 10px;
+}
+.openSans-24-600{
+    font-size: 24px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+.openSans-18-400{
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+.roboto-18-400{
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+.openSans-20-600{
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+.openSans-146-800{
+    font-size: 146px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+}
+.openSans-26-600{
+    font-size: 26px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+.openSans-24-700{
+    font-size: 24px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+}
+.btn{
+    width: 131px;
+    height: 50px;
+    position: relative;
+    left: 467px;
+    bottom: 36px;
+}

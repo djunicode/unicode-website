@@ -1,71 +1,56 @@
 import React, { Component } from 'react';
 import unicode from '../images/UNICODE_LOGO.PNG';
-import { AppBar, Toolbar , createMuiTheme, MuiThemeProvider } from '@material-ui/core';
-
-const theme=createMuiTheme(
-    {
-        overrides:{
-            MuiAppBar: {
-                root: {
-                  height: 114,
-                  boxShadow: "#FFFFFF 0px 0px 0px"
-                }
-              }
-        },
-        palette:{
-            primary:{
-                main: "#FFFFFF"
-            },
-            secondary:{
-                main: "#C1D37F"
-            }
-        }
-    }
-);
-
+import { AppBar, Toolbar, MuiThemeProvider, Button } from '@material-ui/core';
+import * as myTheme from '../styles/themes';
+import {styles} from '../styles/headerStyle';
+import {NavLink} from 'react-router-dom';
 
 
 class Head extends Component {
     state = { 
-        color: "secondary"
-     }
-    styles = {
-        root: {
-          flexGrow: 1,
-        },
-        logo:{
-            position: "absolute",
-            top: 34,
-            left: "9.32%"
-        },
-        grow: {
-          flexGrow: 1,
-        },
-        flex: {
-            marginRight: 162,
-            display: "flex",
-            width: "100%",
-            justifyContent: "flex-end"
-        },
-        btn:{
-            marginLeft: 33,
-            marginTop: 46,
-            padding: 0
+        color: undefined,
+        active:{
+            home: true,
+            about: false,
+            project: false,
+            event: false,
+            blog: false,
+            contact: false
         }
-      };
+     }
+
+    //   This method will set the button to active and change the color
       handleBtn=()=>{
-          
+          if(!this.state.active.event){
+              this.setState({color: "secondary"});
+              this.setState({active: {
+                  event: true
+                }});
+              console.log(this.state);
+          }
       }
-        render() { 
-            console.log(theme);
+        render() {
+            console.log(this.state);
         return ( 
             <div>
-                <MuiThemeProvider theme={theme}>
+                <MuiThemeProvider theme={myTheme.theme}>
                 <AppBar 
                 position="fixed"
                 color="primary" >
                     <Toolbar >
-                        <img src={unicode} alt="logo" style={this.styles.logo} width="237px" />
+                        <img src={unicode} alt="logo" style={styles.logo} width="237px" />
+                        <div style={styles.flex}>
+                            <Button style={styles.btn}>Home</Button>
+                            <Button style={styles.btn}>About Us</Button>
+                            <Button style={styles.btn}>Project</Button>
+
+                            <NavLink to="/Event">
+                                <Button style={styles.btn}>Events</Button>
+                            </NavLink>
+
+                            <Button style={styles.btn}>Blog</Button>
+                            <Button style={styles.btn}>Contact</Button>
+                        </div>
                     </Toolbar>
                 </AppBar>
                 </MuiThemeProvider>

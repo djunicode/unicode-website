@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import twitter from './logo/T1.png';
-import Link from './logo/L1.png';
-import Git from './logo/G1.png';
-import CCC from './logo/3C.PNG';
+import twitter from '../images/T1.png';
+import Link from '../images/L1.png';
+import Git from '../images/G1.png';
+import CCC from '../images/3C.PNG';
 
 class Foot extends Component {
     state = {  }
