@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './Routing';
-import * as serviceWorker from './serviceWorker';
+import './css/index.css';
+import App from './pages/Routing';
+import * as serviceWorker from './javascript/serviceWorker';
 import {BrowserRouter} from 'react-router-dom';
 
 ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById('root'));

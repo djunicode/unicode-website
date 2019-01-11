@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
-import Header from './components/header';
-import EventSingle from './pages/EventsSingle';
+import Header from '../components/header';
+import EventSingle from '../pages/EventsSingle';
 
 class Routing extends Component {
     state = {  }
@@ -10,7 +10,7 @@ class Routing extends Component {
             <div>
                 <Header />
                     <div>
-                        <Route path="/" component={EventSingle} />
+                        <Route path="/" component={EventSingle} exact />
                         <Route path="/Event" component={EventSingle} />
                         {/* <Route path="/EventSingle" component={EventSingle} /> */}
                     </div>
