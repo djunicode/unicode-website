@@ -1,0 +1,47 @@
+.paper{
+    width: 612;
+    height: 400;
+    padding: "37px 37px 57px 51px";
+    box-shadow: "#d6d6d6 12px 12px 12px";
+    borderRadius: 10;
+}
+.text1{
+    font-size: 24;
+    font-family: "'Open Sans', sans-serif";
+    fontWeight: 600;
+}
+.text2{
+    width: 612;
+    font-size: 18;
+    font-family: "'Open Sans', sans-serif";
+    font-weight: 400;
+    margin-top: 12;
+}
+.text3{
+    width: 612;
+    font-size: 18;
+    fontFamily: "'Roboto', sans-serif";
+    fontWeight: 400;
+    marginTop: 64;
+    color: "#445DFF";
+    letterSpacing: "0.150em";
+}
+.text4{
+    font-size: 18;
+    font-family: "'Open Sans', sans-serif";
+    font-weight: 400;
+    margin-top: 12;
+    letter-spacing: "0.150em";
+}
+.text5{
+    font-size: 20;
+    font-family: "'Open Sans', sans-serif";
+    font-weight: 600;
+}
+.btn{
+    width: 131;
+    height: 50;
+    position: "relative";
+    left: 467;
+    bottom: 36;
+}
