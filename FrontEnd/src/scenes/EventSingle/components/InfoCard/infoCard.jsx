@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {Paper} from '@material-ui/core';
-import '../css/fonts.css';
-import rup from '../images/RS.PNG';
-import buttonImage from '../images/BUTTON.PNG';
+import '../../../../css/fonts.css';
+import PriceBtn from '../../../../components/buttons/priceButton/priceButton'
 
 class infoCard extends Component {
     state = { 
@@ -60,30 +59,6 @@ class infoCard extends Component {
             // position: "absolute",
             // top: 373,
             // left: 0
-        },
-        btnDesign:{
-            display: "inline",
-            position: "absolute",
-            // left: "78.82%",
-            right: "2%",
-            // top: "78.5%",
-            textAlign: "center",
-            color: "#FFFFFF"
-        },
-        buyBtnContainer:{
-            position: "relative",
-            textAlign: "center"
-        },
-        rup:{
-            position: "absolute",
-            top: 13.35,
-            left: 35.76
-        },
-        price:{
-            position: "absolute",
-            top: 6,
-            left: 56.76,
-            height: 36
         }
     }
     handleMouse=()=>{
@@ -134,7 +109,9 @@ class infoCard extends Component {
                         {this.props.tech}
                     </div>
 
-                    <div className="openSans-26-600" style={this.styles.btnDesign}>
+                    <PriceBtn />
+
+                    {/* <div className="openSans-26-600" style={this.styles.btnDesign}>
                         <div style={this.styles.buyBtnContainer}>
                             <img src={buttonImage} alt="" width="131" />
                                 <img src={rup} alt="buttonBackground" height="23" style={this.styles.rup} />
@@ -142,7 +119,9 @@ class infoCard extends Component {
                                     {this.props.price}
                                 </div>
                         </div>
-                    </div>
+                    </div> */}
+
+
 
                     <div className="openSans-20-600" style={this.styles.date}>
                         {this.props.date}
