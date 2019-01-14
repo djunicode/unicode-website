@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import Info from '../components/EventSingle/infoCard';
-import Reg from '../components/EventSingle/regCard';
-import EventN from '../components/EventSingle/EventName';
-import Lower from '../components/EventSingle/lowerText';
-import Header from '../components/header';
-import Footer from '../components/footer';
+import Info from './components/InfoCard/infoCard';
+import Reg from './components/RegCard/regCard';
+import EventN from './components/EventName/EventName';
+import Lower from './components/LowerText/lowerText';
+import Footer from '../../components/footer/footer';
 import { Grid } from '@material-ui/core';
 
 class App extends Component {
@@ -18,7 +17,7 @@ class App extends Component {
     },
     background:{
       background: "#F8F8F8",
-      marginTop: 114
+      // marginTop: 114
     },
     width:{
       width: 700
@@ -27,7 +26,7 @@ class App extends Component {
   render() {
     return (
     <div style={this.styles.background}>
-      <Header />
+      {/* <Header /> */}
       <EventN />
           <Grid 
             container 
@@ -36,13 +35,13 @@ class App extends Component {
             justify="center"
             style={this.styles.grid}
           >
-                <Grid item xs={12} sm={12} md={6}>
-                  <Grid 
+                <Grid item xs={12} sm={9} md={6}>
+                  {/* <Grid 
                   container
                   direction="row"
                   justify="flex-end"
                   >
-                    <Grid item>
+                    <Grid item> */}
                       <Info 
                       title="Info"
                       about=""
@@ -51,20 +50,20 @@ class App extends Component {
                       date="Date: Dec 28, 2018"
                       price="50"
                     />
-                    </Grid>
-                  </Grid>
+                    {/* </Grid> */}
+                  {/* </Grid> */}
                 </Grid>
                 
-                <Grid item xs={12} sm={12} md={6}>
-                  <Grid 
+                <Grid item xs={12} sm={9} md={6}>
+                  {/* <Grid 
                       container
                       direction="row"
                       justify="flex-start"
                       >
-                        <Grid item>
+                        <Grid item> */}
                           <Reg />
-                        </Grid>
-                    </Grid>
+                        {/* </Grid>
+                    </Grid> */}
                 </Grid>
 
                 <Grid item xs={12} >

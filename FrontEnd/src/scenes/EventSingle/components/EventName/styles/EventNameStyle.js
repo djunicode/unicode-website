@@ -26,5 +26,12 @@ export const styles={
         display: "flex",
         marginLeft: "7.29%",
         marginTop: 49
+    },
+    Nlink:{
+        textDecoration: "none",
+        color: "#FFFFFF",
+        "&:active": {
+            color: "#FFFFFF"
+        }
     }
 }

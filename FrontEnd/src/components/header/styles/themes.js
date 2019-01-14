@@ -17,8 +17,8 @@ export const theme=createMuiTheme(
             // Overrides appbar
             MuiAppBar: {
                 root: {
-                  height: 114,
-                  boxShadow: "#FFFFFF 0px 0px 0px"
+                //   height: 114,
+                    boxShadow: "#FFFFFF 0px 0px 0px"
                 }
               },
             //   Overrides button
@@ -36,7 +36,7 @@ export const theme=createMuiTheme(
         // Theme- used for giving color 
         palette:{
             primary:{
-                main: "#FFFFFF"
+                main: "#fff"
             },
             secondary:{
                 main: "#C1D37F"

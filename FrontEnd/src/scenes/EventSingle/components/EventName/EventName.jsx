@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import '../../css/fonts.css';
+import '../../../../css/fonts.css';
 import { IconButton, MuiThemeProvider } from '@material-ui/core';
-import {EventName} from '../../styles/themes';
-import {styles} from '../../styles/EventNameStyle';
+import {NavLink} from 'react-router-dom';
+import {EventName} from '../../../themes/themes';
+import {styles} from '../../components/EventName/styles/EventNameStyle';
 
 class ENname extends Component {
     state = {  }
@@ -16,7 +17,9 @@ class ENname extends Component {
                         <div style={styles.posiWrap}>
                             <MuiThemeProvider theme={EventName}>
                                 <IconButton color="primary" >
+                                <NavLink to="/Event" style={styles.Nlink}>
                                     <ArrowBackIcon />
+                                </NavLink>
                                 </IconButton>
                             </MuiThemeProvider>
                             <div 
