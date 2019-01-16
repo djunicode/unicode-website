@@ -12,8 +12,8 @@ STACK_CHOICES = (
 )
 
 
-def upload_location(instance):
-    return "profiles/{user}".format(user=instance.user)
+def upload_location(instance, filename):
+    return "profiles/{filename}".format(filename=filename)
 
 
 class UserProfile(models.Model):
