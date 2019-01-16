@@ -68,7 +68,8 @@ class PostDetailSerializer(serializers.ModelSerializer):
             image = obj.cover.url
         except:
             image = None
-        return image
+        finally:
+            return image
 
 
 class PostListSerializer(serializers.ModelSerializer):
