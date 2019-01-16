@@ -4,6 +4,7 @@ from profiles.models import UserProfile
 
 class AuthorDetailSerializer(serializers.ModelSerializer):
     username = serializers.SerializerMethodField()
+
     class Meta:
         model = UserProfile
         fields = [
@@ -13,4 +14,3 @@ class AuthorDetailSerializer(serializers.ModelSerializer):
 
     def get_username(self, obj):
         return obj.user.username
-        
