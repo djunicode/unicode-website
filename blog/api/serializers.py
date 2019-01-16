@@ -66,8 +66,8 @@ class PostDetailSerializer(serializers.ModelSerializer):
     def get_cover(self, obj):
         try:
             image = obj.cover.url
-        except:
-            image = None
+        # except:
+        #     image = None
         finally:
             return image
 
