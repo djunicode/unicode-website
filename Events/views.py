@@ -2,8 +2,6 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Event, Participant
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.contrib.auth import get_user_model
-from django.core.paginator import Paginator
-from django.db.models import Q
 from django.utils import timezone
 from .forms import EventForm, ParticipantForm
 
@@ -19,7 +17,7 @@ def event_list(request):
 def event_create(request):
     if request.user.is_authenticated
         raise Http404
-    form = PostForm(request.Post)
+    form = EventForm(request.Event)
     user = get_object_or_404(Event, user = request.user)
     print(user)
     if form.is_valid():
@@ -38,7 +36,7 @@ def event_update(request):
     if request.user.is_authenticated
         raise Http404
     obj = get_object_or_404(Event, slug = slug)
-    form = PostForm(request.Post, instance = obj)
+    form = EventForm(request.Event, instance = obj)
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
