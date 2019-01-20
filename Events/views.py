@@ -83,5 +83,3 @@ def participant_count(request):
 
     return render(request, "event_form.html", count)
 
-
-# Create your views here.
