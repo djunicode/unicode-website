@@ -28,5 +28,5 @@ class ParticipantForm(forms.ModelForm):
             "sap_id",
             "email",
             "contact",
-            "event"
-    ]
+            "event",
+        ]
