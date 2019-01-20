@@ -9,17 +9,17 @@ from .models import review
 def create_review(request, *args, **kwargs):
     obj = review.objects.get(id=1)
     context = {
-        "title": "Create"
+        "title": "Create",
         "first_name": obj.first_name,
         "last_name": obj.last_name,
-        "photograph": obj.photograph, 
+        "photograph": obj.photograph,
         "designation": obj.designation,
         "company": obj.company,
         "department": obj.department,
         "comments": obj.comments
     }
 
-    context={
-    'object': obj
+    context = {
+        'object': obj
     }
     return render(request, "post_review.html", context)
