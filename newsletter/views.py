@@ -5,10 +5,11 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 from .models import newslet
 
+
 def news_view(request, *args, **kwargs):
-        obj=newslet.objects.get(id=1)
+        obj = newslet.objects.get(id=1)
         context = {
-        'email' : obj.email
+                'email': obj.email
         }
 
         context = {
