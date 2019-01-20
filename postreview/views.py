@@ -8,11 +8,15 @@ from .models import review
 
 def create_review(request, *args, **kwargs):
     obj = review.objects.get(id=1)
-    user = get_object_or_404(UserProfile, user=request.user)
-    print(user)
     context = {
-        "form": form,
         "title": "Create"
+        "first_name": obj.first_name,
+        "last_name": obj.last_name,
+        "photograph": obj.photograph, 
+        "designation": obj.designation,
+        "company": obj.company,
+        "department": obj.department,
+        "comments": obj.comments
     }
 
     context={
