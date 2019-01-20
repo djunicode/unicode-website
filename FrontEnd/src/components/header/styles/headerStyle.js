@@ -11,7 +11,8 @@ export const styles = {
       flexGrow: 1,
     },
     Nlink:{
-        textDecoration: "none"
+        textDecoration: "none",
+        color: "#000000"
     },
     flex: {
         marginRight: 162,

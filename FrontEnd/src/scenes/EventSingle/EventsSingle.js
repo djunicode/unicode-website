@@ -11,13 +11,10 @@ class App extends Component {
   styles={
     grid:{
         marginTop: 117,
-        marginBottom: 161,
-        // padding: 0,
         width: "100%"
     },
     background:{
-      background: "#F8F8F8",
-      // marginTop: 114
+      background: "#F8F8F8"
     },
     width:{
       width: 700
@@ -26,7 +23,6 @@ class App extends Component {
   render() {
     return (
     <div style={this.styles.background}>
-      {/* <Header /> */}
       <EventN />
           <Grid 
             container 
@@ -35,51 +31,26 @@ class App extends Component {
             justify="center"
             style={this.styles.grid}
           >
-                <Grid item xs={12} sm={9} md={6}>
-                  {/* <Grid 
-                  container
-                  direction="row"
-                  justify="flex-end"
-                  >
-                    <Grid item> */}
-                      <Info 
-                      title="Info"
-                      about=""
-                      category="APP DEVELOPMENT"
-                      tech="Techonologies: Java"
-                      date="Date: Dec 28, 2018"
-                      price="50"
-                    />
-                    {/* </Grid> */}
-                  {/* </Grid> */}
+                <Grid item xs={12} sm={9} md={9} lg={5} xl={4} >
+                    <Info 
+                    title="Info"
+                    about=""
+                    category="APP DEVELOPMENT"
+                    tech="Techonologies: Java"
+                    date="Date: Dec 28, 2018"
+                    price="50"
+                  />
                 </Grid>
                 
-                <Grid item xs={12} sm={9} md={6}>
-                  {/* <Grid 
-                      container
-                      direction="row"
-                      justify="flex-start"
-                      >
-                        <Grid item> */}
-                          <Reg />
-                        {/* </Grid>
-                    </Grid> */}
+                <Grid item xs={12} sm={9} md={9} lg={5} xl={4} >
+                  <Reg />
                 </Grid>
 
-                <Grid item xs={12} >
-                  <Grid 
-                    container
-                    direction="row"
-                    justify="center"
-                    >
-                      <Grid item>
-                        <Lower content=""/>
-                      </Grid>
-                  </Grid>
+                <Grid item xs={9} xl={5} >
+                  <Lower content=""/>
                 </Grid>
-                
           </Grid>
-    <Footer />
+          <Footer />
   </div>
     );
   }

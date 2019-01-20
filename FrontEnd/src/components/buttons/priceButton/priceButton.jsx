@@ -8,13 +8,8 @@ class PriceButton extends Component {
         btnDesign:{
             display: "inline",
             float: "right",
-            // position: "absolute",
-            // left: "78.82%",
-            // right: "2%",
-            // top: "78.5%",
             textAlign: "center",
-            color: "#FFFFFF",
-            
+            color: "#FFFFFF"
         },
         buyBtnContainer:{
             position: "relative",
@@ -41,7 +36,7 @@ class PriceButton extends Component {
                         <img src={buttonImage} alt="" width="131" />
                             <img src={rup} alt="buttonBackground" height="23" style={this.styles.rup} />
                             <div style={this.styles.price}>
-                                50
+                                {this.props.price}
                             </div>
                     </div>
                 </div>

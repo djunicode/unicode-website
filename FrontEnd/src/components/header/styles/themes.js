@@ -11,27 +11,45 @@ export const EventName=createMuiTheme({
     }
 });
 
-export const theme=createMuiTheme(
+export const tabTheme=createMuiTheme(
     {
         overrides:{
             // Overrides appbar
             MuiAppBar: {
                 root: {
-                //   height: 114,
+                    height: 114,
                     boxShadow: "#FFFFFF 0px 0px 0px"
                 }
               },
-            //   Overrides button
-            MuiButton:{
-                root:{
-                    paddingTop: "46px",
-                    paddingLeft: "33px",
+              MuiToolbar: {
+                root: {
+                    height: 114
+                }
+              },
+              MuiButtonBase:{
+                  root:{
                     "&:hover": {
-                        backgroundColor: "#fff",
+                        // backgroundColor: "#000000",
                         color: "#C1D37F"
+                    },
+                    "&:active": {
+                        // backgroundColor: "#000000",
+                        color: "#fff"
                     }
-                },
-            },
+                  }
+              },
+              MuiTab:{
+                  root:{
+                    // This is the syntax to override mediaQuery
+                    ['@media (min-width:960px)']:{
+                        minWidth: 10
+                    },
+                    
+                  },
+                  selected:{
+                      color: "#C1D37F"
+                  }
+              }
         },
         // Theme- used for giving color 
         palette:{
@@ -39,7 +57,7 @@ export const theme=createMuiTheme(
                 main: "#fff"
             },
             secondary:{
-                main: "#C1D37F"
+                main: "#FFFFFF"
             }
         }
     }

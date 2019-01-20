@@ -1,103 +1,91 @@
 import React, { Component } from 'react';
-import twitter from '../footer/images/T1.png';
-import Link from '../footer/images/L1.png';
-import Git from '../footer/images/G1.png';
+import { Grid } from '@material-ui/core';
+import gitHub from './images/G1.png';
+import linkedIn from './images/L1.png';
+import twitter from './images/T1.png';
 import CCC from '../footer/images/3C.PNG';
 
-class Foot extends Component {
+class Footer2 extends Component {
     state = {  }
-        styles={
-            wrappper:{
-                height: 420,
-                width: "100%",
-                background: "#445DFF",
-                position: "relative"
-            },
-            ul:{
-                listStyleType: "none",
-                margin: 0,
-                padding: 0,
-                overflow: "hidden",
-                color: "#FFFFFF",
-                opacity: "0.5",
-            },
-            li:{
-                float: "left",
-                marginLeft: 24.42
-            },
-            a:{
-                textDecoration: "none",
-                color: "#FFFFFF",
-                opacity: "0.5",
-                marginLeft: 24.42
-            },
-            div1:{
-                width: 360,
-                marginLeft: "50%",
-                transform: "translateX(-50%)",
-                position: "absolute",
-                top: 150
-            },
-            div2:{
-                color: "#FFFFFF",
-                opacity: "0.5",
-                marginLeft: "50%",
-                transform: "translateX(-50%)",
-                position: "absolute",
-                top: 204
-            },
-            div3:{
-                width: 149.82,
-                marginLeft: "50%",
-                transform: "translateX(-50%)",
-                position: "absolute",
-                top: 72
-            },
-            li3:{
-                float: "left",
-                marginLeft: 16.97
-            },
-            img:{
-                opacity: "0.71"
-            },
-            CCC:{
-                // color: "#FFFFFF",
-                // opacity: "0.09",
-                // fontSize: 146,
-                // letterHeight: 199,
-                // marginLeft: "50%",
-                // transform: "translateX(-50%)",
-                position: "absolute",
-                bottom: 0,
-                // maxWidth: "1905px"
-            }
+    styles={
+        grid:{
+            paddingTop: "10%",
+            paddingBottom: "5%",
+            width: "100%",
+            margin: 0
+        },
+        background:{
+            background: "#445DFF",
+            backgroundImage: `url(${CCC})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "100% auto",
+            backgroundPosition: "center bottom"
+        },
+        text:{
+            textDecoration: "none",
+            color: "#FFFFFF",
+            opacity: "0.5"
+        },
+        textLower:{
+            color: "#FFFFFF",
+            opacity: "0.5",
+            textAlign: "center"
+        },
+        img:{
+            opacity: "0.71"
         }
-        render() { 
+    }
+    render() { 
         return ( 
-            <div style={this.styles.wrappper} >
-            <div className="openSans-146-800" >
-                {/* <span>code.create.collaborate.</span> */}
-                <img src={CCC} alt="3C's" style={this.styles.CCC} width="100%" />
-            </div>
-                <div style={this.styles.div3}>
-                <ul style={this.styles.ul} >
-                        <li style={this.styles.li3} ><img alt="twitter" src={twitter} width="32"/></li>
-                        <li style={this.styles.li3} ><img alt="linkedIn" src={Link} width="32"/></li>
-                        <li style={this.styles.li3} ><img alt="gitHub" src={Git} width="32"/></li>
-                </ul>
-                </div>
-                <div style={this.styles.div1} >
-                    <ul style={this.styles.ul} >
-                        <li style={this.styles.li} >ABOUT US</li>
-                        <li style={this.styles.li} >PROJECTS</li>
-                        <li style={this.styles.li} >EVENTS</li>
-                        <li style={this.styles.li} >BLOG </li>
-                    </ul>
-                </div>
-                <div style={this.styles.div2} >© 2017-2018 All Rights Reserved</div>
-            </div>
+            <Grid
+            container
+            direction="row"
+            justify="center"
+            style={this.styles.background}
+            >
+                <Grid item xs={12} sm={12} md={3} style={this.styles.grid} >
+                    <Grid
+                    container
+                    direction="row"
+                    justify="center"
+                    spacing={16}
+                    style={{width: "100%"}}
+                    >
+                        <Grid item >
+                            <img src={twitter} alt="#" style={this.styles.img} width="32px" />
+                        </Grid>
+                        <Grid item >
+                            <img src={linkedIn} alt="#" style={this.styles.img} width="32px" />
+                        </Grid>
+                        <Grid item >
+                            <img src={gitHub} alt="#" style={this.styles.img} width="32px" />
+                        </Grid>
+                        <Grid item xs={12} >
+                        
+                        </Grid>
+                        <Grid item >
+                            <a href="####" style={this.styles.text} >ABOUT US</a>
+                        </Grid>
+                        <Grid item >
+                            <a href="####" style={this.styles.text} >PROJECTS</a>
+                        </Grid>
+                        <Grid item >
+                            <a href="####" style={this.styles.text} >EVENTS</a>
+                        </Grid>
+                        <Grid item >
+                            <a href="####" style={this.styles.text} >BLOG</a>
+                        </Grid>
+                        <Grid item xs={12} >
+                        
+                        </Grid>
+                        <Grid item style={this.styles.textLower} xs={12} >
+                        © 2017-2018 All Rights Reserved
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
          );
     }
 }
  
-export default Foot;
+export default Footer2;

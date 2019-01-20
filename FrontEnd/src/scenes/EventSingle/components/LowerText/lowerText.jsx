@@ -4,7 +4,7 @@ class LowerText extends Component {
     state = {  }
     styles={
         container:{
-            height: 196,
+            // height: 196,
             maxWidth: 1364,
             fontSize: 20,
             letterHeight: "27px",

@@ -13,9 +13,9 @@ class Routing extends Component {
                 <Header />
                     <div>
                         <Route path="/" component={EventSingle} exact />
-                        {/* <Route path="/Event" component={EventPage} />
-                        <Route path="/EventSingle" component={EventSingle} />
-                        <Route path="/Contact" component={Contact} /> */}
+                        {/* {/* <Route path="/Event" component={EventPage} /> */}
+                        <Route path="/Events" component={EventSingle} />
+                        {/* <Route path="/Contact" component={Contact} /> */}
                         {/* <Route path="/EventSingle" component={EventSingle} /> */}
                     </div>
             </div>
