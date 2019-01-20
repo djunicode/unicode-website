@@ -30,7 +30,6 @@ class Participant(models.Model):
     sap_id = models.CharField(max_length=11)
     email = models.EmailField(max_length=255, unique=True)
     contact = models.CharField(max_length=10)
-#    count = models.PositiveSmallIntegerField(default=0)
 
     def __str__(self):
         name = self.first_name + self.last_name

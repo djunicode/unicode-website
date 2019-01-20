@@ -16,20 +16,12 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-<<<<<<< HEAD
-from django.urls import include, path
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('Events.urls'))
-=======
 from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('posts/', include('blog.urls', namespace='posts')),
     path('api/posts/', include('blog.api.urls', namespace='posts-api')),
->>>>>>> 28398d913eeee81b3cc67daf58b82ac7b97e2e60
 ]
 
 if settings.DEBUG:
