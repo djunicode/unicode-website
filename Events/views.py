@@ -6,7 +6,7 @@ from django.utils import timezone
 from .forms import EventForm, ParticipantForm
 
 def event_list(request):
-    events = Event.objects.filter(getdate__gte = timezone.now()).order_by('date')
+    events = Event.objects.filter(date__gte = timezone.now()).order_by('date')
     context = {
     "events" : events
     }
@@ -15,73 +15,62 @@ def event_list(request):
 
 
 def event_create(request):
-    if request.user.is_authenticated
+    if request.user.is_authenticated:
         raise Http404
-    form = EventForm(request.Event)
-    user = get_object_or_404(Event, user = request.user)
+    form = EventForm(request.POST)
+    user = Event.objects.get(id=1)
     print(user)
     if form.is_valid():
         instance = form.save(commit=False)
-        instance.author = user
+        instance.user = user
         instance.save()
-         return HttpResponseRedirect(instance.get_absolute_url())
+        return HttpResponseRedirect(instance.get_absolute_url())
     context = {
         "form": form,
-        "title": "Create Event"
+        "title": "Create"
     }
-    return render(request, "event_form.html", context)
+    return render(request, "Events/tester.html", context)
 
 
-def event_update(request):
-    if request.user.is_authenticated
+def event_update(request, slug = None):
+    if request.user.is_authenticated:
         raise Http404
-    obj = get_object_or_404(Event, slug = slug)
-    form = EventForm(request.Event, instance = obj)
+    #obj = get_object_or_404(Event, slug = slug)
+    form = EventForm(request.POST)
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
-         return HttpResponseRedirect(instance.get_absolute_url())
+        return HttpResponseRedirect(instance.get_absolute_url())
     context = {
         "form": form,
-        "title": "Update Event"
+        "title": "Update"
     }
-    return render(request, "event_form.html", context)
+    return render(request, "Events/event_form.html", context)
 
 
 def event_detail(request, slug = None):
-    event = get_object_or_404(Event, slug = slug)
-    form = EventForm(request.Event)
+    event = Event.objects.get(id=1)
+    participant = Participant.objects.get(id=1)
+    form = ParticipantForm(request.POST or None)
+    count = Participant.objects.all().count()
     if form.is_valid():
-        form = form.save()
-        form.event = event
-        form.save()
-        return HttpResponseRedirect(instance.get_absolute_url())
-    conext = {
-        "title": "Event Details",
-        "event": event,
-    }
-    return render(request, "event_detail.html", context)
-
-
-def participant_entry(request):
-    participant = get_object_or_404(Participant, slug = slug)
-    form = ParticipantForm(request.Participant)
-    if form.is_valid():
-        form =  form.save()
+        form =  form.save(commit=False)
         form.participant = participant
         form.save()
-        return HttpResponseRedirect(instance.get_absolute_url())
+        return HttpResponse("Thanks for registering")
     context ={
-    "title":"Participant Details",
-    "participant":participant,
+        "title":event.title,
+        "form":form,
+        "description":event.description,
+        "technologies":event.technologies,
+        "date":event.date,
+        "event_amount":event.event_amount,
+        "user":event.user,
+        "count":count
+
     }
-    return render(request, "participant_detail.html", context)
+    return render(request, "Events/tester.html", context)
 
-
-def participant_count(request):
-    count = Participant.objects.filter(event="eventname").count()
-
-    return render(request, "event_form.html", count)
 
 
 # Create your views here.
