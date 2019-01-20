@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+<!--  -->
+{% block title %} {{ title }} | {{ block.super }} {% endblock title %}
+
+<!--  -->
+{% block content %}
+<h1>{{ post.title }}</h1>
+<hr />
+<p>{{ post.technologies }} | {{ post.publish }} | {{ post.author }}</p>
+<p>{{ post.content }}</p>
+{% if post.cover %}
+<!--  -->
+<img src="{{ post.cover.url }}" width="300px" alt="broken" /> <br />
+<!--  -->
+{% endif%}
+<!--  -->
+<a href="{% url 'posts:list' %}">List</a> <br />
+{% if user %}
+<!--  -->
+<p>
+  <a href="{% url 'posts:edit' slug=post.slug %}">Edit</a> |
+  <a href="{% url 'posts:delete' slug=post.slug %}">Delete</a>
+</p>
+<!--  -->
+{% endif %}
+<hr />
+<h4>Responses</h4>
+<form method="POST">
+  {% csrf_token %}
+  <!--  -->
+  {{ form.as_p }}
+  <!--  -->
+  <input type="submit" value="Submit" />
+</form>
+<br />
+{% if comment_list %}
+<ul>
+  {% for comment in comment_list %}
+  <li>
+    <h6>{{ comment.author }} | {{ comment.timestamp | timesince }}</h6>
+    <p>{{ comment.text }}</p>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No Comments yet!</p>
+{% endif %}
+<!--  -->
+{% endblock content %}

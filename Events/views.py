@@ -72,5 +72,3 @@ def event_detail(request, slug = None):
     return render(request, "Events/tester.html", context)
 
 
-
-# Create your views here.
