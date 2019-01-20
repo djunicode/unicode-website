@@ -16,8 +16,7 @@ class Event(models.Model):
     slug = models.SlugField(blank=True)
     date = models.DateTimeField(auto_now=True)
     event_amount = models.PositiveSmallIntegerField(default=0)
-    user = models.CharField(max_length = 255)
-
+    user = models.CharField(max_length=255)
 
     def __str__(self):
         return self.title
