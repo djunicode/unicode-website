@@ -14,5 +14,5 @@ class reviewForm(forms.ModelForm):
             "designation",
             "company",
             "department",
-            "comments"
+            "comments",
         ]
