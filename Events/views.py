@@ -7,12 +7,12 @@ from .forms import EventForm, ParticipantForm
 
 
 def event_list(request):
-    events = Event.objects.filter(date__gte=timezone.now()).order_by('date')
+    events = Event.objects.all()
     context = {
         "events": events
     }
 
-    return render(request, 'Events/tester.html', context)
+    return render(request, 'Events/event_list.html', context)
 
 
 def event_create(request):
@@ -30,7 +30,7 @@ def event_create(request):
         "form": form,
         "title": "Create"
     }
-    return render(request, "Events/tester.html", context)
+    return render(request, "Events/event_form.html", context)
 
 
 def event_update(request, slug=None):
@@ -68,6 +68,5 @@ def event_detail(request, slug=None):
         "event_amount": event.event_amount,
         "user": event.user,
         "count": count
-
     }
-    return render(request, "Events/tester.html", context)
+    return render(request, "Events/event_detail.html", context)

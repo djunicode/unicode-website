@@ -1,0 +1,8 @@
+<h3><center>Basic Template to display List of Events</center></h3>
+{% block content %}
+  {% for event in events %}
+  <ul>
+    <li><h3>{{ event.date|date:"d-m-Y"}} {{event.title}}
+    <a href="/Events/{{event.date|date:"d-m-Y"}}/{{event.slug}}/{{event.title}}"</a></h3></li>
+  {% endfor %}
+{% endblock %}

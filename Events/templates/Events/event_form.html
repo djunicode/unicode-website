@@ -1,1 +1,8 @@
-<p> This is a random line </p>
+
+{% block content %}
+
+<h2><center>{{ title }}</center></h2>
+<form method="POST">{% csrf_token %}
+  {{form.as_p}}<<input type="submit"  value="participate"></form>
+
+{% endblock %}

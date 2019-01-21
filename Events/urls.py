@@ -8,6 +8,6 @@ app_name = 'events'
 urlpatterns = [
     path('', event_list, name='list'),
     path('create', event_create, name='create'),
-    path('<slug:slug>', event_detail, name='detail'),
-    path('<slug:slug>/update', event_update, name='update'),
+    path('detail', event_detail, name='detail'),
+    path('update', event_update, name='update'),
 ]
