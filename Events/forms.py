@@ -29,4 +29,4 @@ class ParticipantForm(forms.ModelForm):
             "email",
             "contact",
             "event",
-    ]
+        ]
