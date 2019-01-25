@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Paper,TextField, Grid,createMuiTheme ,MuiThemeProvider } from '@material-ui/core';
 import '../../../../css/fonts.css';
 import {styles} from './styles/regCardStyles';
+import RegBtn from '../../../../components/buttons/registerButton/regButton';
 
 const theme=createMuiTheme({
     palette:{
@@ -113,12 +114,7 @@ class RegCard extends Component {
                         />
                         </Grid>
                         <Grid item>
-                        <button 
-                        style={styles.btn} className="openSans-18-400"
-                        onClick={this.handleRegister} 
-                        >
-                            <div style={styles.btnFont}>REGISTER</div>
-                        </button>
+                            <RegBtn />
                         </Grid>
                     </Grid>
                     </form>
