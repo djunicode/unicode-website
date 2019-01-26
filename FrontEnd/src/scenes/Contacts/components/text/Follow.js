@@ -1,0 +1,52 @@
+import React, { Component } from 'react';
+
+
+
+
+        class Follow extends Component{
+
+            style={
+                follow: {
+                    textAlign: "center",
+                    marginTop: 122.1,
+                    marginBottom: 114,
+                    
+                //     //position: absolute,
+                //     color: "#000000",
+                //     fontSize: 18,
+                //     //textAlign: "center",
+                //     fontFamily: "Open Sans, sans-serif",
+                //     marginLeft: "20%",
+                //     transform: "translateX(-50%)",
+                //     marginTop: 122.1,
+                //     height: 24
+                //     //display: "block"
+                //    // marginLeft: ,
+
+                        height: 24,
+                        fontSize: 18,
+                        letterHeight: "24px",
+                        textAlign: "center",
+                        fontFamily: "Open Sans, sans-serif",
+                        fontColor: "#000000",
+
+                  },
+                //   inner: {
+                //       //marginLeft: 879,
+                //       marginLeft: "50%",
+                //     transform: "translateX(-50%)",
+                //   }
+            };
+                    render() {
+                        return(
+                            <div style={this.style.follow}>
+                            
+                              FOLLOW US ON
+                              
+                            
+                            </div>
+                            
+                        );
+                    }
+        }
+        export default Follow;
