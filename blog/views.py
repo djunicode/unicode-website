@@ -72,7 +72,8 @@ def post_list(request):
     query = request.GET.get("q", None)
     if query:
         queryset_list = queryset_list.filter(Q(title__icontains=query) | Q(content__icontains=query) | Q(
-            author__user__first_name__icontains=query) | Q(author__user__last_name__icontains=query) | Q(technologies__icontains=query)).distinct()
+            author__user__first_name__icontains=query) | Q(author__user__last_name__icontains=query) | Q(
+            technologies__icontains=query)).distinct()
     paginator = Paginator(queryset_list, 10)
     page = request.GET.get('page')
     post_list = paginator.get_page(page)

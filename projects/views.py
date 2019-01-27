@@ -105,7 +105,8 @@ def project_list(request):
     query = request.GET.get("q", None)
     if query:
         queryset_list = queryset_list.filter(Q(title__icontains=query) | Q(description__icontains=query) | Q(
-            technologies__icontains=query) | Q(team__user__first_name__icontains=query) | Q(team__user__last_name__icontains=query)).distinct()
+            technologies__icontains=query) | Q(team__user__first_name__icontains=query) | Q(
+            team__user__last_name__icontains=query)).distinct()
     paginator = Paginator(queryset_list, 10)
     page = request.GET.get('page')
     post_list = paginator.get_page(page)
