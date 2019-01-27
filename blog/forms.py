@@ -11,6 +11,7 @@ class PostForm(forms.ModelForm):
             "title",
             "content",
             "cover",
+            "technologies",
             "draft",
             "publish",
         ]

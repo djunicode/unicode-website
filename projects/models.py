@@ -1,6 +1,11 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from multiselectfield import MultiSelectField
+from django.db.models.signals import pre_save
+from django.urls import reverse
+from django.utils import timezone
+from django.utils.text import slugify
+from profiles.models import UserProfile
 
 User = get_user_model()
 
@@ -15,7 +20,7 @@ def upload_location(instance, filename):
 
 
 class Project(models.Model):
-    team = models.ManyToManyField(User)
+    team = models.ManyToManyField(UserProfile)
     title = models.CharField(max_length=255)
     cover = models.ImageField(upload_to='projects/%Y/%m/%d/', blank=True)
     description = models.TextField()
@@ -26,3 +31,21 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('projects:detail', kwargs={"slug": self.slug})
+
+    class Meta:
+        ordering = ["year"]
+
+
+def pre_save_project_receiver(sender, instance, *args, **kwargs):
+    slug = slugify(instance.title)
+    qs = Project.objects.filter(slug=slug).order_by("-id")
+    if qs.exists():
+        new_slug = "{}-{}" .format(slug, qs.count())
+        slug = new_slug
+    instance.slug = slug
+
+
+pre_save.connect(pre_save_project_receiver, sender=Project)

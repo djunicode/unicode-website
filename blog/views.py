@@ -24,7 +24,7 @@ def post_create(request):
         "form": form,
         "title": "Create"
     }
-    return render(request, "post_form.html", context)
+    return render(request, "blog/post_form.html", context)
 
 
 def post_update(request, slug=None):
@@ -40,7 +40,7 @@ def post_update(request, slug=None):
         "form": form,
         "title": "Update"
     }
-    return render(request, "post_form.html", context)
+    return render(request, "blog/post_form.html", context)
 
 
 def post_detail(request, slug=None):
@@ -64,7 +64,7 @@ def post_detail(request, slug=None):
         context["user"] = True
     else:
         context["user"] = False
-    return render(request, "post_detail.html", context)
+    return render(request, "blog/post_detail.html", context)
 
 
 def post_list(request):
@@ -72,15 +72,15 @@ def post_list(request):
     query = request.GET.get("q", None)
     if query:
         queryset_list = queryset_list.filter(Q(title__icontains=query) | Q(content__icontains=query) | Q(
-            author__user__username__icontains=query) | Q(technologies__icontains=query)).distinct()
+            author__user__first_name__icontains=query) | Q(author__user__last_name__icontains=query) | Q(technologies__icontains=query)).distinct()
     paginator = Paginator(queryset_list, 10)
     page = request.GET.get('page')
     post_list = paginator.get_page(page)
     context = {
-        "post_list": post_list,
         "title": "List",
+        "post_list": post_list,
     }
-    return render(request, "post_list.html", context)
+    return render(request, "blog/post_list.html", context)
 
 
 def post_delete(request, slug=None):
@@ -94,4 +94,4 @@ def post_delete(request, slug=None):
         "title": "Delete",
         "object": instance
     }
-    return render(request, "confirm_delete.html", context)
+    return render(request, "blog/confirm_delete.html", context)
