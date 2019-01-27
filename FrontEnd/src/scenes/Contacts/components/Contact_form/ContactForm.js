@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Paper,TextField, Grid, Button,createMuiTheme ,MuiThemeProvider } from '@material-ui/core';
-import Fab from '@material-ui/core/Fab';
+import { Paper,TextField, Grid,createMuiTheme ,MuiThemeProvider } from '@material-ui/core';
+
 
 const theme=createMuiTheme({
     palette:{
@@ -38,24 +38,14 @@ class RegCard extends Component {
 
     styles={
 
-        // paper:{
-
-        //     width: "49%",
-        //     height: 599,
-        //     padding: "106px 0 105px 0",
-        //     paddingLeft: "14.4%",
-        //     paddingRight: "14.4%",
+        paper:{
 
         
+             marginBottom: 120,
+             boxShadow: "4px 4px 16px #d6d6d6"
+        
 
-        //     boxShadow: "#d6d6d6 4px 4px 16px",
-        //     borderRadius: 10,
-        //     marginBottom: 120,
-        //     marginLeft: "50%",
-        //     transform: "translateX(-50%)",
-        //     marginTop: 196.9,
-
-        // },
+        },
         inpLarge:{
 
             // width: "28%",
@@ -96,18 +86,22 @@ class RegCard extends Component {
               marginTop: 91.27,
               minWidth: 73
               
+          },
+          card: {
+            paddingTop: 106,
+            paddingBottom: 105
           }
     }
     render() { 
 
         return ( 
 
-            // <div style={this.styles.space}>
-                <Paper style={{marginBottom: 120}}>
+            
+                <Paper style={this.styles.paper}>
                 <MuiThemeProvider theme={theme}>
                 <form>
                 <Grid 
-                style={{paddingTop: 106,paddingBottom: 105}}
+                style={this.styles.card}
                 container
                 direction="row"
                 justify="center"
@@ -125,7 +119,7 @@ class RegCard extends Component {
                         value={this.state.name}
 
                         margin="normal"
-                        //maxWidth="536"
+                        
                         fullWidth
                         variant="outlined"
                         style={this.styles.inpLarge}
@@ -142,7 +136,7 @@ class RegCard extends Component {
                         value={this.state.name}
 
                         margin="normal"
-                       // maxWidth="536"
+                       
                         fullWidth
                         variant="outlined"
                         style={this.styles.inpLarge}
@@ -159,7 +153,7 @@ class RegCard extends Component {
                         value={this.state.name}
 
                         margin="normal"
-                        //maxWidth="536"
+                    
                         fullWidth
                         variant="outlined"
                         multiline rows="4"
@@ -169,17 +163,7 @@ class RegCard extends Component {
                         <Grid item xs={12}></Grid>
                         <Grid item xs={3}>
                         
-                         {/* <Fab
-                        variant="extended"
-                        size="small"
-                        color="primary"
-                        aria-label="Add"
                         
-                        style={this.styles.mymargin}
-                        >
-                        
-                        SUBMIT
-                        </Fab> */}
 
                         <div style={this.styles.button}>
                             SUBMIT
@@ -193,7 +177,7 @@ class RegCard extends Component {
 
                     </MuiThemeProvider>
                     </Paper>
-            // </div>
+            
             );
 
     }

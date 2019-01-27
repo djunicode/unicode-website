@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid } from '@material-ui/core';
-import telephone from './components/Image/contact-with-text.png';
+import Telephone from './components/Image/image.js';
 import Follow from './components/text/Follow.js';
 import RegCard from './components/Contact_form/ContactForm.js';
 import Footer from '../../components/footer/footer';
@@ -21,7 +21,7 @@ class MyApp extends Component {
             <div style={this.styles.background}>
                 <Grid
                 container
-                spacing={24}
+                
                 direcion="row"
                 justify="center"
                 
@@ -30,7 +30,7 @@ class MyApp extends Component {
                     <NavBar />
                 </Grid> */}
                     <Grid item xs={12} style={this.styles.image} >
-                    <img src={telephone}  width="100%" />
+                    <Telephone />
                     </Grid>
                      <Grid item xs={7}>
                      {/* <Grid container direction="row"
