@@ -53,7 +53,7 @@ class MyApp extends Component {
                         </Grid>
                     </Grid> */}
 
-                    <Grid item xs={7}>
+                    <Grid item xs={10} sm={9} md={8} lg={7} xl={7}>
                         <RegCard />
                     </Grid>
                     
