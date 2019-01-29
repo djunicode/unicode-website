@@ -1,38 +1,29 @@
 import React, { Component } from 'react';
-import { AppBar, MuiThemeProvider} from '@material-ui/core';
+import {MuiThemeProvider} from '@material-ui/core';
 import * as myTheme from './styles/themes';
-import TabView from './components/tabView';
-import MenuView from './components/menuView';
+import TabAppBar from './components/TabAppBar';
+import DrawerAppBar from './components/DrawerAppBar';
 import MediaQuery from 'react-responsive';
 
 class Head extends Component {
-    state = { 
-        // open: false
-     }
-    //  handleMenu=()=>{
-    //      if(this.state.open){
-    //          this.setState({open: false});
-    //      }
-    //      else{
-    //         this.setState({open: true});
-    //      }
-    //  }
+    state = { }
+
         render() {
             console.log(this.state);
         return ( 
             <div>
-                <MuiThemeProvider theme={myTheme.tabTheme}>
-                <AppBar 
-                position="relative"
-                color="primary" >
+                <MuiThemeProvider theme={myTheme.navTheme}>
+
+                    {/* ---- Above 960 ---- */}
                     <MediaQuery minWidth={961} >
-                        <TabView />
+                        <TabAppBar />
                     </MediaQuery>
 
+                    {/* ---- Below 960 ---- */}
                     <MediaQuery maxWidth={960}>
-                        <MenuView />
+                        <DrawerAppBar />
                     </MediaQuery>
-                </AppBar>
+
                 </MuiThemeProvider>
             </div>
          );
