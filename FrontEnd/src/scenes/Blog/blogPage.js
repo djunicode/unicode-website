@@ -4,7 +4,10 @@ import BlogImage from './components/BlogImg/blogImg';
 import Navbar from './components/NavBar/Navbar';
 import SearchBar from './components/SearchBar/Searchbar';
 import BlogCard from './components/BlogCard/BlogCard';
+import P from './components/Pagination/Pagination';
+import Bn from './components/BottomNav/BottomNav';
 import Footer from '../../components/footer/footer';
+import MediaQuery from 'react-responsive';
 
 class BlogApp extends Component {
     state={
@@ -28,15 +31,20 @@ class BlogApp extends Component {
                 {/* Shows redBackground AND image */}
                 <Grid item xs={12}>
                     <BlogImage />
+                    <MediaQuery maxWidth={960} >
+                        <Bn />
+                    </MediaQuery>
                 </Grid>
 
 
                 {/* Shows navBar */}
                 <Grid item xs={10}>
                     <Grid container direction="row" justify="center" style={this.styles.innerGridNav} >
-                        <Grid item xs={12} sm={10} md={9} lg={7} >
-                            <Navbar />
-                        </Grid>
+                        <MediaQuery minWidth={961} >
+                            <Grid item xs={12} sm={10} md={9} lg={7} >
+                                <Navbar />
+                            </Grid>
+                        </MediaQuery>
                         <Grid item xs={10} md={9} lg={5} >
                             <SearchBar />
                         </Grid>
@@ -68,7 +76,10 @@ class BlogApp extends Component {
                     </Grid>
                     </Grid>
                 </Grid>
-
+                <Grid item xs={12} >
+                    <P />
+                </Grid>
+                {/* <P /> */}
             </Grid>
             <Footer />
         </div>
