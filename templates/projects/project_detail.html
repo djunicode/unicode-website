@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+<!--  -->
+{% block title %} {{ title }} | {{ block.super }} {% endblock title %}
+
+<!--  -->
+{% block content %}
+<h1>{{ project.title }}</h1>
+<hr />
+<p>{{ project.technologies }} | {{ project.year }}</p>
+<p>{{ project.description }}</p>
+{% if project.cover %}
+<!--  -->
+<img src="{{ project.cover.url }}" width="300px" alt="broken" /> <br />
+<!--  -->
+{% endif%}
+<!--  -->
+<br />
+<a href="{% url 'projects:list' %}">List</a> <br />
+<!--  -->
+{% if user %}
+<!--  -->
+<p>
+  <a href="{% url 'projects:edit' slug=project.slug %}">Edit</a> |
+  <a href="{% url 'projects:delete' slug=project.slug %}">Delete</a>
+</p>
+
+<!--  -->
+{% endif %}
+<hr />
+<h1>Our Team</h1>
+<br />
+{% if second_year %}
+<h5>Mentee</h5>
+<ul>
+  {% for member in second_year %}
+  <li>
+    <h5>{{ member.name }} | {{ member.year }}</h5>
+    <p>{{ member.bio }}</p>
+    <p>{{ member.email }}</p>
+    <p>Position: {% for stack in member.stack %} {{ stack }} {% endfor %}</p>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+<!--  -->
+{% if third_year %} <br />
+<h5>Mentor</h5>
+<ul>
+  {% for member in third_year %}
+  <li>
+    <h5>{{ member.name }} | {{ member.year }}</h5>
+    <p>{{ member.bio }}</p>
+    <p>{{ member.email }}</p>
+    <p>Position: {% for stack in member.stack %} {{ stack }} {% endfor %}</p>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+<!--  -->
+{% if fourth_year %}<br />
+<h5>Mentor</h5>
+<ul>
+  {% for member in fourth_year %}
+  <li>
+    <h5>{{ member.name }} | {{ member.year }}</h5>
+    <p>{{ member.bio }}</p>
+    <p>{{ member.email }}</p>
+    <p>Position: {% for stack in member.stack %} {{ stack }} {% endfor %}</p>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+<!--  -->
+{% endblock content %}

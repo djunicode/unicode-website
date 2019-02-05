@@ -12,8 +12,8 @@ STACK_CHOICES = (
 )
 
 
-def upload_location(instance):
-    return "profiles/{user}".format(user=instance.user)
+def upload_location(instance, filename):
+    return "profiles/{filename}".format(filename=filename)
 
 
 class UserProfile(models.Model):
@@ -29,4 +29,8 @@ class UserProfile(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.user.username
+        return self.user.first_name + " " + self.user.last_name
+
+    @property
+    def get_email(self):
+        return self.user.email
