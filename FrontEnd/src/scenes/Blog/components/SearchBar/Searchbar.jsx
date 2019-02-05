@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Paper, InputBase, IconButton, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import { Paper, InputBase, IconButton, createMuiTheme, MuiThemeProvider, Tooltip } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 
 const myTheme=createMuiTheme(
@@ -24,9 +24,6 @@ class Searchbar extends Component {
     styles={
         paper:{
             display: "flex",
-            // marginLeft: "10%",
-            // marginTop: 130,
-            // marginBottom:92,
             borderRadius: "10px",
             boxShadow: "6px 6px 16px #d6d6d6",
             marginBottom:"40px"
@@ -48,6 +45,7 @@ class Searchbar extends Component {
     render() { 
         return ( 
             <MuiThemeProvider theme={myTheme} >
+            <Tooltip title="Search" aria-label="Search">
                 <Paper style={this.styles.paper} >
                 <div style={this.styles.pinkBar} ></div>
                 <IconButton style={this.styles.icon} aria-label="Search">
@@ -55,6 +53,7 @@ class Searchbar extends Component {
                 </IconButton>
                 <InputBase fullWidth placeholder="Search" />
                 </Paper>
+            </Tooltip>
             </MuiThemeProvider>
          );
     }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid } from '@material-ui/core';
+import { Grid, Tooltip } from '@material-ui/core';
 import gitHub from './images/G1.png';
 import linkedIn from './images/L1.png';
 import twitter from './images/T1.png';
@@ -52,13 +52,19 @@ class Footer2 extends Component {
                     style={{width: "100%"}}
                     >
                         <Grid item >
+                        <Tooltip title="Twitter">
                             <img src={twitter} alt="#" style={this.styles.img} width="32px" />
+                        </Tooltip>
                         </Grid>
                         <Grid item >
+                        <Tooltip title="LinkedIn">
                             <img src={linkedIn} alt="#" style={this.styles.img} width="32px" />
+                        </Tooltip>
                         </Grid>
                         <Grid item >
+                        <Tooltip title="GitHub">
                             <img src={gitHub} alt="#" style={this.styles.img} width="32px" />
+                        </Tooltip>
                         </Grid>
                         <Grid item xs={12} >
                         

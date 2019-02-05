@@ -1,20 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
+import { withStyles, MuiThemeProvider, styles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import AllInclusiveIcon from '@material-ui/icons/AllInclusive';
 import BrushIcon from '@material-ui/icons/Brush';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import WebIcon from '@material-ui/icons/Web';
 import SmartphoneIcon from '@material-ui/icons/Smartphone';
 import * as myTheme from './styles/theme';
 
-const styles = {
-  root: {
-    
-  },
-};
 
 class LabelBottomNavigation extends React.Component {
   state = {

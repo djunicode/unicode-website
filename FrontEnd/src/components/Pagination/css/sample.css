@@ -10,7 +10,7 @@ ul li::before{
 }
 .position2{
     float: left;
-    width: 400px;
+    width: 310px;
     margin-left: 54%;
     margin-bottom: 6%;
     transform: translateX(-50%);

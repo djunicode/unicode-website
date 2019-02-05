@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Pagination from 'rc-pagination';
 import 'rc-pagination/assets/index.css';
-import './sample.css'
+import './css/sample.css';
 
 class MyPagination extends Component {
     state = {

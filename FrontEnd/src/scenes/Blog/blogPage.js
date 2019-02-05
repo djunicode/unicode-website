@@ -4,8 +4,8 @@ import BlogImage from './components/BlogImg/blogImg';
 import Navbar from './components/NavBar/Navbar';
 import SearchBar from './components/SearchBar/Searchbar';
 import BlogCard from './components/BlogCard/BlogCard';
-import P from './components/Pagination/Pagination';
-import Bn from './components/BottomNav/BottomNav';
+import Pagination from '../../components/Pagination/Pagination';
+import BottomNav from './components/BottomNav/BottomNav';
 import Footer from '../../components/footer/footer';
 import MediaQuery from 'react-responsive';
 
@@ -15,7 +15,7 @@ class BlogApp extends Component {
     }
     styles={
         innerGridNav:{
-            marginTop:"130px"
+            marginTop:"10%"
         }
     }
 
@@ -32,7 +32,7 @@ class BlogApp extends Component {
                 <Grid item xs={12}>
                     <BlogImage />
                     <MediaQuery maxWidth={960} >
-                        <Bn />
+                        <BottomNav />
                     </MediaQuery>
                 </Grid>
 
@@ -71,13 +71,13 @@ class BlogApp extends Component {
                     spacing={24} 
                     style={{width: "100%",margin: 0}}
                     >
-                        {this.state.cards.map((cards)=><BlogCard/>)}
+                        {this.state.cards.map((cards)=><BlogCard heading="WEB DESIGN" subHeading="What makes a great landing page?" content="Explore the design process behind some great landing page examples..." author="Jon Snow" date="Jun 6, 1999"/>)}
                     </Grid>
                     </Grid>
                     </Grid>
                 </Grid>
                 <Grid item xs={12} >
-                    <P />
+                    <Pagination />
                 </Grid>
                 {/* <P /> */}
             </Grid>
