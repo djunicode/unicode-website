@@ -11,8 +11,8 @@ const myTheme=createMuiTheme(
                     fontSize: 20,
                     fontFamily: "'Open Sans', sans-serif",
                     fontWeight: 400,
-                    color: "#707070",
-                    opacity: "1.0",
+                    color: "#000000",
+                    opacity: "0.9",
                     flex: 1
                 }
             }

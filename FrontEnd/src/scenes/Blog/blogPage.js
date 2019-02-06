@@ -63,7 +63,7 @@ class BlogApp extends Component {
                     justify="center"
                     style={{width: "100%",margin: 0}}
                     >
-                    <Grid item xs={11} sm={9} >
+                    <Grid item xs={12} sm={10} >
                     <Grid 
                     container 
                     direction="row" 
