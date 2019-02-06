@@ -47,7 +47,7 @@ class tabView extends Component {
                         </NavLink>
 
                         <NavLink style={styles.Nlink} to="/Blog">
-                            <MuiThemeProvider theme={myTheme.tabGreen}>
+                            <MuiThemeProvider theme={myTheme.tabPink}>
                                 <Tab label="BLOG" />
                             </MuiThemeProvider>
                         </NavLink>
