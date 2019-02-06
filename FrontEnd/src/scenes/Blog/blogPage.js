@@ -45,7 +45,7 @@ class BlogApp extends Component {
                                 <Navbar />
                             </Grid>
                         </MediaQuery>
-                        <Grid item xs={10} md={9} lg={5} >
+                        <Grid item xs={12} md={9} lg={5} >
                             <SearchBar />
                         </Grid>
                     </Grid>
@@ -63,7 +63,7 @@ class BlogApp extends Component {
                     justify="center"
                     style={{width: "100%",margin: 0}}
                     >
-                    <Grid item xs={8} >
+                    <Grid item xs={11} sm={9} >
                     <Grid 
                     container 
                     direction="row" 

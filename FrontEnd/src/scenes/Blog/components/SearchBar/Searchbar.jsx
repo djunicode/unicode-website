@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Paper, InputBase, IconButton, createMuiTheme, MuiThemeProvider, Tooltip } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
+import './css/pinkBar.css';
 
 const myTheme=createMuiTheme(
     {
@@ -11,7 +12,7 @@ const myTheme=createMuiTheme(
                     fontFamily: "'Open Sans', sans-serif",
                     fontWeight: 400,
                     color: "#707070",
-                    opacity: "0.3",
+                    opacity: "1.0",
                     flex: 1
                 }
             }
@@ -30,7 +31,7 @@ class Searchbar extends Component {
         },
         icon:{
             padding: 10,
-            opacity: "0.2"
+            opacity: "0.6"
         },
         input:{
             flex: 1
@@ -39,7 +40,10 @@ class Searchbar extends Component {
             borderRadius: "10px 0px 0px 10px",
             background: "#FF7171",
             height: "60px",
-            width: 10
+            width: 10,
+            '@media (max-width:400px)':{
+                height: "48px"
+            },
         }
     }
     render() { 
@@ -47,7 +51,7 @@ class Searchbar extends Component {
             <MuiThemeProvider theme={myTheme} >
             <Tooltip title="Search" aria-label="Search">
                 <Paper style={this.styles.paper} >
-                <div style={this.styles.pinkBar} ></div>
+                <div className="pinkBar" ></div>
                 <IconButton style={this.styles.icon} aria-label="Search">
                     <SearchIcon />
                 </IconButton>
