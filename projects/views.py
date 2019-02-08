@@ -114,6 +114,10 @@ def project_list(request):
         "title": "Projects",
         "project_list": post_list
     }
+    if request.user.is_authenticated:
+        context["user"] = True
+    else:
+        context["user"] = False
     return render(request, "projects/project_list.html", context)
 
 

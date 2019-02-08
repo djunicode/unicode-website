@@ -81,6 +81,10 @@ def post_list(request):
         "title": "List",
         "post_list": post_list,
     }
+    if request.user.is_authenticated:
+        context["user"] = True
+    else:
+        context["user"] = False
     return render(request, "blog/post_list.html", context)
 
 
