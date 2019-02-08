@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Paper,TextField, Grid, Button,createMuiTheme ,MuiThemeProvider } from '@material-ui/core';
-import Fab from '@material-ui/core/Fab';
+import { Paper,TextField, Grid,createMuiTheme ,MuiThemeProvider } from '@material-ui/core';
+import {styles} from './styles/FormStyles.js'
 
 const theme=createMuiTheme({
     palette:{
@@ -36,78 +36,17 @@ class RegCard extends Component {
 
     state = {  }
 
-    styles={
-
-        // paper:{
-
-        //     width: "49%",
-        //     height: 599,
-        //     padding: "106px 0 105px 0",
-        //     paddingLeft: "14.4%",
-        //     paddingRight: "14.4%",
-
-        
-
-        //     boxShadow: "#d6d6d6 4px 4px 16px",
-        //     borderRadius: 10,
-        //     marginBottom: 120,
-        //     marginLeft: "50%",
-        //     transform: "translateX(-50%)",
-        //     marginTop: 196.9,
-
-        // },
-        inpLarge:{
-
-            // width: "28%",
-            height: 66,
-            //maxWidth: 536
-
-        },
-        inpText:{
-
-            //width: "28%",
-            //maxWidth: 536
-
-        },
-        
-        margin: {
-            margin: theme.spacing.unit,
-            
-          },
-          mymargin: {
-            marginTop: 90,
-            padding: "11.1px 0px 10.9px 0px",
-            paddingLeft: "2.3%",
-            paddingRight: "2.3%"
-            
-          },
-          space: {
-              marginTop: 196.9,
-            
-          },
-          button: {
-              borderRadius: 100,
-              background: "#445DFF",
-              color: "#FFFFFF",
-              textAlign: "center",
-              fontFamily: "Open Sans, sans-serif",
-              paddingBottom: 9,
-              paddingTop: 9,
-              marginTop: 91.27,
-              minWidth: 73
-              
-          }
-    }
+    
     render() { 
 
         return ( 
 
-            // <div style={this.styles.space}>
-                <Paper style={{marginBottom: 120}}>
+            
+                <Paper style={styles.paper}>
                 <MuiThemeProvider theme={theme}>
                 <form>
                 <Grid 
-                style={{paddingTop: 106,paddingBottom: 105}}
+                style={styles.card}
                 container
                 direction="row"
                 justify="center"
@@ -125,10 +64,10 @@ class RegCard extends Component {
                         value={this.state.name}
 
                         margin="normal"
-                        //maxWidth="536"
+                        
                         fullWidth
                         variant="outlined"
-                        style={this.styles.inpLarge}
+                        style={styles.inpLarge}
 
                         />
                 </Grid>
@@ -142,10 +81,10 @@ class RegCard extends Component {
                         value={this.state.name}
 
                         margin="normal"
-                       // maxWidth="536"
+                       
                         fullWidth
                         variant="outlined"
-                        style={this.styles.inpLarge}
+                        style={styles.inpLarge}
                         />
                 </Grid>
                 <Grid item xs={7}>
@@ -159,29 +98,19 @@ class RegCard extends Component {
                         value={this.state.name}
 
                         margin="normal"
-                        //maxWidth="536"
+                    
                         fullWidth
                         variant="outlined"
                         multiline rows="4"
-                        style={this.styles.inpText}
+                        style={styles.inpText}
                         />
                         </Grid>
                         <Grid item xs={12}></Grid>
-                        <Grid item xs={3}>
+                        <Grid item xs={3} sm={3} md={2} xl={2}>
                         
-                         {/* <Fab
-                        variant="extended"
-                        size="small"
-                        color="primary"
-                        aria-label="Add"
                         
-                        style={this.styles.mymargin}
-                        >
-                        
-                        SUBMIT
-                        </Fab> */}
 
-                        <div style={this.styles.button}>
+                        <div style={styles.button}>
                             SUBMIT
                         </div>
                         </Grid> 
@@ -193,7 +122,7 @@ class RegCard extends Component {
 
                     </MuiThemeProvider>
                     </Paper>
-            // </div>
+            
             );
 
     }

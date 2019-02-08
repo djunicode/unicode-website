@@ -5,9 +5,11 @@
   "dependencies": {
     "@material-ui/core": "^3.7.1",
     "@material-ui/icons": "^3.0.1",
+    "rc-pagination": "^1.17.8",
     "react": "^16.7.0",
     "react-auto-scale": "^1.0.4",
     "react-dom": "^16.7.0",
+    "react-js-pagination": "^3.0.2",
     "react-media": "^1.9.2",
     "react-responsive": "^6.0.1",
     "react-router-dom": "^4.3.1",
