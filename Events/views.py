@@ -4,21 +4,22 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.contrib.auth import get_user_model
 from django.utils import timezone
 from .forms import EventForm, ParticipantForm
+from django.core.paginator import Paginator
 
 
 def event_list(request):
     events = Event.objects.all()
+    # page = request.GET.get.
     context = {
         "events": events
     }
-
-    return render(request, 'Events/event_list.html', context)
+    return render(request, 'events/event_list.html', context)
 
 
 def event_create(request):
-    if request.user.is_authenticated:
+    if not request.user.is_superuser:
         raise Http404
-    form = EventForm(request.POST)
+    form = EventForm(request.POST or None)
     user = Event.objects.get(id=1)
     print(user)
     if form.is_valid():
@@ -30,14 +31,14 @@ def event_create(request):
         "form": form,
         "title": "Create"
     }
-    return render(request, "Events/event_form.html", context)
+    return render(request, "events/event_form.html", context)
 
 
 def event_update(request, slug=None):
-    if request.user.is_authenticated:
+    if not request.user.is_superuser:
         raise Http404
     # obj = get_object_or_404(Event, slug = slug)
-    form = EventForm(request.POST)
+    form = EventForm(request.POST or None)
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
@@ -46,12 +47,12 @@ def event_update(request, slug=None):
         "form": form,
         "title": "Update"
     }
-    return render(request, "Events/event_form.html", context)
+    return render(request, "events/event_form.html", context)
 
 
-def event_detail(request, slug=None):
-    event = Event.objects.get(id=1)
-    participant = Participant.objects.get(id=1)
+def event_detail(request, id):
+    event = Event.objects.filter(id=id)
+    participant = Participant.objects.all()
     form = ParticipantForm(request.POST or None)
     count = Participant.objects.all().count()
     if form.is_valid():
@@ -60,13 +61,8 @@ def event_detail(request, slug=None):
         form.save()
         return HttpResponse("Thanks for registering")
     context = {
-        "title": event.title,
+    #    "title": event.title,
         "form": form,
-        "description": event.description,
-        "technologies": event.technologies,
-        "date": event.date,
-        "event_amount": event.event_amount,
-        "user": event.user,
-        "count": count
+        "event": event,
     }
-    return render(request, "Events/event_detail.html", context)
+    return render(request, "events/event_detail.html", context)

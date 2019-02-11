@@ -2,7 +2,9 @@
 {% block content %}
   {% for event in events %}
   <ul>
-    <li><h3>{{ event.date|date:"d-m-Y"}} {{event.title}}
-    <a href="/Events/{{event.date|date:"d-m-Y"}}/{{event.slug}}/{{event.title}}"</a></h3></li>
-  {% endfor %}
+    <li><h3>
+      {{ event.date|date:"d-m-Y"}} {{event.title}}
+    <a href="/events/detail/{{event.id}}"</a></h3></li>
+  </ul>
+    {% endfor %}
 {% endblock %}

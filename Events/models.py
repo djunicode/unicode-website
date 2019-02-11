@@ -1,6 +1,7 @@
+from multiselectfield import MultiSelectField
 from django.db import models
 from django.conf import settings
-from multiselectfield import MultiSelectField
+# from multiselectfield import MultiSelectField
 
 
 TECHNOLOGIES_CHOICES = (
@@ -17,9 +18,14 @@ class Event(models.Model):
     date = models.DateTimeField(auto_now=True)
     event_amount = models.PositiveSmallIntegerField(default=0)
     user = models.CharField(max_length=255)
+#    exist = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
+
+    #def __get_absolute_url__()
+
+
 
 
 class Participant(models.Model):
