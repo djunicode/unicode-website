@@ -10,7 +10,7 @@ export const styles={
     },
     card:{
         boxShadow: "12px 12px 16px #d6d6d6",
-        maxWidth: 450,
+        maxWidth: 560,
         borderRadius: "6px",
         marginBottom: "16%"
     },

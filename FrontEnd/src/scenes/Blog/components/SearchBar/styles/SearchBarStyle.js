@@ -7,7 +7,7 @@ export const myStyles={
     },
     icon:{
         padding: 10,
-        opacity: "0.2"
+        opacity: "0.4"
     },
     input:{
         flex: 1
