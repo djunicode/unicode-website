@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from django.shortcuts import get_object_or_404
 from django.contrib.auth import get_user_model
 from blog.models import Post, Comment
 from profiles.api.serializers import AuthorDetailSerializer
@@ -34,7 +35,6 @@ class CommentCreateSerializer(serializers.ModelSerializer):
         author = validated_data.get("author")
         text = validated_data.get("text")
         post = validated_data.get("post")
-        print(post)
         comment = Comment.objects.create(post=post, author=author, text=text)
         return comment
 
@@ -42,6 +42,7 @@ class CommentCreateSerializer(serializers.ModelSerializer):
 class PostDetailSerializer(serializers.ModelSerializer):
     author = AuthorDetailSerializer(read_only=True)
     responses = serializers.SerializerMethodField()
+    comment = serializers.HyperlinkedIdentityField(view_name='posts-api:comment', lookup_field='slug')
 
     class Meta:
         model = Post
@@ -54,6 +55,7 @@ class PostDetailSerializer(serializers.ModelSerializer):
             'technologies',
             'publish',
             'responses',
+            'comment'
         ]
 
     def get_responses(self, obj):
