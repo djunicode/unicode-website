@@ -3,21 +3,13 @@ import { Card, CardActionArea, CardMedia, CardContent,CardActions,Typography, Av
 import cardImg from './images/cardImg.jpg';
 import avatar from './images/avatar.jpg';
 import {styles} from './styles/BlogCardStyle';
-import {NavLink} from 'react-router-dom';
 
 class BlogCard extends Component {
     state = {  }
-    styles={
-        link:{
-            textDecoration: "none",
-            color: "#000"
-        }
-    }
 
     render() { 
         return ( 
             <Grid item xs={12} sm={9} md={6} lg={5} xl={4} >
-            <NavLink style={this.styles.link} to="/BlogSingle">
             <Card style={styles.card} >
             <CardActionArea>
                 <CardMedia
@@ -49,7 +41,6 @@ class BlogCard extends Component {
                 </div>
             </CardActions>
             </Card>
-            </NavLink>
             </Grid>
          );
     }
