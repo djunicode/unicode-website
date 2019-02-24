@@ -16,9 +16,9 @@ Django: 2.1.4 version
 
 ## Features
 
-- [ ] Resource portal
-- [ ] Events regsitration
-- [ ] Admin dashboard
-- [ ] Chat application
-- [ ] Contribution statistics
-- [ ] Email notifications
+- [ ] Resource Portal
+- [ ] Events Registration
+- [ ] Admin Dashboard
+- [ ] Chat Application
+- [ ] Contribution Statistics
+- [ ] Email Notifications
