@@ -76,7 +76,7 @@ class SelectOption extends Component {
             <Paper style={stylesSelect.paper}>
             <Grid container justify="center" direction="row" spacing={24}>
             <MuiThemeProvider theme={theme}>
-                <Grid item xs={7}>
+                <Grid item xs={8} sm={7} md={7} lg={7} xl={7} >
                 <FormControl variant="outlined" fullWidth >
                     <InputLabel
                         ref={ref => {
@@ -84,7 +84,7 @@ class SelectOption extends Component {
                         }}
                         htmlFor="outlined-age-native-simple"
                     >
-                        TECHNOLIGIES
+                        TECHNOLOGIES
                     </InputLabel>
                     <Select
                     native
@@ -106,8 +106,9 @@ class SelectOption extends Component {
                 </FormControl>
                 </Grid>
                 </MuiThemeProvider>
-
-                <Grid item xs={3} style={{padding: 0}}> 
+                    <Grid item xs={12} sm={1} ></Grid>
+                    
+                <Grid item xs={5} sm={3} md={3} lg={3} xl={3}  style={{padding: 0}}> 
                 <FormControl variant="outlined" fullWidth >
                     <InputLabel
                         ref={ref => {

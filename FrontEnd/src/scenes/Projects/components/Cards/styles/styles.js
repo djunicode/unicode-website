@@ -3,7 +3,7 @@ export const styles= {
     maxWidth: 830,
     minHeight: 180,
     padding: "51px 40px 49px 40px",
-    boxShadow: "4px 4px 16px #d6d6d6",
+    boxShadow: "12px 12px 16px #d6d6d6",
     borderRadius: 10,
     transition: "linear 0.2s",
 
@@ -13,8 +13,8 @@ export const styles= {
         position: "relative"
     },
     image: {
-        width: 180,
-        height: 180,
+        width: "100%",
+        height: "auto",
     
     },
     title: {
