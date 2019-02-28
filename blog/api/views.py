@@ -43,7 +43,7 @@ class PostListAPIView(ListAPIView):
 
     def get_queryset(self, *args, **kwargs):
         qs = Post.objects.published()
-        query = self.request.GET.get("q", None)
+        query = self.request.GET.get("s", None)
         if query:
             qs = qs.filter(Q(title__icontains=query) | Q(content__icontains=query) | Q(
                 author__user__username__icontains=query) | Q(technologies__icontains=query)).distinct()

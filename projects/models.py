@@ -1,9 +1,9 @@
+from datetime import datetime
 from django.db import models
 from django.contrib.auth import get_user_model
 from multiselectfield import MultiSelectField
 from django.db.models.signals import pre_save
 from django.urls import reverse
-from django.utils import timezone
 from django.utils.text import slugify
 from profiles.models import UserProfile
 
@@ -13,6 +13,16 @@ TECHNOLOGIES_CHOICES = (
     ('web', 'Web Development'),
     ('app', 'App Development'),
 )
+
+
+class ProjectManager(models.Manager):
+    def recent(self, *args, **kwargs):
+        year = datetime.now().year
+        projects = Project.objects.all().filter(year__year__gte=year)
+        if not len(projects):
+            year = year - 1
+            projects = Project.objects.all().filter(year__year__gte=year)
+        return projects
 
 
 def upload_location(instance, filename):
@@ -29,6 +39,8 @@ class Project(models.Model):
     year = models.DateField()
     repo_link = models.CharField(max_length=255)
 
+    objects = ProjectManager()
+
     def __str__(self):
         return self.title
 
@@ -36,7 +48,7 @@ class Project(models.Model):
         return reverse('projects:detail', kwargs={"slug": self.slug})
 
     class Meta:
-        ordering = ["year"]
+        ordering = ["-year"]
 
 
 def pre_save_project_receiver(sender, instance, *args, **kwargs):

@@ -10,7 +10,9 @@
 {% include 'search.html' %}
 <!--  -->
 <br />
+{% if user %}
 <a href="{% url 'projects:create' %}">Create</a>
+{% endif %}
 <!--  -->
 <br />
 <br />

@@ -23,6 +23,7 @@ urlpatterns = [
     path('posts/', include('blog.urls', namespace='posts')),
     path('api/posts/', include('blog.api.urls', namespace='posts-api')),
     path('projects/', include('projects.urls', namespace='projects')),
+    path('api/projects/', include('projects.api.urls', namespace='projects-api')),
 ]
 
 if settings.DEBUG:
