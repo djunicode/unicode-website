@@ -21,17 +21,22 @@ class RedBar extends Component {
             "&:active": {
             color: "#FFFFFF"
         }
+        },
+        pos:{
+            marginLeft: "7%"
         }
     }
     render() { 
         return ( 
             <div style={this.style.redDiv} >
-                    <IconButton>
-                        <NavLink to="/Blog">
-                        <ArrowBackIcon style={{color:"#fff"}} />
-                        </NavLink>
-                    </IconButton>
-                        <span className="openSans-24-600" style={this.style.blogFont} >Blog</span>
+            <div style={this.style.pos} >
+            <IconButton>
+                <NavLink to="/Blog">
+                <ArrowBackIcon style={{color:"#fff"}} />
+                </NavLink>
+            </IconButton>
+                <span className="openSans-24-600" style={this.style.blogFont} >Blog</span>
+            </div>
             </div>
          );
     }

@@ -14,10 +14,15 @@ class BlogCard extends Component {
         }
     }
 
+    handleUpdate=()=>{
+        // this.forceUpdate()
+        window.scrollTo(0, 0)
+    }
+
     render() { 
         return ( 
             <Grid item xs={12} sm={9} md={6} lg={5} xl={4} >
-            <NavLink style={this.styles.link} to="/BlogSingle">
+            <NavLink style={this.styles.link} to="/BlogSingle" onClick={this.handleUpdate} >
             <Card style={styles.card} >
             <CardActionArea>
                 <CardMedia
