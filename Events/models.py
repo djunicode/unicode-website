@@ -1,6 +1,7 @@
 from multiselectfield import MultiSelectField
 from django.db import models
 from django.conf import settings
+from django.urls import reverse
 # from multiselectfield import MultiSelectField
 
 
@@ -18,14 +19,12 @@ class Event(models.Model):
     date = models.DateTimeField(auto_now=True)
     event_amount = models.PositiveSmallIntegerField(default=0)
     user = models.CharField(max_length=255)
-#    exist = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
 
-    #def __get_absolute_url__()
-
-
+    def get_absolute_url(self):
+        return reverse('event_list', kwargs={'id': self.id})
 
 
 class Participant(models.Model):

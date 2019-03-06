@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('posts/', include('blog.urls', namespace='posts')),
     path('api/posts/', include('blog.api.urls', namespace='posts-api')),
-    path('events/', include('events.urls', namespace='posts')),
+    path('events/', include('events.urls', namespace='events')),
 ]
 
 if settings.DEBUG:

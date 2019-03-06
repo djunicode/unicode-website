@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import Event, Participant
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.contrib.auth import get_user_model
@@ -7,9 +7,12 @@ from .forms import EventForm, ParticipantForm
 from django.core.paginator import Paginator
 
 
+
+
 def event_list(request):
     events = Event.objects.all()
     # page = request.GET.get.
+
     context = {
         "events": events
     }
@@ -21,6 +24,7 @@ def event_create(request):
         raise Http404
     form = EventForm(request.POST or None)
     user = Event.objects.get(id=1)
+    #event = Event.objects.filter(id=id)
     print(user)
     if form.is_valid():
         instance = form.save(commit=False)
@@ -28,13 +32,14 @@ def event_create(request):
         instance.save()
         return HttpResponseRedirect(instance.get_absolute_url())
     context = {
+    #    "event":event,
         "form": form,
         "title": "Create"
     }
     return render(request, "events/event_form.html", context)
 
 
-def event_update(request, slug=None):
+def event_update(request):
     if not request.user.is_superuser:
         raise Http404
     # obj = get_object_or_404(Event, slug = slug)
@@ -42,7 +47,7 @@ def event_update(request, slug=None):
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
-        return HttpResponseRedirect(instance.get_absolute_url())
+        return HttpResponse('Thanks for registering')
     context = {
         "form": form,
         "title": "Update"

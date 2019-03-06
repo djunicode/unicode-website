@@ -13,6 +13,6 @@
 {% endfor %}
 <h2>Registration For the same can be done below</h2>
 
-<form method="POST">{% csrf_token %}
+<form method="POST" >{% csrf_token %}
   {{form.as_p}}<input type="submit"  value="participate"></form>
 {% endblock %}

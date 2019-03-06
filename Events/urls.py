@@ -8,5 +8,5 @@ urlpatterns = [
     path('list/', event_list, name='list'),
     path('create/', event_create, name='create'),
     path('detail/<int:id>', event_detail, name='detail'),
-    path('update/<slug:slug>', event_update, name='update'),
+    path('update/', event_update, name='update'),
 ]

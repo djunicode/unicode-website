@@ -4,7 +4,7 @@
   <ul>
     <li><h3>
       {{ event.date|date:"d-m-Y"}} {{event.title}}
-    <a href="/events/detail/{{event.id}}"</a></h3></li>
+    <a href="{% url 'events:detail' event.id %}"</a></h3></li>
   </ul>
     {% endfor %}
 {% endblock %}
