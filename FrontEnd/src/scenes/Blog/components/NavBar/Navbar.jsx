@@ -61,7 +61,7 @@ class NavBar extends Component {
     render() { 
         console.log(this.state)
         return ( 
-            <div style={{marginBottom:80}} >
+            <div style={{marginBottom:"10%",marginTop: "2%"}} >
 
                 <Button onClick={this.handleChange1}
                 style={
