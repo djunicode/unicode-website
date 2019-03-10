@@ -1,15 +1,8 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
-import { withStyles } from '@material-ui/core/styles';
-import Input from '@material-ui/core/Input';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
-import FilledInput from '@material-ui/core/FilledInput';
 import InputLabel from '@material-ui/core/InputLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import NativeSelect from '@material-ui/core/NativeSelect';
 import { createMuiTheme ,MuiThemeProvider, Grid , Paper} from '@material-ui/core';
 import {stylesSelect} from './styles/styles';
 
@@ -41,7 +34,7 @@ const styles = theme => ({
     overrides: {
         MuiSelect: {
             root: {
-                width: 300
+                width: "100%"
                 
             }
             
@@ -54,17 +47,10 @@ const styles = theme => ({
 class SelectOption extends Component {
 
     state = {
-        age: '',
-        name: 'hai',
-        labelWidth: 0,
+        tech: '',
+        year: ''
       };
-    
-      componentDidMount() {
-        this.setState({
-          labelWidth: ReactDOM.findDOMNode(this.InputLabelRef).offsetWidth,
-        });
-      }
-    
+
       handleChange = name => event => {
         this.setState({ [name]: event.target.value });
       };
@@ -76,64 +62,54 @@ class SelectOption extends Component {
             <Paper style={stylesSelect.paper}>
             <Grid container justify="center" direction="row" spacing={24}>
             <MuiThemeProvider theme={theme}>
-                <Grid item xs={8} sm={7} md={7} lg={7} xl={7} >
-                <FormControl variant="outlined" fullWidth >
-                    <InputLabel
-                        ref={ref => {
-                        this.InputLabelRef = ref;
-                        }}
-                        htmlFor="outlined-age-native-simple"
-                    >
+                <Grid item xs={10} sm={7} md={7} lg={7} xl={7} >
+                <FormControl variant="outlined" fullWidth id="inp-lbl-tech" >
+                    <InputLabel>
                         TECHNOLOGIES
                     </InputLabel>
                     <Select
                     native
                     value={this.state.age}
-                    onChange={this.handleChange('age')}
+                    onChange={this.handleChange('tech')}
                     input={
                     <OutlinedInput
-                        name="age"
-                        labelWidth={this.state.labelWidth}
-                        id="outlined-age-native-simple"
+                        name="tech"
+                        labelWidth={120}
+                        id="tech"
                     />
                     }
                 >
                     <option value="" />
-                    <option value={10}>Ten</option>
-                    <option value={20}>Twenty</option>
-                    <option value={30}>Thirty</option>
+                    <option value={10}>Java</option>
+                    <option value={20}>Web Development</option>
+                    <option value={30}>Android</option>
                 </Select>
                 </FormControl>
                 </Grid>
                 </MuiThemeProvider>
                     <Grid item xs={12} sm={1} ></Grid>
                     
-                <Grid item xs={5} sm={3} md={3} lg={3} xl={3}  style={{padding: 0}}> 
+                <Grid item xs={10} sm={3} md={3} lg={3} xl={3}  style={{padding: 0}}> 
                 <FormControl variant="outlined" fullWidth >
-                    <InputLabel
-                        ref={ref => {
-                        this.InputLabelRef = ref;
-                        }}
-                        htmlFor="outlined-age-native-simple"
-                    >
+                    <InputLabel>
                         YEAR
                     </InputLabel>
                     <Select
                     native
                     value={this.state.age}
-                    onChange={this.handleChange('age')}
+                    onChange={this.handleChange('year')}
                     input={
                     <OutlinedInput
-                        name="age"
-                        labelWidth={this.state.labelWidth}
-                        id="outlined-age-native-simple"
+                        name="year"
+                        labelWidth={40}
+                        id="year"
                     />
                     }
                 >
                     <option value="" />
-                    <option value={10}>2018</option>
-                    <option value={20}>2019</option>
-                    {/* <option value={30}>Thirty</option> */}
+                    <option value={10}>1999</option>
+                    <option value={20}>2018</option>
+                    <option value={30}>2019</option>
                 </Select>
                 </FormControl>  
         

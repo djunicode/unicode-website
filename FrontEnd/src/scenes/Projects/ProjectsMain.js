@@ -29,17 +29,17 @@ class Project extends Component {
                 <Grid item xs={12}>
                     <Image />
                 </Grid>
-                <Grid item xs={5}>
+                <Grid item xs={10} sm={8} md={5} >
                     <MiddleText />
                 </Grid>
                 <Grid item xs={12}>
                 </Grid>
-                <Grid item xs={10} sm={6} md={5}>
+                <Grid item xs={10} sm={8} md={5}>
                     <SelectOption />
                 </Grid> 
                 <Grid item xs={12}>
                 <Grid container justify="center" alignItems="center" style={{marginBottom: 88}}>
-                <Grid item sm={8} md={9} lg={11} xl={9}>
+                <Grid item sm={11} md={9} lg={11} xl={9}>
                 <CardsMain />
                 </Grid>
                 </Grid>
