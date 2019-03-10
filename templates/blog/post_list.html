@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+<!--  -->
+{% block title %} {{ title }} | {{ block.super }} {% endblock title %}
+
+<!--  -->
+{% block content %}
+<h1>{{ title }}</h1>
+<hr />
+<br />
+{% include 'search.html' %}
+<!--  -->
+<br />
+{% if user %}
+<a href="{% url 'posts:create' %}">Create</a>
+{% endif %}
+<!--  -->
+<br />
+<br />
+{% if post_list %}
+<ul>
+  {% for post in post_list %}
+  <!--  -->
+  <li>
+    <h4>{{ post.title }}</h4>
+    <p>{{ post.technologies }} | {{ post.publish }} | {{ post.author }}</p>
+    <a href="{% url 'posts:detail' slug=post.slug %}">View</a>
+  </li>
+  <br />
+  {% endfor %}
+</ul>
+{% else %}
+<h4>No posts</h4>
+{% endif %}
+<!--  -->
+<div class="pagination">
+  <span class="step-links">
+    {% if post_list.has_previous %}
+    <!--  -->
+    <a href="?page=1">&laquo; first</a>
+    <a href="?page={{ post_list.previous_page_number }}">previous</a>
+    <!--  -->
+    {% endif %}
+
+    <span class="current">
+      Page {{ post_list.number }} of {{ post_list.paginator.num_pages }}.
+    </span>
+
+    {% if post_list.has_next %}
+    <!--  -->
+    <a href="?page={{ post_list.next_page_number }}">next</a>
+    <a href="?page={{ post_list.paginator.num_pages }}">last &raquo;</a>
+    <!--  -->
+    {% endif %}
+  </span>
+</div>
+<!--  -->
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+<!--  -->
+{% block title %} {{ title }} | {{ block.super }} {% endblock title %}
+<!--  -->
+{% block content %}
+<h1>Confirm Delete</h1>
+<form method="POST">
+  {% csrf_token %}
+  <p>A re you sure you want to delete: "{{ object.title }}"?</p>
+  <input type="submit" value="Confirm" class="btn btn-danger" />
+  <a href="{% url 'projects:detail' slug=object.slug %}" class="btn btn-warning"
+    >Cancel</a
+  >
+</form>
+<!--  -->
+{% endblock content %}
