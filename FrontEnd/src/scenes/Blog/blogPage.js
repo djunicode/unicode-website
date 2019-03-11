@@ -42,7 +42,11 @@ class BlogApp extends Component {
                     <Grid container direction="row" justify="center" style={this.styles.innerGridNav} >
                         <MediaQuery minWidth={961} >
                             <Grid item xs={12} sm={10} md={9} lg={7} >
-                                <Navbar />
+                            <Grid container direction="column" justify="center" >
+                                <Grid item xs={12}>
+                                    <Navbar />
+                                </Grid>
+                            </Grid>
                             </Grid>
                         </MediaQuery>
                         <Grid item xs={12} md={9} lg={5} >
