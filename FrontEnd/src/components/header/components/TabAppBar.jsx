@@ -22,8 +22,14 @@ class tabView extends Component {
 
       };
 
+      componentDidMount=()=>{
+        let val = Number(localStorage.getItem('Tab'))
+        this.setState({value: val})
+      };
+
 
     render() {
+        console.log(this.state)
         return ( 
             <React.Fragment>
             
