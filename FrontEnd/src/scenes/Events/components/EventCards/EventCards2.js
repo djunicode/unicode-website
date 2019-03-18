@@ -4,15 +4,10 @@ import {
   CardActionArea,
   CardMedia,
   CardContent,
-  CardActions,
-  Typography,
-  Avatar,
-  Grid
+  Typography
 } from "@material-ui/core";
-// import cardImg from "./images/cardImg.jpg";
-// import avatar from "./images/avatar.jpg";
-// import { styles } from "./styles/BlogCardStyle";
-import cardImg from "../../Images/cardImg.jpg";
+import { NavLink } from "react-router-dom";
+import cardImg from "./Images/cardImg.jpg";
 import PriceBtn from "../../../../components/buttons/priceButton/priceButton";
 
 class EventCards2 extends Component {
@@ -96,33 +91,43 @@ class EventCards2 extends Component {
     },
     buttonPosition: {
       marginLeft: "60% !important"
+    },
+    link: {
+      textDecoration: "none",
+      color: "#000"
     }
   };
   render() {
     return (
       <Card style={this.styles.card}>
-        <CardActionArea>
-          <CardMedia
-            style={{ height: 275 }}
-            image={cardImg}
-            title="Blog image"
-          />
-          <CardContent style={{ padding: "4% 2% 8% 5%" }}>
-            <div style={this.styles.topFont}>WEB DEVELOPMENT</div>
+        <NavLink
+          style={this.styles.link}
+          to="/Events"
+          onClick={this.handleUpdate}
+        >
+          <CardActionArea>
+            <CardMedia
+              style={{ height: 275 }}
+              image={cardImg}
+              title="Blog image"
+            />
+            <CardContent style={{ padding: "4% 2% 8% 5%" }}>
+              <div style={this.styles.topFont}>WEB DEVELOPMENT</div>
 
-            <Typography component="p" style={this.styles.regFont}>
-              What makes a great landing page?
-            </Typography>
+              <Typography component="p" style={this.styles.regFont}>
+                What makes a great landing page?
+              </Typography>
 
-            <Typography variant="subtitle2" style={this.styles.subFont}>
-              Explore the design process behind some great landing page
-              examples. Lorem ipsum lorem ispum...
-            </Typography>
-            <PriceBtn price="50" />
-            <div style={this.styles.dateFont}>DATE:</div>
-            <div style={this.styles.dateInfo}>DEC 28, 2018</div>
-          </CardContent>
-        </CardActionArea>
+              <Typography variant="subtitle2" style={this.styles.subFont}>
+                Explore the design process behind some great landing page
+                examples. Lorem ipsum lorem ispum...
+              </Typography>
+              <PriceBtn price="50" />
+              <div style={this.styles.dateFont}>DATE:</div>
+              <div style={this.styles.dateInfo}>DEC 28, 2018</div>
+            </CardContent>
+          </CardActionArea>
+        </NavLink>
       </Card>
     );
   }

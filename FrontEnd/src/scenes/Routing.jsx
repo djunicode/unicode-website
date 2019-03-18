@@ -7,7 +7,9 @@ import Contactpage from './Contacts/Contact_page'
 import Blog from './Blog/blogPage';
 import BlogSingle from './BlogSingle/BlogSingle';
 import ProjectsMain from './Projects/ProjectsMain';
->>>>>>> upstream/master
+import EventMain from "./Events/EventsMain";
+import AboutUs from "./About_us/AboutUs";
+
 // import BlogSingle from './BlogSingle/BlogSingle';
 // import Contact from '../pages/Contacts';
 // import EventPage from '../pages/Event';
@@ -26,6 +28,8 @@ class Routing extends Component {
                         <Route path="/Blog" component={Blog} />
                         <Route path="/BlogSingle" component={BlogSingle} />
                         <Route path="/Projects" component={ProjectsMain} />
+                        <Route path="/AboutUs" component={AboutUs} />
+                        <Route path="/EventsMain" component={EventMain} />
                         {/* <Route path="/EventSingle" component={EventSingle} /> */}
                     </div>
             </div>
