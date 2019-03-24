@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Grid} from '@material-ui/core';
 import Cards from '../Cards/Cards';
+import {NavLink} from 'react-router-dom';
 
 class CardsMain extends Component{
     state={
@@ -10,6 +11,10 @@ class CardsMain extends Component{
     render() {
         return (
             <div>
+                <NavLink
+                to="/ProjectSingle"
+                onClick={this.handleUpdate}
+                style={{textDecoration: "none"}}>
                 <Grid container justify="center" alignItems="center" spacing={40} style={{width: "100%",margin: 0}}>
                 {/* The Grid item tag has been moved inside <Cards /> component */}
 
@@ -18,6 +23,7 @@ class CardsMain extends Component{
                 {/* -------- */}
                 {/* 6699 */}
                 </Grid>
+                </NavLink>
             </div>
         );
     }
