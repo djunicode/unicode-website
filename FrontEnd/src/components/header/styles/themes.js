@@ -119,3 +119,27 @@ export const tabPink=createMuiTheme(
         }
     }
 );
+
+export const tabCyan=createMuiTheme(
+    {
+        overrides:{
+            //Gives color
+              MuiButtonBase:{
+                  root:{
+                    "&:hover": {
+                        color: "#7FD6D0"
+                    }
+                  }
+              },
+              MuiTab:{
+                  root:{
+                    //Gives proper size
+                    ['@media (min-width:960px)']:{
+                        minWidth: 10
+                    },
+                    
+                  }
+              }
+        }
+    }
+);
