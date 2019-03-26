@@ -15,14 +15,15 @@ from .serializers import (
     EventListSerializer, EventDetailSerializer, EventCreateSerializer, ParticipantCreateSerializer
 )
 from events.models import Event, Participant
-#from .pagination import ProjectLimitOffsetPagination
+# from .pagination import ProjectLimitOffsetPagination
 
 class EventListAPIView(ListAPIView):
     queryset = Event.objects.all()
     serializer_class = EventListSerializer
     permission_class = [AllowAny]
-    filter_backends =  [SearchFilter, OrderingFilter]
-    search_fields = ['title','technologies','date']
+    filter_backends = [SearchFilter, OrderingFilter]
+    search_fields = ['title', 'technologies', 'date']
+
 
 class EventDetailAPIView(RetrieveAPIView):
     queryset = Event.objects.all()
@@ -40,17 +41,18 @@ class EventUpdateAPIView(UpdateAPIView):
     serializer_class = EventCreateSerializer
     permission_class = [IsAdminUser]
 
-    def perform_update(self,serializer):
+    def perform_update(self, serializer):
         serializer.save(user=self.request.user)
+
 
 class EventCreateAPIView(CreateAPIView):
     queryset = Event.objects.all()
     serializer_class = EventCreateSerializer
     permission_class = [IsAdminUser]
 
-
-    def perform_create(self,serializer):
+    def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
 
 class ParticipantCreateAPIView(CreateAPIView):
     queryset = Participant.objects.all()

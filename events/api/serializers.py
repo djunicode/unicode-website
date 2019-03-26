@@ -7,12 +7,11 @@ from events.models import Event, Participant
 class EventListSerializer(serializers.ModelSerializer):
     title = serializers.SerializerMethodField()
     technology = serializers.SerializerMethodField()
-
-    url = serializers.HyperlinkedIdentityField(view_name = 'events-api:detail')
+    url = serializers.HyperlinkedIdentityField(view_name='events-api:detail')
 
     class Meta:
         model = Event
-        fields =[
+        fields = [
             'url',
             'title',
             'description',
@@ -25,17 +24,18 @@ class EventListSerializer(serializers.ModelSerializer):
     def get_title(self, obj):
         return obj.title
 
-    def get_technology(self,obj):
+    def get_technology(self, obj):
         data = []
         for i in obj.technologies:
             data.append(i.capitalize())
 
+
 class EventDetailSerializer(serializers.ModelSerializer):
-    url = serializers.HyperlinkedIdentityField(view_name = 'events-api:participant')
+    url = serializers.HyperlinkedIdentityField(view_name='events-api:participant')
 
     class Meta:
         model = Event
-        fields =[
+        fields = [
             'url',
             'title',
             'description',
@@ -50,7 +50,7 @@ class EventCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Event
-        fields =[
+        fields = [
             'title',
             'description',
             'technologies',
@@ -66,15 +66,15 @@ class ParticipantCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Participant
         fields = [
-        'id',
-        'event',
-        'first_name',
-        'last_name',
-        'sap_id',
-        'email',
-        'contact'
+            'id',
+            'event',
+            'first_name',
+            'last_name',
+            'sap_id',
+            'email',
+            'contact'
         ]
 
-    def participant_add(self,obj):
+    def participant_add(self, obj):
         name = first_name + " " + last_name
         return obj.name
