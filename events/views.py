@@ -22,7 +22,7 @@ def event_create(request):
         raise Http404
     form = EventForm(request.POST or None)
     user = Event.objects.get(id=1)
-    #event = Event.objects.filter(id=id)
+    # event = Event.objects.filter(id=id)
     print(user)
     if form.is_valid():
         instance = form.save(commit=False)
@@ -57,7 +57,6 @@ def event_detail(request, id):
     event = Event.objects.filter(id=id)
     participant = Participant.objects.all()
     form = ParticipantForm(request.POST or None)
-    count = Participant.objects.all().count()
     if form.is_valid():
         form = form.save(commit=False)
         form.participant = participant

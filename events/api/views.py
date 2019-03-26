@@ -15,7 +15,7 @@ from .serializers import (
     EventListSerializer, EventDetailSerializer, EventCreateSerializer, ParticipantCreateSerializer
 )
 from events.models import Event, Participant
-#from .pagination import ProjectLimitOffsetPagination
+# from .pagination import ProjectLimitOffsetPagination
 
 
 class EventListAPIView(ListAPIView):
