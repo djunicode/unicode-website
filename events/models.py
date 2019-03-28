@@ -1,6 +1,8 @@
-from django.db import models
-from djangp.conf import settings
 from multiselectfield import MultiSelectField
+from django.db import models
+from django.conf import settings
+from django.urls import reverse
+# from multiselectfield import MultiSelectField
 
 
 TECHNOLOGIES_CHOICES = (
@@ -16,9 +18,13 @@ class Event(models.Model):
     slug = models.SlugField(blank=True)
     date = models.DateTimeField(auto_now=True)
     event_amount = models.PositiveSmallIntegerField(default=0)
+    user = models.CharField(max_length=255)
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('event_list', kwargs={'id': self.id})
 
 
 class Participant(models.Model):
