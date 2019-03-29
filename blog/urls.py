@@ -1,14 +1,15 @@
 from django.urls import path
-from .views import (
-    post_list, post_detail, post_create, post_update, post_delete
+from postreview.views import (
+    post_create_view, post_update_view, list_reviews, review_detail_view,
+    review_delete_view
 )
 
-app_name = 'posts'
+app_name = 'Review'
 
 urlpatterns = [
-    path('', post_list, name='list'),
-    path('create', post_create, name='create'),
-    path('<slug:slug>', post_detail, name='detail'),
-    path('<slug:slug>/edit', post_update, name='edit'),
-    path('<slug:slug>/delete', post_delete, name='delete')
-]
+    path('', list_reviews, name='product-list'),
+    path('create/', post_create_view, name='product-list'),
+    path('<int:id>/', review_detail_view, name='product-detail'),
+    path('<int:id>/update/', post_update_view, name='product-update'),
+    path('<int:id>/delete/', review_delete_view, name='product-delete'),
+    ]
