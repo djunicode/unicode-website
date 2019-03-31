@@ -12,6 +12,7 @@ class NavBar extends Component {
      }
     handleChange1 = () => {
         // console.log(this.state);
+        this.props.setCategory("ALL")
         if(this.state.one===false){
             this.setState({
                 one: true,
@@ -24,6 +25,7 @@ class NavBar extends Component {
       };
       handleChange2 = () => {
         // console.log(this.state);
+        this.props.setCategory("WEB DESIGN")
         if(this.state.two===false){
             this.setState({
                 one: false,
@@ -36,6 +38,7 @@ class NavBar extends Component {
       };
       handleChange3 = () => {
         // console.log(this.state);
+        this.props.setCategory("WEB DEVELOPMENT")
         if(this.state.three===false){
             this.setState({
                 one: false,
@@ -48,6 +51,7 @@ class NavBar extends Component {
       };
       handleChange4 = () => {
         // console.log(this.state);
+        this.props.setCategory("APP DEVELOPMENT")
         if(this.state.four===false){
             this.setState({
                 one: false,

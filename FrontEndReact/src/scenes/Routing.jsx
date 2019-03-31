@@ -6,6 +6,7 @@ import Contactpage from './Contacts/Contact_page'
 import Blog from './Blog/blogPage';
 import BlogSingle from './BlogSingle/BlogSingle';
 import ProjectsMain from './Projects/ProjectsMain';
+import Home from './Home/HomePage';
 // import BlogSingle from './BlogSingle/BlogSingle';
 // import Contact from '../pages/Contacts';
 // import EventPage from '../pages/Event';
@@ -17,7 +18,7 @@ class Routing extends Component {
             <div>
                 <Header />
                     <div>
-                        <Route path="/" component={EventSingle} exact />
+                        <Route path="/" component={Home} exact />
                         {/* {/* <Route path="/Event" component={EventPage} /> */}
                         <Route path="/Events" component={EventSingle} />
                         <Route path="/Contact" component={Contactpage} />

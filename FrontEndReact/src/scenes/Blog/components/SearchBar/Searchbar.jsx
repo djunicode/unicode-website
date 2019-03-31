@@ -52,7 +52,7 @@ class Searchbar extends Component {
             <Tooltip title="Search" aria-label="Search">
                 <Paper style={this.styles.paper} >
                 <div className="pinkBar" ></div>
-                <IconButton style={this.styles.icon} aria-label="Search">
+                <IconButton onClick={()=>this.props.getSearchData(1)} style={this.styles.icon} aria-label="Search">
                     <SearchIcon />
                 </IconButton>
                 <InputBase fullWidth placeholder="Search" />

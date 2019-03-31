@@ -34,6 +34,22 @@ ul li::before{
     background-color: transparent;
     background-color: none;
 }
+@media screen and (max-width: 970px) {
+    .rc-pagination {
+        font-size: 18px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+    }
+    .rc-pagination-item{
+        min-width: 35px;
+        height: 35px;
+        line-height: 35px;
+        border: 1px solid #A8A8A8;
+        background-color: transparent;
+        background-color: none;
+    }
+  }
+
 .rc-pagination-item-active {
     background-color: #445DFF;
     border-color: #445DFF;
@@ -43,6 +59,13 @@ ul li::before{
     height: 50px;
     line-height: 50px;
 }
+@media screen and (max-width: 970px) {
+    .rc-pagination-prev, .rc-pagination-next, .rc-pagination-jump-prev, .rc-pagination-jump-next{
+        min-width: 35px;
+        height: 35px;
+        line-height: 35px;
+    }
+  }
 
 @media screen and (max-width: 2080px) {
     .position2{
@@ -68,14 +91,7 @@ ul li::before{
     }
   }
 
-/* @media screen and (max-width: 900px) {
-    .position2{
-        margin-left: 40%;
-        transform: translateX(-10%);
-    }
-  }
-
-@media screen and (max-width: 700px) {
+/* @media screen and (max-width: 700px) {
     .position2{
         margin-left: 34%;
         transform: translateX(-10%);

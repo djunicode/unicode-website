@@ -24,11 +24,10 @@ class infoCard extends Component {
             paper:{
                 maxWidth: 680,
                 minHeight: 400,
-                padding: "37px 37px 57px 51px",
+                padding: "8%",
                 boxShadow: `#d6d6d6 ${this.state.hovered ? '12px 12px 16px' : '4px 4px 16px'}`,
                 borderRadius: 10,
-                transition: "linear 0.2s",
-                marginLeft: 24
+                transition: "linear 0.2s"
             }
         }
 
@@ -45,8 +44,7 @@ class infoCard extends Component {
                     </div>
 
                     <div className="openSans-18-400" style={styles.subText}>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, dicta non esse porro corrupti facilis nisi magnam perspiciatis eius quia enim ullam, accusantium reiciendis quibusdam laudantium ipsum exercitationem? Temporibus veniam fugit, dicta architecto quod fugiat voluptas sit. Excepturi, libero et?                        
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, placeat. Tempore sunt qui id ipsum laborum! Perferendis reprehenderit impedit tempora!
+                        {this.props.body}
                     </div>
 
                     <div className="roboto-18-400" style={styles.category}>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Grid } from '@material-ui/core';
+import Fade from 'react-reveal/Fade';
 
 class Quote extends Component {
     state = {  }
@@ -26,7 +27,9 @@ class Quote extends Component {
                 justify="center"
                 >
                     <Grid item xs={11}>
+                    {/* <Fade cascade> */}
                         {this.props.text}
+                    {/* </Fade> */}
                     </Grid>
                 </Grid>
             </Grid>

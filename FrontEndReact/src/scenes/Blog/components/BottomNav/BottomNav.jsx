@@ -12,24 +12,27 @@ import * as myTheme from './styles/theme';
 
 class LabelBottomNavigation extends React.Component {
   state = {
-    value: 'recents',
+    value: 'ALL',
   };
 
   handleChange = (event, value) => {
     this.setState({ value });
+    this.props.setCategory(value)
   };
 
   render() {
     const { classes } = this.props;
     const { value } = this.state;
 
+    console.log(this.state)
+
     return (
         <MuiThemeProvider theme={myTheme.tabPink}>
             <BottomNavigation value={value} onChange={this.handleChange} className={classes.root}>
-                <BottomNavigationAction label="All" value="recents" icon={<AllInclusiveIcon />} />
-                <BottomNavigationAction label="Web Design" value="favorites" icon={<BrushIcon />} />
-                <BottomNavigationAction label="Web Development" value="nearby" icon={<WebIcon />} />
-                <BottomNavigationAction label="App Development" value="nearby1" icon={<SmartphoneIcon />} />
+                <BottomNavigationAction label="ALL" value="ALL" icon={<AllInclusiveIcon />} />
+                <BottomNavigationAction label="WEB DESIGN" value="WEB DESIGN" icon={<BrushIcon />} />
+                <BottomNavigationAction label="WEB DEVELOPMENT" value="WEB DEVELOPMENT" icon={<WebIcon />} />
+                <BottomNavigationAction label="APP DEVELOPMENT" value="APP DEVELOPMENT" icon={<SmartphoneIcon />} />
             </BottomNavigation>
       </MuiThemeProvider>
     );

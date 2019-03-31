@@ -36,15 +36,17 @@ class tabView extends Component {
             <div>
             <AppBar 
                 position="relative"
-                color="primary" >
+                color="primary"
+                style={{height: 50}}
+                >
 
-                <Toolbar>
+                <Toolbar style={{minHeight: 0}} >
                     
                     {/* <IconButton style={{marginLeft: 12}} onClick={this.handleToggle} >
                         <MenuIcon />
                     </IconButton> */}
 
-                    <img src={unicode} alt="logo" width="210px" style={{marginLeft: "8%"}} />
+                    <img src={unicode} alt="logo" width="150px" style={{marginLeft: "8%"}} />
                     <div style={{flex: 1}} ></div>
                     <IconButton style={{marginLeft: 12}} onClick={this.handleToggle} >
                         <MenuIcon />

@@ -51,7 +51,7 @@ class tabView extends Component {
 
                         <Tab label="HOME" component={NavLink} to="/"
                         id="Home-Tab"
-                        className={this.state.value===0 ? this.props.classes.selectedPink :this.props.classes.default}
+                        className={this.state.value===0 ? this.props.classes.selectedDarkBlue :this.props.classes.default}
                         />
 
                         {/* ------------------------------------------------ */}

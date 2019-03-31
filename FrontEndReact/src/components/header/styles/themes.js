@@ -14,7 +14,7 @@ export const navTheme=createMuiTheme(
             // Gives height
             MuiAppBar: {
                 root: {
-                    height: 114,
+                    height: 85,
                     boxShadow: "#FFFFFF 0px 0px 0px"
                 }
               },
@@ -31,7 +31,7 @@ export const navTheme=createMuiTheme(
 
               MuiToolbar: {
                 root: {
-                    height: 114
+                    height: 85
                 }
               }
         },

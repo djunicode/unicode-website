@@ -9,6 +9,8 @@ import Info from './components/Info/Info';
 import Footer from '../../components/footer/footer';
 import MixedText from './components/MixedText/MixedText';
 import Quote from './components/Quote/Quote';
+import Fade from 'react-reveal/Fade';
+import Slide from 'react-reveal/Slide';
 
 class BlogSingle extends Component {
     state = {  }
@@ -82,14 +84,20 @@ class BlogSingle extends Component {
                     style={{marginTop: "6%"}}
                     >
                         <Grid item xs={10}>
+                        <Fade cascade>
                             <div style={this.style.heading}>WEB DESIGN</div>
+                        </Fade>
+                        <Fade cascade delay={200} >
                             <div style={this.style.subHeading} >What makes a great landing page?</div>
+                        </Fade>
                             <Info />
                         </Grid>
 
                         {/* Image */}
                         <Grid item xs={10}>
+                        <Fade cascade delay={300} >
                             <img style={this.style.img} src={Image} width="100%" alt="#"/>
+                        </Fade>
                         </Grid>
 
                         {/* Paragraph component */}
