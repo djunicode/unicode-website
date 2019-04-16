@@ -61,6 +61,7 @@ class EventCreateSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = ['user', ]
 
+
 class EventUpdateSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -74,6 +75,7 @@ class EventUpdateSerializer(serializers.ModelSerializer):
             'user'
         ]
         read_only_fields = ['user', ]
+
 
 class ParticipantCreateSerializer(serializers.ModelSerializer):
     # event = serializer.SerializerMethodField()

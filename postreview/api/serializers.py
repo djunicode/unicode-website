@@ -6,7 +6,7 @@ from postreview.models import Review
 
 class ReviewListSerializer(serializers.ModelSerializer):
     first_name = serializers.SerializerMethodField()
-#s    technology = serializers.SerializerMethodField()
+
 
     url = serializers.HyperlinkedIdentityField(view_name='postreview-api:detail')
 
@@ -25,7 +25,6 @@ class ReviewListSerializer(serializers.ModelSerializer):
 
     def get_first_name(self, obj):
         return obj.first_name
-
 
 
 class ReviewDetailSerializer(serializers.ModelSerializer):
@@ -63,11 +62,8 @@ class ReviewCreateSerializer(serializers.ModelSerializer):
         read_only_fields = ['user', ]
 
 
-
-
 class ReviewDeleteSerializer(serializers.ModelSerializer):
     url = serializers.HyperlinkedIdentityField(view_name='postreview-api:list')
-
 
     class Meta:
         model = Review
@@ -83,13 +79,12 @@ class ReviewDeleteSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = ['user', ]
 
+
 class ReviewUpdateSerializer(serializers.ModelSerializer):
-    #url = serializers.HyperlinkedIdentityField(view_name='postreview-api:list')
 
     class Meta:
         model = Review
         fields = [
-            #'url',
             'first_name',
             'last_name',
             'photograph',

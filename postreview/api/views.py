@@ -12,7 +12,7 @@ from rest_framework.filters import (
 )
 from django.db.models import Q
 from .serializers import (
-    ReviewListSerializer,ReviewUpdateSerializer, ReviewDetailSerializer, ReviewCreateSerializer,
+    ReviewListSerializer, ReviewUpdateSerializer, ReviewDetailSerializer, ReviewCreateSerializer,
     ReviewDeleteSerializer
 )
 from postreview.models import Review
@@ -53,6 +53,7 @@ class ReviewCreateAPIView(CreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
 
 class ReviewDeleteAPIView(DestroyAPIView):
     queryset = Review.objects.all()
