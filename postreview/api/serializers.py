@@ -6,8 +6,6 @@ from postreview.models import Review
 
 class ReviewListSerializer(serializers.ModelSerializer):
     first_name = serializers.SerializerMethodField()
-
-
     url = serializers.HyperlinkedIdentityField(view_name='postreview-api:detail')
 
     class Meta:
@@ -92,5 +90,5 @@ class ReviewUpdateSerializer(serializers.ModelSerializer):
             'company',
             'department',
             'comments'
-            ]
+        ]
         read_only_fields = ['user', ]
