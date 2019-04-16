@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'blog',
     'events',
     'frontend',
+    'postreview',
 ]
 
 MIDDLEWARE = [

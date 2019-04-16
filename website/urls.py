@@ -27,6 +27,8 @@ urlpatterns = [
     path('events/', include('events.urls', namespace='events')),
     path('api/events/', include('events.api.urls', namespace='events-api')),
     path('', include('frontend.urls')),
+    path('postreview/', include('postreview.urls', namespace='postreview')),
+    path('api/postreview/', include('postreview.api.urls', namespace='postreview-api')),
 ]
 
 if settings.DEBUG:
