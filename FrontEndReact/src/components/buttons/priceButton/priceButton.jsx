@@ -33,7 +33,7 @@ class PriceButton extends Component {
             <div style={{padding: 20}}>
                 <div className="openSans-26-600" style={this.styles.btnDesign}>
                     <div style={this.styles.buyBtnContainer}>
-                        <img src={buttonImage} alt="" width="131" />
+                        <img src={buttonImage} alt="" width="131px" />
                             <img src={rup} alt="buttonBackground" height="23" style={this.styles.rup} />
                             <div style={this.styles.price}>
                                 {this.props.price}

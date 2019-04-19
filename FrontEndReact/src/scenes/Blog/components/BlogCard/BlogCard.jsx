@@ -4,9 +4,12 @@ import cardImg from './images/cardImg.jpg';
 import avatar from './images/avatar.jpg';
 import {styles} from './styles/BlogCardStyle';
 import {NavLink} from 'react-router-dom';
+import Zoom from '@material-ui/core/Zoom';
 
 class BlogCard extends Component {
-    state = {  }
+    state = { 
+        checked: true
+     }
     styles={
         link:{
             textDecoration: "none",
@@ -19,8 +22,24 @@ class BlogCard extends Component {
         window.scrollTo(0, 0)
     }
 
+    componentWillReceiveProps=()=>{
+        setTimeout(()=>{
+            this.setState({
+                direction: "right",
+                checked: false
+            })
+          }, 0);
+          setTimeout(()=>{
+            this.setState({
+                direction: "left",
+                checked: true
+            })
+          }, 600);
+    }
+
     render() { 
         return ( 
+            <Zoom direction="up" in={this.state.checked} timeout={80} >
             <Grid item xs={12} sm={9} md={6} lg={5} xl={4} >
             <NavLink style={this.styles.link} to="/BlogSingle" onClick={this.handleUpdate} >
             <Card style={styles.card} >
@@ -56,6 +75,7 @@ class BlogCard extends Component {
             </Card>
             </NavLink>
             </Grid>
+            </Zoom>
          );
     }
 }

@@ -9,8 +9,7 @@ class LowerText extends Component {
             fontSize: 20,
             letterHeight: "27px",
             marginBottom: 256,
-            marginTop: 160,
-            marginLeft: 24
+            marginTop: 160
         }
     }
     render() { 

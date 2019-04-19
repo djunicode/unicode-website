@@ -8,10 +8,14 @@ import Pagination from '../../components/Pagination/Pagination';
 import BottomNav from './components/BottomNav/BottomNav';
 import Footer from '../../components/footer/footer';
 import MediaQuery from 'react-responsive';
+import axios from 'axios';
 
 class BlogApp extends Component {
     state={
-        cards:[1,2,3,4,5,6,7,8]
+        data: [],
+        cards: [1,2,3,4,5,6,7,8],
+        page: 1,
+        category: "All"
     }
     styles={
         innerGridNav:{
@@ -19,7 +23,66 @@ class BlogApp extends Component {
         }
     }
 
+    setPage=(p)=>{
+        this.getData(p)
+    }
+
+    setCategory=(c)=>{
+        if(c==="ALL"){
+            this.setState({category: c})
+        }
+        else if(c==="WEB DESIGN"){
+            this.setState({category: c})
+        }
+        else if(c==="WEB DEVELOPMENT"){
+            this.setState({category: c})
+        }
+        else if(c==="APP DEVELOPMENT"){
+            this.setState({category: c})
+        }
+    }
+
+    getData=(p)=>{
+        axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${p||this.state.page}`)
+        .then((response)=>{
+            console.log(response.data)
+            this.setState({
+                data: response.data,
+                page: p
+            })
+        })
+        .catch(e=>console.log(e))
+    }
+
+    getSearchData=(p)=>{
+        axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${p}`)
+        .then((response)=>{
+            console.log(response.data)
+            this.setState({
+                data: response.data,
+                page: p
+            })
+        })
+        .catch(e=>console.log(e))
+    }
+
+    componentDidMount=()=>{
+        this.getData()
+    }
+
   render() {
+    const renderCard=this.state.data.map((data)=>{
+            return(
+            <BlogCard
+                heading={this.state.category}
+                subHeading="What makes a great landing page?"
+                content={data.body}
+                author="Jon Snow" date="Jun 6, 1999"
+            />
+                )
+        }
+        )
+    console.log(this.state.category)
     return (
         <div>
             <Grid
@@ -32,7 +95,7 @@ class BlogApp extends Component {
                 <Grid item xs={12}>
                     <BlogImage />
                     <MediaQuery maxWidth={960} >
-                        <BottomNav />
+                        <BottomNav setCategory={this.setCategory} />
                     </MediaQuery>
                 </Grid>
 
@@ -44,13 +107,13 @@ class BlogApp extends Component {
                             <Grid item xs={12} sm={10} md={9} lg={7} >
                             <Grid container direction="column" justify="center" >
                                 <Grid item xs={12}>
-                                    <Navbar />
+                                    <Navbar setCategory={this.setCategory} />
                                 </Grid>
                             </Grid>
                             </Grid>
                         </MediaQuery>
                         <Grid item xs={12} md={9} lg={5} >
-                            <SearchBar />
+                            <SearchBar  getSearchData={this.getSearchData} />
                         </Grid>
                     </Grid>
                 </Grid>
@@ -75,13 +138,13 @@ class BlogApp extends Component {
                     spacing={24} 
                     style={{width: "100%",margin: 0}}
                     >
-                        {this.state.cards.map((cards)=><BlogCard heading="WEB DESIGN" subHeading="What makes a great landing page?" content="Explore the design process behind some great landing page examples..." author="Jon Snow" date="Jun 6, 1999"/>)}
+                        {renderCard}
                     </Grid>
                     </Grid>
                     </Grid>
                 </Grid>
-                <Grid item xs={12} >
-                    <Pagination />
+                <Grid item xs={12}>
+                    <Pagination getData={this.getData} setPage={this.setPage} />
                 </Grid>
                 {/* <P /> */}
             </Grid>

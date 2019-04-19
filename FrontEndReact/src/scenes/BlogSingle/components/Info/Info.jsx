@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Avatar, CardActions } from '@material-ui/core';
 import avatar from './images/avatar.jpg';
+import Fade from 'react-reveal/Fade';
 
 class Info extends Component {
     state = {  }
@@ -31,11 +32,16 @@ class Info extends Component {
     render() { 
         return ( 
             <CardActions style={{marginTop: 50,marginBottom: 40}} >
-                <Avatar alt="Jon Snow" src={avatar} style={this.styles.avatar} />
+                <Fade cascade delay={300} >
+                    <Avatar alt="Jon Snow" src={avatar} style={this.styles.avatar} />
+                </Fade>
                 <div style={this.styles.boldFont2} >
+                <Fade cascade delay={300} >
                     Jon Snow
-                    <br/>
-                    <div style={this.styles.subFont} >June 6,1999</div>
+                </Fade>
+                    <Fade cascade delay={300} >
+                        <div style={this.styles.subFont} >June 6,1999</div>
+                    </Fade>
                 </div>
             </CardActions>
          );

@@ -1,67 +1,94 @@
 import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
-import {styles} from '../styles/headerStyle';
-import {Tabs,Tab,Toolbar, MuiThemeProvider, AppBar} from '@material-ui/core';
+import {Tabs,Tab,Toolbar, AppBar} from '@material-ui/core';
 import unicode from '../images/UNICODE_LOGO.PNG';
-import * as myTheme from '../styles/themes';
+import { withStyles } from '@material-ui/core/styles';
+import { TabColors } from '../styles/TabColor';
+import { HoverStyle } from '../styles/hoverStyles';
 
 class tabView extends Component {
-    state = { }
-    render() { 
+
+    state = { 
+        value: 0
+    }
+
+    // Sets the value
+    handleChange = (event, value) => {
+        
+        // Storing value for retrival after refresh
+        localStorage.setItem("Tab",value)
+
+        this.setState({ value });
+
+      };
+
+      componentDidMount=()=>{
+        let val = Number(localStorage.getItem('Tab'))
+        this.setState({value: val})
+      };
+
+
+    render() {
+        console.log(this.state)
         return ( 
+            <React.Fragment>
+            
+            {/* HoverStyle is a string which contains CSS for color of each tab along with :hover */}
+            <style>{HoverStyle}</style>
+
             <AppBar 
                 position="relative"
                 color="primary" >
-            <Toolbar >
-                <img src={unicode} alt="logo" width="237px" style={{marginLeft: "8%"}} />
-                <div style={{flexGrow: "1"}} ></div>
+                <Toolbar >
 
-                <Tabs value={this.state.value} >
+                    <a href="/"><img src={unicode} alt="logo" width="237px" style={{marginLeft: "8%"}} /></a>
 
-                {/* ---------------- THIS IS ONE TAB ---------------- */}
+                    <div style={{flexGrow: "1"}} ></div>
 
-                        <NavLink style={styles.Nlink} to="/">
-                            <MuiThemeProvider theme={myTheme.tabGreen}>
-                                <Tab label="HOME" />
-                            </MuiThemeProvider>
-                        </NavLink>
+                    <Tabs value={this.state.value} onChange={this.handleChange} >
 
-                {/* ------------------------------------------------ */}
+                        {/* ---------------- THIS IS ONE TAB ---------------- */}
 
-                        <NavLink style={styles.Nlink} to="/AboutUS">
-                            <MuiThemeProvider theme={myTheme.tabGreen}>
-                                <Tab label="ABOUT US" />
-                            </MuiThemeProvider>
-                        </NavLink>
+                        <Tab label="HOME" component={NavLink} to="/"
+                        id="Home-Tab"
+                        className={this.state.value===0 ? this.props.classes.selectedDarkBlue :this.props.classes.default}
+                        />
 
-                        <NavLink style={styles.Nlink} to="/Projects">
-                            <MuiThemeProvider theme={myTheme.tabCyan}>
-                                <Tab label="PROJECTS" />
-                            </MuiThemeProvider>
-                        </NavLink>
+                        {/* ------------------------------------------------ */}
 
-                        <NavLink style={styles.Nlink} to="/Events">
-                            <MuiThemeProvider theme={myTheme.tabGreen}>
-                                <Tab label="EVENTS" />
-                            </MuiThemeProvider>
-                        </NavLink>
 
-                        <NavLink style={styles.Nlink} to="/Blog">
-                            <MuiThemeProvider theme={myTheme.tabPink}>
-                                <Tab label="BLOG" />
-                            </MuiThemeProvider>
-                        </NavLink>
 
-                        <NavLink style={styles.Nlink} to="/Contact">
-                            <MuiThemeProvider theme={myTheme.tabYellow}>
-                                <Tab label="CONTACT" />
-                            </MuiThemeProvider>
-                        </NavLink>
-                </Tabs>
-            </Toolbar>
+                        <Tab label="ABOUT US" component={NavLink} to="/AboutUS"
+                        id="AboutUs-Tab"
+                        className={this.state.value===1 ? this.props.classes.selectedOrange :this.props.classes.default}
+                        />
+
+                        <Tab label="PROJECTS" component={NavLink} to="/Projects"
+                        id="Projects-Tab"
+                        className={this.state.value===2 ? this.props.classes.selectedBlue :this.props.classes.default}
+                        />
+
+                        <Tab label="EVENTS" component={NavLink} to="/Events"
+                        id="Events-Tab"
+                        className={this.state.value===3 ? this.props.classes.selectedGreen :this.props.classes.default}
+                        />
+
+                        <Tab label="BLOG" component={NavLink} to="/Blog"
+                        id="Blog-Tab"
+                        className={this.state.value===4 ? this.props.classes.selectedPink :this.props.classes.default}
+                        />
+
+                        <Tab label="CONTACTS" component={NavLink} to="/Contact"
+                        id="Contacts-Tab"
+                        className={this.state.value===5 ? this.props.classes.selectedYellow :this.props.classes.default}
+                        />
+
+                    </Tabs>
+                </Toolbar>
             </AppBar>
+            </React.Fragment>
          );
     }
 }
  
-export default tabView;
+export default withStyles(TabColors)(tabView);

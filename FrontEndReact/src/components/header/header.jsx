@@ -9,7 +9,6 @@ class Head extends Component {
     state = { }
 
         render() {
-            console.log(this.state);
         return ( 
             <div>
                 <MuiThemeProvider theme={myTheme.navTheme}>

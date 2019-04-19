@@ -70,16 +70,16 @@ class Footer2 extends Component {
                         
                         </Grid>
                         <Grid item >
-                            <a href="####" style={this.styles.text} >ABOUT US</a>
+                            <a href="/AboutUS" style={this.styles.text} >ABOUT US</a>
                         </Grid>
                         <Grid item >
-                            <a href="####" style={this.styles.text} >PROJECTS</a>
+                            <a href="/Projects" style={this.styles.text} >PROJECTS</a>
                         </Grid>
                         <Grid item >
-                            <a href="####" style={this.styles.text} >EVENTS</a>
+                            <a href="/Events" style={this.styles.text} >EVENTS</a>
                         </Grid>
                         <Grid item >
-                            <a href="####" style={this.styles.text} >BLOG</a>
+                            <a href="/Blog" style={this.styles.text} >BLOG</a>
                         </Grid>
                         <Grid item xs={12} >
                         

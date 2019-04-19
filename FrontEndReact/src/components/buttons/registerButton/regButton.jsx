@@ -5,13 +5,14 @@ class regBtn extends Component {
     state = {  }
     handleRegister=(e)=>{
         e.preventDefault();
+        console.log(e.target)
         console.log("Register");
     }
     render() { 
         return ( 
-            <button 
+            <button
                 style={styles.btn} className="openSans-18-400"
-                onClick={this.handleRegister} 
+                // onClick={this.handleRegister} 
                 >
                     <div style={styles.btnFont}>REGISTER</div>
             </button>
