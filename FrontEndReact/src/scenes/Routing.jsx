@@ -10,6 +10,7 @@ import Home from './Home/HomePage';
 // import BlogSingle from './BlogSingle/BlogSingle';
 // import Contact from '../pages/Contacts';
 // import EventPage from '../pages/Event';
+import ProjectSingle from './ProjectSingle/ProjectSingle';
 
 class Routing extends Component {
     state = {  }
@@ -25,6 +26,7 @@ class Routing extends Component {
                         <Route path="/Blog" component={Blog} />
                         <Route path="/BlogSingle" component={BlogSingle} />
                         <Route path="/Projects" component={ProjectsMain} />
+                        <Route path="/ProjectSingle" component={ProjectSingle} />
                         {/* <Route path="/EventSingle" component={EventSingle} /> */}
                     </div>
             </div>
