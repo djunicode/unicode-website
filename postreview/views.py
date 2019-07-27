@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.core.paginator import Paginator
+from django.db.models import Q
 from .forms import reviewForm
 from .models import Review
 
@@ -29,8 +31,9 @@ def list_reviews(request):
     queryset_list = Review.objects.all()  # list of objects
     query = request.GET.get("q", None)
     if query:
-        queryset_list = queryset_list.filer(Q(first_name__icontains=query) | Q(last_name__icontains=query) | Q(photograph__icontains=query) | Q(
-            designation__icontains=query) | Q(company__icontains=query) | Q(comments__icontains=query)).distinct()
+        queryset_list = queryset_list.filer(Q(first_name__icontains=query) | Q(last_name__icontains=query) | Q(
+            photograph__icontains=query) | Q(designation__icontains=query) | Q(company__icontains=query) | Q(
+            comments__icontains=query)).distinct()
     paginator = Paginator(queryset_list, 10)
     page = request.GET.get('page')
     object_list = paginator.get_page(page)
