@@ -28,6 +28,7 @@ urlpatterns = [
     path('api/events/', include('events.api.urls', namespace='events-api')),
     path('postreview/', include('postreview.urls', namespace='postreview')),
     path('api/postreview/', include('postreview.api.urls', namespace='postreview-api')),
+    path('api/reach/', include('newsletter.api.urls', namespace='newsletter-api')),
     path('', include('frontend.urls')),
 ]
 

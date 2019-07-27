@@ -1,4 +1,5 @@
 from django.contrib import admin
-from .models import newslet
+from .models import Newsletter, Contact
 
-admin.site.register(newslet)
+admin.site.register(Newsletter)
+admin.site.register(Contact)
