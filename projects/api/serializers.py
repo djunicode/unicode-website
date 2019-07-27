@@ -20,6 +20,11 @@ class ProjectDetailSerializer(serializers.ModelSerializer):
             'title',
             'description',
             'cover',
+            'img1',
+            'img2',
+            'img3',
+            'img4',
+            'img5',
             'technology',
             'year',
             'repo_link'
