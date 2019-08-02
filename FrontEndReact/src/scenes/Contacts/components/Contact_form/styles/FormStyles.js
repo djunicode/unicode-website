@@ -2,7 +2,7 @@ export const styles={
 
     paper:{
 
-    
+         borderRadius: 10,
          marginBottom: 120,
          boxShadow: "4px 4px 16px #d6d6d6"
     
@@ -51,7 +51,7 @@ export const styles={
           
       },
       card: {
-        paddingTop: 106,
-        paddingBottom: 105
+        paddingTop: "10%",
+        paddingBottom: "10%"
       }
 };

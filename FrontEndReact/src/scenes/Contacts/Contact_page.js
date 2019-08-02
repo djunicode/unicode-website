@@ -4,6 +4,7 @@ import Telephone from './components/Image/image.js';
 import Follow from './components/text/Follow.js';
 import RegCard from './components/Contact_form/ContactForm.js';
 import Footer from '../../components/footer/footer';
+import Links from './components/Links/Link.jsx';
 //import NavBar from '../../components/header/header';
 class MyApp extends Component {
     state = {  }
@@ -13,7 +14,7 @@ class MyApp extends Component {
           background: "#F8F8F8"
         },
         image: {
-            padding: "0px 0px 0px 0px"
+            background: "#FFE99B"
         }
       }
     render() { 
@@ -30,29 +31,14 @@ class MyApp extends Component {
                     <NavBar />
                 </Grid> */}
                     <Grid item xs={12} style={this.styles.image} >
-                    <Telephone />
+                        <Telephone />
                     </Grid>
-                     <Grid item xs={7}>
-                     {/* <Grid container direction="row"
-                        justify="center"
-                        > */}
-                        {/* <Grid item> */}
+                    <Grid item xs={7}>
                         <Follow />
-                        </Grid>
-                        {/* </Grid>  */}
-                        {/* </Grid> */}
-
-                    {/* <Grid item>
-                        <Grid container
-                        direcion="row"
-                        //justify="center"
-                        >
-                                <Grid item>
-                                    <RegCard />
-                                </Grid>
-                        </Grid>
-                    </Grid> */}
-
+                    </Grid>
+                    <Grid item xs={7}>
+                        <Links />
+                    </Grid>
                     <Grid item xs={10} sm={9} md={8} lg={7} xl={7}>
                         <RegCard />
                     </Grid>
