@@ -1,8 +1,8 @@
 export const styles={
     follow: {
         textAlign: "center",
-        marginTop: 122.1,
-        marginBottom: 114,
+        marginTop: "20%",
+        // marginBottom: "20%",
         
     //     //position: absolute,
     //     color: "#000000",

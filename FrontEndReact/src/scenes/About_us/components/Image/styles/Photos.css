@@ -1,0 +1,77 @@
+.gallery {
+  border: 0px solid #ccc;
+}
+
+.gallery img {
+  width: 100%;
+  height: 100% !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 0 px;
+  float: left;
+  width: 16.66%;
+}
+@media only screen and (max-width: 1200px) {
+  .responsive {
+    width: 33.3333%;
+    margin: 0px 0;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .responsive {
+    width: 100%;
+    /* padding: "59px 72px 59px 90px" !important; */
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.text {
+  color: white;
+  /* font-size: 16px; */
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 105%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: #445dff;
+  border-color: #707070;
+  border: 1px;
+}
+.container {
+  position: relative;
+  width: 100%;
+  height: 90%;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}

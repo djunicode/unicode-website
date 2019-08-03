@@ -17,7 +17,7 @@ class ENname extends Component {
                         <div style={styles.posiWrap}>
                             <MuiThemeProvider theme={EventName}>
                                 <IconButton color="primary" >
-                                <NavLink to="/Event" style={styles.Nlink}>
+                                <NavLink to="/EventsMain" style={styles.Nlink}>
                                     <ArrowBackIcon />
                                 </NavLink>
                                 </IconButton>

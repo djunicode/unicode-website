@@ -54,7 +54,7 @@ class RegCard extends Component {
 
                 >
 
-                <Grid item xs={7}>
+                <Grid item xs={10} sm={8} md={7} >
                 <TextField
 
                         id="outlined-name"
@@ -71,7 +71,7 @@ class RegCard extends Component {
 
                         />
                 </Grid>
-                <Grid item xs={7}>
+                <Grid item xs={10} sm={8} md={7} >
                 <TextField
 
                         id="outlined-name"
@@ -87,7 +87,7 @@ class RegCard extends Component {
                         style={styles.inpLarge}
                         />
                 </Grid>
-                <Grid item xs={7}>
+                <Grid item xs={10} sm={8} md={7} >
                         
                 <TextField
 
@@ -106,7 +106,7 @@ class RegCard extends Component {
                         />
                         </Grid>
                         <Grid item xs={12}></Grid>
-                        <Grid item xs={3} sm={3} md={2} xl={2}>
+                        <Grid item xs={4} sm={3} md={2} xl={2}>
                         
                         
 
