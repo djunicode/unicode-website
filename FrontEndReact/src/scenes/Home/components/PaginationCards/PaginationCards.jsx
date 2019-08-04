@@ -7,40 +7,8 @@ import PREV from './images/PREV.png';
 
 class PaginationCards extends Component {
     state = {
-        todos: [
-            {
-                id: '1',
-                color: '#445DFF'
-            },
-            {
-                id: '2',
-                color: '#FF7171'
-            },
-            {
-                id: '3',
-                color: '#F3D670'
-            },
-            {
-                id: '4',
-                color: '#C1D37F'
-            },
-            {
-                id: '5',
-                color: '#445DFF'
-            },
-            {
-                id: '6',
-                color: '#FF7171'
-            },
-            {
-                id: '7',
-                color: '#F3D670'
-            },
-            {
-                id: '8',
-                color: '#C1D37F'
-            }
-        ],
+        data: [],
+        todos: [],
         currentPage: 1,
         todosPerPage: this.props.no,
         checked: false
@@ -84,19 +52,50 @@ class PaginationCards extends Component {
         // console.log(event)
         const indexOfLastTodo = this.state.currentPage * this.state.todosPerPage;
         if(this.state.currentPage!==pageNumbers.length)
-        this.setState({currentPage: this.state.currentPage+1})
+            this.setState({currentPage: this.state.currentPage+1})
       }
+      componentDidUpdate=(prevProps,prevState)=>{
+          if(prevProps!==this.props){
+              this.setState({todos: this.props.data})
+          }
+      }
+      alterContent=(content)=>{
+        var newContent=""
+        var count=0
+        content=`${content}`
+        content.split(" ").forEach((word)=>{
+            if(count!==31){
+                newContent+=word+" "
+                count++;
+            }
+        })
+        if (count>30){
+            newContent+=". . . ."
+        }
+        return newContent
+    }
     render() { 
+        console.log(this.state)
         const { todos, currentPage, todosPerPage, id } = this.state;
         const indexOfLastTodo = currentPage * todosPerPage;
         const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
-        const currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
+        var currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
 
         const renderTodos = currentTodos.map((todo, index) => {
             console.log(todo.color)
             return (
                 <Grid item xs={10} md={6} lg={4} xl={3} style={{marginBottom: "4%"}} >
-                    <FeedbackCard color={todo.color} index={todo.id} />
+                    <FeedbackCard
+                    color={todo.color}
+                    index={todo.id} 
+                    text={this.state.todos.length?this.alterContent(this.state.todos[index].comments):""}
+                    pic={this.state.todos.length?this.state.todos[index].photograph:""}
+                    fname={this.state.todos.length?this.state.todos[index].first_name:""}
+                    lname={this.state.todos.length?this.state.todos[index].last_name:""}
+                    company={this.state.todos.length?this.state.todos[index].company:""}
+                    department={this.state.todos.length?this.state.todos[index].department:""}
+                    desgn={this.state.todos.length?this.state.todos[index].designation:""}
+                    />
                 </Grid>
             );
         });

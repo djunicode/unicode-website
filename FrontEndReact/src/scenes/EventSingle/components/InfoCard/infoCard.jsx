@@ -48,14 +48,14 @@ class infoCard extends Component {
                     </div>
 
                     <div className="roboto-18-400" style={styles.category}>
-                        {this.props.category}                        
+                        {this.props.category.toUpperCase()}
                     </div>
 
                     <div className="openSans-18-400" style={styles.tech}>
                         {this.props.tech}
                     </div>
 
-                    <PriceBtn price="50" />
+                    <PriceBtn price={this.props.price} />
                     <div className="openSans-20-600" style={styles.date}>
                         {this.props.date}
                     </div>

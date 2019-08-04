@@ -68,7 +68,7 @@ class tabView extends Component {
                         className={this.state.value===2 ? this.props.classes.selectedBlue :this.props.classes.default}
                         />
 
-                        <Tab label="EVENTS" component={NavLink} to="/EventsMain"
+                        <Tab label="EVENTS" component={NavLink} to="/Events"
                         id="Events-Tab"
                         className={this.state.value===3 ? this.props.classes.selectedGreen :this.props.classes.default}
                         />

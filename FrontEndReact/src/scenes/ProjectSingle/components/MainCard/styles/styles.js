@@ -1,7 +1,7 @@
 export const styles={
     paper:{
         maxWidth: 1218,
-        padding: "3.6% 5% 3.6% 5%",
+        padding: "8% 8%",
         color: "#FFFFFF",
         boxShadow: "12px 12px 16px #d6d6d6",
         minHeight: 834.65,

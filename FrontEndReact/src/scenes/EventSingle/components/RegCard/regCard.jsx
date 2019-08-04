@@ -37,13 +37,40 @@ class RegCard extends Component {
         console.log("Register");
         console.log(e.target.parentNode);
     }
+    send=async()=>{
+        if(this.state.fname!=='' &&
+        this.state.lname!=='' &&
+        this.state.sapId!=='' &&
+        this.state.email!=='' &&
+        this.state.contact!==''
+        ){
+            var params={
+                event: parseInt(this.props.id,10),
+                first_name: this.state.fName,
+                last_name: this.state.lName,
+                sap_id: this.state.sapId,
+                email: this.state.email,
+                contact: this.state.contact
+            }
+            console.log(params)
+            var res=await axios.post(`${this.props.postUrl}`,params)
+            if(res.statusText==='Created')
+            alert("Submitted")
+            this.setState({
+                fName: "",
+                lName: "",
+                contact: "",
+                sapId: "",
+                email: ""
+            })
+        }
+        else{
+            alert("Please fill all the fields with valid information")
+        }
+    }
     handleSubmit=(e)=>{
         e.preventDefault()
-        console.log(e.target)
-        axios.post("https://jsonplaceholder.typicode.com/posts",this.state)
-        .then(response=>console.log(response))
-        .catch(error=>console.log(error))
-        console.log("Submit");
+        this.send()
     }
 
     handleChange = name => event => {

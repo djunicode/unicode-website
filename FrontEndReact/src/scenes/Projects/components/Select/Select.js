@@ -54,10 +54,18 @@ class SelectOption extends Component {
       handleChange = name => event => {
         this.setState({ [name]: event.target.value });
       };
+
+      componentDidUpdate=(prevProps,prevState)=>{
+          if(prevState!==this.state){
+              console.log('Filter Update')
+              this.props.updateFilter(this.state.tech,this.state.year)
+          }
+      }
     
 
     render() {
         const { classes } = this.props;
+        console.log(this.state)
         return (
             <Paper style={stylesSelect.paper}>
             <Grid container justify="center" direction="row" spacing={24}>
@@ -69,20 +77,20 @@ class SelectOption extends Component {
                     </InputLabel>
                     <Select
                     native
-                    value={this.state.age}
+                    value={this.state.tech}
                     onChange={this.handleChange('tech')}
                     input={
-                    <OutlinedInput
-                        name="tech"
-                        labelWidth={120}
-                        id="tech"
-                    />
+                        <OutlinedInput
+                            name="tech"
+                            labelWidth={120}
+                            id="tech"
+                        />
                     }
-                >
-                    <option value="" />
-                    <option value={10}>Java</option>
-                    <option value={20}>Web Development</option>
-                    <option value={30}>Android</option>
+                    >
+                    <option value="All" />
+                    {/* <option value={10}>Java</option> */}
+                    <option value={'Web'}>Web Development</option>
+                    <option value={'App'}>App Development</option>
                 </Select>
                 </FormControl>
                 </Grid>
@@ -96,7 +104,7 @@ class SelectOption extends Component {
                     </InputLabel>
                     <Select
                     native
-                    value={this.state.age}
+                    value={this.state.year}
                     onChange={this.handleChange('year')}
                     input={
                     <OutlinedInput
@@ -107,9 +115,9 @@ class SelectOption extends Component {
                     }
                 >
                     <option value="" />
-                    <option value={10}>1999</option>
-                    <option value={20}>2018</option>
-                    <option value={30}>2019</option>
+                    <option value={1999}>1999</option>
+                    <option value={2018}>2018</option>
+                    <option value={2019}>2019</option>
                 </Select>
                 </FormControl>  
         

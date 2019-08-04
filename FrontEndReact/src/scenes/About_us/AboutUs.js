@@ -5,9 +5,11 @@ import MyText from "./components/MyText/MyText";
 import FourthYears from "./components/FourthYears/FourthYears";
 import ThirdYears from "./components/ThirdYears/ThirdYears";
 import SecondYears from "./components/SecondYears/SecondYears";
+import MediaQuery from 'react-responsive';
 import Footer from "../../components/footer/footer";
-
 import home from "./components/About_usImg/home.png";
+import home1 from "./components/About_usImg/homesmall.png";
+import DropDownAbout from "./components/FourthYears/DropDown/DropDown";
 // import Footer from "../src/Components"
 
 class AboutUs extends Component {
@@ -51,7 +53,12 @@ class AboutUs extends Component {
         <Grid container direction="row" justify="center">
           <Grid item xs={12}>
             <div>
-              <img src={home} alt="about_us" style={this.styles.imageposition} />
+              <MediaQuery maxWidth={768} >
+                <img src={home1} alt="about_us" style={this.styles.imageposition} />
+              </MediaQuery>
+              <MediaQuery minWidth={769} >
+                <img src={home} alt="about_us" style={this.styles.imageposition} />
+              </MediaQuery>
             </div>
           </Grid>
         </Grid>
@@ -87,7 +94,12 @@ class AboutUs extends Component {
           <br />
 
           <Grid item xs={9}>
-            <FourthYears />
+            <MediaQuery minWidth={769} >
+                <FourthYears />
+            </MediaQuery>
+            <MediaQuery maxWidth={768} >
+                <DropDownAbout />
+            </MediaQuery>
           </Grid>
           <Grid item xs={12} />
           <br />
@@ -105,7 +117,12 @@ class AboutUs extends Component {
           <Grid item xs={12} />
 
           <Grid item xs={9}>
-            <ThirdYears />
+            <MediaQuery minWidth={769} >
+                <ThirdYears />
+            </MediaQuery>
+            <MediaQuery maxWidth={768} >
+                <DropDownAbout />
+            </MediaQuery>
           </Grid>
           <Grid item xs={12} />
           <br />
@@ -123,7 +140,12 @@ class AboutUs extends Component {
           <Grid item xs={12} />
 
           <Grid item xs={9}>
-            <SecondYears />
+            <MediaQuery minWidth={769} >
+                <SecondYears />
+            </MediaQuery>
+            <MediaQuery maxWidth={768} >
+                <DropDownAbout />
+            </MediaQuery>
           </Grid>
           <Grid item xs={12} />
         </Grid>

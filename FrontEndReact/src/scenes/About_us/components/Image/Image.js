@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Info from "../Info/Info";
-import "./styles/Photos.css";
+import "./styles/FourthImage.css";
 class Image extends Component {
   state = {};
   
@@ -8,11 +8,11 @@ class Image extends Component {
   render() {
     return (
       <div>
-        <div className="responsive">
-          <div className="gallery">
-            <div className="container">
+        <div className="responsive4">
+          <div className="gallery4">
+            <div className="container4">
               <img src={this.props.src} alt="" />
-              <div className="overlay">
+              <div className="overlay4">
                 {/* <div className="text"> */}
                 <div>
                   <Info />

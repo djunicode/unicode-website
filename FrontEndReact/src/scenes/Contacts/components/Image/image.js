@@ -4,6 +4,7 @@ import {styles} from './styles/ImageStyles.js'
 import { Grid } from '@material-ui/core';
 import GIT from './GIT.png';
 import PHONE from './PHONE.png';
+import MediaQuery from 'react-responsive';
 class image extends Component {
 
     style={
@@ -32,9 +33,11 @@ class image extends Component {
                     <img src={GIT} alt="#" width="84%"
                     style={this.style.centeringGIT}
                     />
-                    <img src={PHONE} alt="BlogImage" width="23%" 
-                    style={this.style.centeringPHONE}
-                    />
+                    <MediaQuery minWidth={769} >
+                        <img src={PHONE} alt="BlogImage" width="23%" 
+                        style={this.style.centeringPHONE}
+                        />
+                    </MediaQuery>
                     <div
                     style={this.style.centeringTEXT}
                     >

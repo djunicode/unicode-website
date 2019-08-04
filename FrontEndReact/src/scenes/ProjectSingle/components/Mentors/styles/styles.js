@@ -1,5 +1,6 @@
 export const styles={
     text:{
+        textAlign:"center",
         color:"#000000",
         fontSize: 32,
         marginTop: 71,

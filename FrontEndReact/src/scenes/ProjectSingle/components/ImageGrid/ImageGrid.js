@@ -10,7 +10,7 @@ class ImageGrid extends Component{
             direction="row"
             spacing={24}>
                 <Grid item xs={12} sm={12} md={12} lg={8} xl={8}>
-                    <img src="https://picsum.photos/730.05/360" width="100%"/>
+                    <img src={this.props.img1} width="100%"/>
                 </Grid>
                 <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
                     <Grid container
@@ -23,10 +23,10 @@ class ImageGrid extends Component{
                             justify="center"
                             spacing={24}>
                             <Grid item xs={6} lg={6}>
-                                <img src="https://picsum.photos/211.05/211.05" width="100%" />
+                                <img src={this.props.img2} width="100%" />
                             </Grid>
                             <Grid item xs={6} lg={6}>
-                                <img src="https://picsum.photos/211.05/211.05" width="100%" />
+                                <img src={this.props.img3} width="100%" />
                             </Grid>
                             </Grid>
                         </Grid>
@@ -36,10 +36,10 @@ class ImageGrid extends Component{
                         justify="center"
                         spacing={24}>
                             <Grid item xs={6} lg={6}>
-                                <img src="https://picsum.photos/211.05/211.05" width="100%" />
+                                <img src={this.props.img4} width="100%" />
                             </Grid>
                             <Grid item xs={6} lg={6}>
-                                <img src="https://picsum.photos/211.05/211.05" width="100%" />
+                                <img src={this.props.img5} width="100%" />
                             </Grid>
                             </Grid>
                         </Grid>

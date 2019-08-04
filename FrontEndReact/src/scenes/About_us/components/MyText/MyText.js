@@ -12,18 +12,8 @@ class MyText extends Component {
   render() {
     return (
       <div style={this.styles.myFont}>
-        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda delectus dicta iste, temporibus ipsam perferendis necessitatibus beatae, inventore officiis corrupti unde ut amet! Dicta nam numquam, illo totam sed, cupiditate maxime eos atque soluta nihil explicabo magni. Dolores, quisquam beatae.
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda delectus dicta iste, temporibus ipsam perferendis necessitatibus beatae, inventore officiis corrupti unde ut amet! Dicta nam numquam, illo totam sed, cupiditate maxime eos atque soluta nihil explicabo magni. Dolores, quisquam beatae.
       </div>
     );
   }

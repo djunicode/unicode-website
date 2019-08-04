@@ -29,18 +29,74 @@ class Info extends Component {
             marginRight: 30
         }
     }
+
+    getDate=(date)=>{
+        var year=date.split("-")[0]
+        var month=date.split("-")[1]
+        var day=date.split("-")[2]
+        switch(month){
+            case "01":
+                month="Jan"
+                break
+
+            case "02":
+                month="Feb"
+                break
+                    
+            case "03":
+                month="Mar"
+                break
+                    
+            case "04":
+                month="Apr"
+                break
+                    
+            case "05":
+                month="May"
+                break
+                    
+            case "06":
+                month="Jun"
+                break
+                    
+            case "07":
+                month="Jul"
+                break
+                    
+            case "08":
+                month="Aug"
+                break
+                    
+            case "09":
+                month="Sept"
+                break
+                    
+            case "10":
+                month="Oct"
+                break
+                    
+            case "11":
+                month="Nov"
+                break
+                    
+            case "12":
+                month="Dec"
+                break
+        }
+        return `${month} ${day}, ${year}`
+    }
     render() { 
         return ( 
             <CardActions style={{marginTop: 50,marginBottom: 40}} >
                 <Fade cascade delay={300} >
-                    <Avatar alt="Jon Snow" src={avatar} style={this.styles.avatar} />
+                    <Avatar alt="Jon Snow" src={this.props.pic} style={this.styles.avatar} />
                 </Fade>
                 <div style={this.styles.boldFont2} >
                 <Fade cascade delay={300} >
-                    Jon Snow
+                    {this.props.username}
                 </Fade>
                     <Fade cascade delay={300} >
-                        <div style={this.styles.subFont} >June 6,1999</div>
+                        <div style={this.styles.subFont} >{this.getDate(this.props.date)}</div>
                     </Fade>
                 </div>
             </CardActions>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Paper, Typography, Slide, Zoom } from '@material-ui/core';
 import Info from './components/Info/Info';
 import Flip from 'react-reveal/Flip';
+import { isAbsolute } from 'path';
 
 class FeedbackCard extends Component {
     state = { 
@@ -10,7 +11,9 @@ class FeedbackCard extends Component {
      }
      style={
         paper:{
+            position: "relative",
             padding: 30,
+            minHeight: "500px",
             borderRadius: 10,
             boxShadow: "#d6d6d6 0px 12px 16px",
             background: `${this.props.color}`,
@@ -44,15 +47,24 @@ class FeedbackCard extends Component {
             <Zoom in={this.state.checked} direction={this.state.direction} >
             <Paper style={this.style.paper} >
                 <Typography variant="headline" style={this.style.font} >
-                    <b>
+                    {/* <b>
                         {this.props.index}
-                    </b>
+                    </b> */}
                     <br/>
                     <Flip left cascade delay={400}>
-                        I'd like to learn more about why I should choose Kraken.
+                        {this.props.text}
                     </Flip>
                 </Typography>
-                <Info />
+                <div style={{position: "absolute",bottom: 30}} >
+                    <Info
+                    pic={this.props.pic}
+                    fname={this.props.fname}
+                    lname={this.props.lname}
+                    company={this.props.company}
+                    department={this.props.department}
+                    desgn={this.props.desgn}
+                    />
+                </div>
             </Paper>
             </Zoom>
          );

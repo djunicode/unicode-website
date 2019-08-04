@@ -5,6 +5,7 @@ import Flip from 'react-reveal/Flip';
 import LightSpeed from 'react-reveal/LightSpeed';
 import Rotate from 'react-reveal/Rotate';
 import Bounce from 'react-reveal/Bounce';
+import axios from 'axios';
 
 const Blue=createMuiTheme(
     {
@@ -47,6 +48,39 @@ class Subscribe extends Component {
             width: "100%"
         }
     }
+    handleChange=(e)=>{
+        var val=e.target.value
+        this.setState({email: val})
+    }
+    ValidateEmail=(inputText)=>{
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if(inputText.match(mailformat))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+     }
+    send=async()=>{
+        if(this.ValidateEmail(this.state.email)){
+            var params={
+                email: this.state.email
+            }
+            console.log(params)
+            var res=await axios.post('http://127.0.0.1:8000/api/reach/newsletter-subscribe/',params)
+            console.log(res.statusText)
+            if(res.statusText==='Created')
+            alert("Submitted")
+            this.setState({
+                email: ''
+            })
+        }
+        else{
+            alert("Please fill all the fields with valid information")
+        }
+    }
     render() { 
         return ( 
             <React.Fragment>
@@ -86,12 +120,14 @@ class Subscribe extends Component {
                                 label="Email"
                                 fullWidth
                                 margin="none"
+                                onChange={this.handleChange}
+                                value={this.state.email}
                                 >
                                 </TextField>
                             </Bounce>
                             </Grid>
                             <Grid item xs={10} sm={8} md={3} lg={2} >
-                                <Button color="primary" variant="contained" style={this.style.btnFont}>
+                                <Button onClick={this.send} color="primary" variant="contained" style={this.style.btnFont}>
                                 <Flip right cascade>
                                     Subscribe
                                 </Flip>

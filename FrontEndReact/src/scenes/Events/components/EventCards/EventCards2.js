@@ -97,6 +97,84 @@ class EventCards2 extends Component {
       color: "#000"
     }
   };
+  getDate=(date)=>{
+      var year=date.split("-")[0]
+      var month=date.split("-")[1]
+      var day=date.split("-")[2].split('T')[0]
+      switch(month){
+          case "01":
+              month="Jan"
+              break
+
+          case "02":
+              month="Feb"
+              break
+                  
+          case "03":
+              month="Mar"
+              break
+                  
+          case "04":
+              month="Apr"
+              break
+                  
+          case "05":
+              month="May"
+              break
+                  
+          case "06":
+              month="Jun"
+              break
+                  
+          case "07":
+              month="Jul"
+              break
+                  
+          case "08":
+              month="Aug"
+              break
+                  
+          case "09":
+              month="Sept"
+              break
+                  
+          case "10":
+              month="Oct"
+              break
+                  
+          case "11":
+              month="Nov"
+              break
+                  
+          case "12":
+              month="Dec"
+              break
+      }
+      return `${month} ${day}, ${year}`
+  }
+
+  alterContent=(content)=>{
+      var newContent=""
+      var count=0
+      content.split(" ").forEach((word)=>{
+          if(count!==30){
+              newContent+=word+" "
+              count++;
+          }
+      })
+      return newContent
+  }
+  getSlug=(url)=>{
+      if(url){
+      var slug =url.split("/")
+      slug=slug[slug.length-1]
+      console.log(slug)
+      return slug
+      }
+      else{
+          return ""
+      }
+  }
   handleUpdate = () => {
     // this.forceUpdate()
     window.scrollTo(0, 0);
@@ -106,7 +184,7 @@ class EventCards2 extends Component {
       <Card style={this.styles.card}>
         <NavLink
           style={this.styles.link}
-          to="/Events"
+          to={`/EventSingle/${this.getSlug(this.props.link)}`}
           onClick={this.handleUpdate}
         >
           <CardActionArea>
@@ -119,16 +197,15 @@ class EventCards2 extends Component {
               <div style={this.styles.topFont}>WEB DEVELOPMENT</div>
 
               <Typography component="p" style={this.styles.regFont}>
-                What makes a great landing page?
+                {this.props.title}
               </Typography>
 
               <Typography variant="subtitle2" style={this.styles.subFont}>
-                Explore the design process behind some great landing page
-                examples. Lorem ipsum lorem ispum...
+                {this.props.desc}
               </Typography>
-              <PriceBtn price="50" />
+              <PriceBtn price={this.props.price} />
               <div style={this.styles.dateFont}>DATE:</div>
-              <div style={this.styles.dateInfo}>DEC 28, 2018</div>
+              <div style={this.styles.dateInfo}>{this.getDate(this.props.date)}</div>
             </CardContent>
           </CardActionArea>
         </NavLink>
