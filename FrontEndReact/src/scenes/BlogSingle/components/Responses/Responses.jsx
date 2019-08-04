@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
-import { InputBase, Paper, IconButton, CardActions } from '@material-ui/core';
+import { InputBase, Paper, IconButton, CardActions, Button } from '@material-ui/core';
 import CommentCard from './component/CommentCard';
 import MessageIcon from '@material-ui/icons/Message';
+import SendIcon from '@material-ui/icons/Send';
 import MediaQuery from 'react-responsive';
+import axios from 'axios';
 
 class Responses extends Component {
-    state = {  }
+    state = { 
+        title: '',
+        comment: '',
+        responseCard: []
+     }
     style={
         paper:{
             padding: "2%",
@@ -33,7 +39,54 @@ class Responses extends Component {
             lineHeight: "33px"
         }
     }
-    render() { 
+    handleUpdate=(e)=>{
+        var text=e.target.value
+        this.setState({comment: text})
+    }
+    send=async()=>{
+        if(this.state.comment!==''){
+            var params={
+                post: this.props.id,
+                author: this.askName(),
+                text: this.state.comment
+            }
+            console.log(params)
+            var res=await axios.post(`${this.props.link}`,params)
+            console.log(res.statusText)
+            if(res.statusText==='Created')
+            alert("Submitted")
+            this.setState({comment: ''})
+        }
+        else{
+            alert("Please fill all the fields with valid information")
+        }
+    }
+    handlePost=()=>{
+        this.send()
+    }
+    askName=()=>{
+        var person = prompt("Please enter your name:", "Anonymous");
+        return person
+    }
+    componentDidUpdate=(prevProps,prevState)=>{
+        if(prevProps!=this.props){
+            this.setState({responseCard: this.props.res,post:this.props.title})
+        }
+    }
+    render() {
+        console.log(this.state)
+        var renderComment=""
+        if(this.state.responseCard!==""){
+            renderComment=this.state.responseCard.map((data)=>{
+                return(
+                    <CommentCard
+                    author={data.author}
+                    text={data.text}
+                    />
+                    )
+            }
+            )
+        }
         return ( 
             <React.Fragment>
                 <div  style={this.style.heading}>Responses</div>
@@ -47,9 +100,14 @@ class Responses extends Component {
                         <InputBase
                         style={this.style.input}
                         fullWidth
+                        value={this.state.comment}
+                        onChange={this.handleUpdate}
                         placeholder="Write a response..."
                         >
                         </InputBase>
+                        <IconButton onClick={this.handlePost} style={{padding: 6,marginBottom:0}} >
+                            <SendIcon style={{height:24,fontSize: 40}} />
+                        </IconButton>
                     </CardActions>
                 </MediaQuery>
 
@@ -61,16 +119,19 @@ class Responses extends Component {
                         <InputBase
                         style={this.style.input}
                         fullWidth
+                        value={this.state.comment}
+                        onChange={this.handleUpdate}
                         placeholder="Write a response..."
                         >
                         </InputBase>
+                        <IconButton onClick={this.handlePost} style={{padding: 6,marginBottom:0}} >
+                            <SendIcon style={{height:24,fontSize: 40}} />
+                        </IconButton>
                     </CardActions>
                 </MediaQuery>
 
                 </Paper>
-
-                <CommentCard />
-                <CommentCard />
+                {renderComment}
             </React.Fragment>
          );
     }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Paper, Grid } from "@material-ui/core";
-import "./styles/Photos.css";
+import "./styles/FourthYear.css";
 import img1 from "./Images/img1.jpg";
 import Image from "../Image/Image";
 

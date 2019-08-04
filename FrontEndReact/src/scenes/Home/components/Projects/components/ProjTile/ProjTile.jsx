@@ -39,6 +39,18 @@ class ProjTile extends Component {
             })
           }, 600);
     }
+    alterContent=(content)=>{
+        var newContent=""
+        var count=0
+        content=`${content}`
+        content.split(" ").forEach((word)=>{
+            if(count!==15){
+                newContent+=word+" "
+                count++;
+            }
+        })
+        return `${newContent}. . . .`
+    }
     render() { 
         // console.log(this.state)
         let conditionalStyling={
@@ -62,7 +74,7 @@ class ProjTile extends Component {
                 style={this.style.font}
                 >
                     <Grid item xs={12} md={4} lg={4} >
-                        <img src={ProjImg} width="100%" ></img>
+                        <img style={{borderRadius: "50%"}} src={this.props.cover||ProjImg} width="100%" ></img>
                     </Grid>
                     <Grid item xs={12} md={1}>
                         
@@ -75,10 +87,10 @@ class ProjTile extends Component {
                         style={{padding: "8% 0%"}}
                         >
                             <Grid item xs={12} style={conditionalStyling.projName} >
-                                Project Name {this.props.id}
+                                {this.props.projName}
                             </Grid>
                             <Grid item xs={12} style={conditionalStyling.text} >
-                                I'd like to learn more about why I should choose Kraken. I'd like to learn more about why I should choose Kraken.
+                                {this.alterContent(this.props.text)}
                             </Grid>
                             <Grid item xs={12} >
                                 <Grid
@@ -87,7 +99,7 @@ class ProjTile extends Component {
                                 justify={this.state.Gwidth<960?"center":"flex-start"}
                                 >
                                     <Grid item xs={7} sm={5} md={4} xl={3} >
-                                        <ViewButton />
+                                        <ViewButton link={this.props.link} />
                                     </Grid>
                                 </Grid>
                             </Grid>

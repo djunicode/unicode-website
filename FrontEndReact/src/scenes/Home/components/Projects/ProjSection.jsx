@@ -3,10 +3,12 @@ import { Grid } from '@material-ui/core';
 import ProjTile from './components/ProjTile/ProjTile';
 import Pagination from '../Pagination/Pagination';
 import Flip from 'react-reveal/Flip';
+import axios from 'axios';
 
 class ProjSection extends Component {
     state = { 
-        Gwidth: 1
+        Gwidth: 1,
+        projectsData: []
      }
     style={
         OutterItem:{
@@ -24,6 +26,21 @@ class ProjSection extends Component {
             paddingRight: 8,
             letterSpacing: "0.080em"
         }
+    }
+    getData=(p)=>{
+        // axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${p||this.state.page}`)
+        // /?limit=2&offset=${p*2-2}
+        axios.get(`http://localhost:8000/api/projects/?limit=4&offset=0`)
+        .then((response)=>{
+            console.log(response.data.results)
+            this.setState({
+                projectsData: response.data.results
+            })
+        })
+        .catch(e=>console.log(e))
+    }
+    componentDidMount=()=>{
+        this.getData()
     }
     render() { 
         return ( 
@@ -52,7 +69,7 @@ class ProjSection extends Component {
                             direction="row"
                             justify="center"
                             >
-                                <Pagination />
+                                <Pagination data={this.state.projectsData} />
                             </Grid>
                         </Grid>
                     </Grid>

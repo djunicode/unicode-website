@@ -4,7 +4,8 @@ import { Grid } from '@material-ui/core';
 
 class Pagination extends Component {
     state = { 
-        todos: ['1','2','3','4'],
+        todos: ['0','1','2','3'],
+        projectsData: [],
         currentPage: 1,
         todosPerPage: 1,
         checked: false
@@ -30,7 +31,13 @@ class Pagination extends Component {
            this.handleNext(4)
         }, 8000)
       }
+      componentDidUpdate=(prevProps,prevState)=>{
+        if(prevProps!==this.props){
+          this.setState({projectsData: this.props.data})
+        }
+      }
     render() { 
+      console.log(this.state)
         const { todos, currentPage, todosPerPage } = this.state;
         const indexOfLastTodo = currentPage * todosPerPage;
         const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
@@ -38,7 +45,14 @@ class Pagination extends Component {
 
         const renderTodos = currentTodos.map((todo, index) => {
             return (
-              <ProjTile id={todo} checked={this.state.checked} />
+              <ProjTile
+              id={todo} 
+              checked={this.state.checked} 
+              projName={this.state.projectsData.length?this.state.projectsData[todo].title:""}
+              link={this.state.projectsData.length?this.state.projectsData[todo].detail:""}
+              text={this.state.projectsData.length?this.state.projectsData[todo].description:""}
+              cover={this.state.projectsData.length?this.state.projectsData[todo].cover:""}
+              />
             );
         });
 
@@ -72,7 +86,6 @@ class Pagination extends Component {
         // </li>
       );
     });
-
 
         return ( 
             <React.Fragment>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Grid} from '@material-ui/core';
+import { Grid, Avatar} from '@material-ui/core';
 import ProjSection from './components/Projects/ProjSection';
+import avatar from '../Blog/components/BlogCard/images/avatar.jpg';
+import F from '../Blog/components/BlogCard/images/bg.png';
 import Overvview from './components/Projects/components/Overview/Overview';
 import Subscribe from './components/Subscribe/Subscribe';
 import CardHolder from './components/Projects/components/CardHolder/CardHolder';
@@ -10,13 +12,22 @@ import Bounce from 'react-reveal/Bounce';
 import Slide from 'react-reveal/Slide';
 import Video from './components/Video/Video';
 import { ParallaxProvider, Parallax, withController } from 'react-scroll-parallax';
+import Founder from './components/Founder/Founder';
 
 class HomePage extends Component {
-    state = {  }
+    state = { 
+        projectsData: []
+     }
+     styles={
+        avatar:{
+            width: 300,
+            height: 300
+        }
+     }
     handleLoad = () => {
         // updates cached values after image dimensions have loaded
         this.props.parallaxController.update();
-    };
+    }
     render() { 
         return ( 
             <React.Fragment>
@@ -36,23 +47,39 @@ class HomePage extends Component {
                     <Grid item xs={12} style={{background: "#445DFF",zIndex: 10}} >
                         <ProjSection />
                     </Grid>
-                    <Grid item xs={10} 
+                    <Grid item xs={12} 
                     style={
                         {
-                            padding: "10%",
+                            padding: "6%",
                             background: "#F8F8F8",
                             color: "#445DFF",
                             fontSize: 24,
                             fontFamily: "'Open Sans', sans-serif",
                             fontWeight: 700,
                             letterHeight: "33px",
-                            textAlign: "left"
+                            textAlign: "left",
+                            backgroundImage: `url('${F}')`,
+                            backgroundRepeat: "no-repeat",
+                            backgroundPosition: "left top",
+                            backgroundSize: "cover"
                             }
                         } >
                         <Fade cascade>
-                            Section Under Construction
-                            <br/>
-                            (Maybe founders)
+                            <Grid
+                            container
+                            direction='row'
+                            justify='center'
+                            spacing={32}
+                            >
+                                {/* <img src={F} alt="F"/> */}
+                                <Grid item style={{fontSize: 36}} >
+                                    Founders
+                                </Grid>
+                                <Grid item xs={12} ></Grid>
+                                <Founder />
+                                <Founder />
+                                <Founder />
+                            </Grid>
                         </Fade>
                     </Grid>
                     

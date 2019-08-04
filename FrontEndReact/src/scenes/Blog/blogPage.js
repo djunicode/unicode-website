@@ -3,6 +3,7 @@ import { Grid } from '@material-ui/core';
 import BlogImage from './components/BlogImg/blogImg';
 import Navbar from './components/NavBar/Navbar';
 import SearchBar from './components/SearchBar/Searchbar';
+import blogText from './components/BlogImg/images/blogText.png';
 import BlogCard from './components/BlogCard/BlogCard';
 import Pagination from '../../components/Pagination/Pagination';
 import BottomNav from './components/BottomNav/BottomNav';
@@ -12,10 +13,14 @@ import axios from 'axios';
 
 class BlogApp extends Component {
     state={
+        error:[1],
         data: [],
+        allData:[],
+        filter: [],
         cards: [1,2,3,4,5,6,7,8],
         page: 1,
-        category: "All"
+        category: "All",
+        count: 0
     }
     styles={
         innerGridNav:{
@@ -28,61 +33,117 @@ class BlogApp extends Component {
     }
 
     setCategory=(c)=>{
+        var obj=[]
         if(c==="ALL"){
-            this.setState({category: c})
+            var f=this.filterNames("all")
+            this.setState({category: c,filter:f})
         }
         else if(c==="WEB DESIGN"){
-            this.setState({category: c})
+            var f=this.filterNames("design")
+            console.log(f)
+            this.setState({category: "design",filter:f})
         }
         else if(c==="WEB DEVELOPMENT"){
-            this.setState({category: c})
+            var f=this.filterNames("web")
+            console.log(f)
+            this.setState({category: "web",filter:f})
         }
         else if(c==="APP DEVELOPMENT"){
-            this.setState({category: c})
+            var f=this.filterNames("app")
+            this.setState({category: "app",filter:f})
         }
+    }
+
+    getAllData=(p)=>{
+        // axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${p||this.state.page}`)
+        axios.get(`http://localhost:8000/api/posts/`)
+        .then((response)=>{
+            // console.log("Response: "+response.data)
+            this.setState({
+                allData: response.data.results
+            })
+        })
+        .catch(e=>console.log(e))
     }
 
     getData=(p)=>{
-        axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${p||this.state.page}`)
+        // axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${p||this.state.page}`)
+        axios.get(`http://localhost:8000/api/posts/?limit=2&offset=${p*2-2}`)
         .then((response)=>{
-            console.log(response.data)
+            // console.log("Response: "+response.data)
             this.setState({
-                data: response.data,
-                page: p
+                data: response.data.results,
+                filter: response.data.results,
+                page: p,
+                count: Math.ceil((response.data.count)/2)*10
             })
         })
         .catch(e=>console.log(e))
     }
 
-    getSearchData=(p)=>{
-        axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${p}`)
+    filterNames(tech){
+        if(tech==="all"){
+            var all=this.state.data.filter(item => item.technologies[0]==="web"||item.technologies[0]==="app"||item.technologies[0]==="design")
+            return all
+        }
+        else{
+            return this.state.data.filter(item => item.technologies[0]===tech)
+        }
+      }
+
+      filterTitles(title){
+        return this.state.data.filter(item => item.title.toLowerCase().includes(title.toLowerCase()))
+      }
+
+    getSearchData=(text)=>{
+        // var results=this.filterTitles(text)
+        // this.setState({filter: results})
+        axios.get(`http://localhost:8000/api/posts/?s=${text}`)
         .then((response)=>{
-            console.log(response.data)
+            // console.log("Response: "+response.data)
             this.setState({
-                data: response.data,
-                page: p
+                // data: response.data.results,
+                filter: response.data.results,
+                count: Math.ceil((response.data.count)/2)*10
             })
         })
         .catch(e=>console.log(e))
+        // console.log(results)
     }
 
     componentDidMount=()=>{
         this.getData()
+        this.getAllData()
     }
 
   render() {
-    const renderCard=this.state.data.map((data)=>{
+      console.log(this.state)
+    //   this.getSearchData(1)
+    this.filterNames("web")
+    const error=this.state.error.map((data)=>{
+        return(
+            <h2 style={{fontWeight: 300,fontSize: "48px",color: "#7c7c7c",padding: "180px 0px"}} >
+                No Results Found
+            </h2>
+            )
+    }
+    )
+    const renderCard=this.state.filter.map((data)=>{
             return(
             <BlogCard
-                heading={this.state.category}
-                subHeading="What makes a great landing page?"
-                content={data.body}
-                author="Jon Snow" date="Jun 6, 1999"
+                cover={data.cover}
+                heading={data.technologies}
+                subHeading={data.title}
+                pic={data.author.profile_pic}
+                content={data.content}
+                author={data.author.username}
+                date={data.publish}
+                detailLink={data.detail}
             />
                 )
         }
         )
-    console.log(this.state.category)
+    console.log(this.state.data)
     return (
         <div>
             <Grid
@@ -93,7 +154,27 @@ class BlogApp extends Component {
             >
                 {/* Shows redBackground AND image */}
                 <Grid item xs={12}>
-                    <BlogImage />
+                    <MediaQuery minWidth={768} >
+                        <BlogImage />
+                    </MediaQuery>
+                    <MediaQuery maxWidth={768} >
+                        <div>
+                        <Grid
+                        container
+                        direction="row"
+                        justify="center"
+                        style={{background: "#FF7171"}}
+                        >
+                            <Grid item xs={12}>
+                                {/* <Grid item xs={12} style={{background: "#FF7171",height: "100vh"}} > */}
+                                    <img src={blogText} alt="#" width="30%"
+                                    style={{marginLeft: "50%",transform: "translateX(-50%)"}}
+                                    />
+                                {/* </Grid> */}
+                            </Grid>
+                        </Grid>
+                        </div>
+                    </MediaQuery>
                     <MediaQuery maxWidth={960} >
                         <BottomNav setCategory={this.setCategory} />
                     </MediaQuery>
@@ -138,13 +219,13 @@ class BlogApp extends Component {
                     spacing={24} 
                     style={{width: "100%",margin: 0}}
                     >
-                        {renderCard}
+                        {this.state.filter.length?renderCard:error}
                     </Grid>
                     </Grid>
                     </Grid>
                 </Grid>
                 <Grid item xs={12}>
-                    <Pagination getData={this.getData} setPage={this.setPage} />
+                    <Pagination width={this.state.count} getData={this.getData} setPage={this.setPage} />
                 </Grid>
                 {/* <P /> */}
             </Grid>

@@ -21,7 +21,9 @@ const myTheme=createMuiTheme(
 );
 
 class Searchbar extends Component {
-    state = {  }
+    state = { 
+        text:""
+     }
     styles={
         paper:{
             display: "flex",
@@ -46,16 +48,27 @@ class Searchbar extends Component {
             },
         }
     }
+    timeout=0
+    doSearch=(e)=>{
+        var searchText = e.target.value
+        if(this.timeout) clearTimeout(this.timeout);
+        this.timeout = setTimeout(() => {
+            this.props.getSearchData(searchText)
+        }, 800);
+    }
+    handleChange=(e)=>{
+        this.setState({text: e.target.value})
+    }
     render() { 
         return ( 
             <MuiThemeProvider theme={myTheme} >
             <Tooltip title="Search" aria-label="Search">
                 <Paper style={this.styles.paper} >
                 <div className="pinkBar" ></div>
-                <IconButton onClick={()=>this.props.getSearchData(1)} style={this.styles.icon} aria-label="Search">
+                <IconButton onClick={()=>this.props.getSearchData(this.state.text)} style={this.styles.icon} aria-label="Search">
                     <SearchIcon />
                 </IconButton>
-                <InputBase fullWidth placeholder="Search" />
+                <InputBase name='Search' onChange={this.doSearch} fullWidth placeholder="Search" />
                 </Paper>
             </Tooltip>
             </MuiThemeProvider>

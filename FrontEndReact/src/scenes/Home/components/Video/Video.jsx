@@ -8,7 +8,7 @@ class Video extends Component {
     render() { 
         return ( 
             <React.Fragment>
-            <header class="v-header container">
+            <header class="v-header containerVideo">
                 <div class="fullscreen-video-wrap">
                 {/* <video src="https://production.cdmycdn.com/assets/marketing-pages/intensives/bws/coding-scenes-9a2031e8142b40bdb5d936d5eef33dfa.mp4" autoplay="" loop=""> */}
                 <video src={video} autoPlay muted loop>
