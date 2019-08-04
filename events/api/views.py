@@ -1,3 +1,4 @@
+from datetime import date
 from rest_framework.generics import (
     CreateAPIView, UpdateAPIView, DestroyAPIView,
     ListAPIView, RetrieveAPIView, RetrieveUpdateAPIView
@@ -25,11 +26,16 @@ class EventListAPIView(ListAPIView):
     filter_backends = [SearchFilter, OrderingFilter]
     search_fields = ['title', 'technologies', 'date']
 
+    def get_queryset(self, *args, **kwargs):
+        qs = Event.objects.all().filter(date__date__gte=date.today())
+        return qs
+
 
 class EventDetailAPIView(RetrieveAPIView):
     queryset = Event.objects.all()
     serializer_class = EventDetailSerializer
     permission_class = [AllowAny]
+    lookup_field = 'slug'
 
     """def get_queryset(self,id):
         queryset_list = Event.objects.filter(id=id)
@@ -57,6 +63,7 @@ class EventCreateAPIView(CreateAPIView):
 class ParticipantCreateAPIView(CreateAPIView):
     queryset = Participant.objects.all()
     serializer_class = ParticipantCreateSerializer
+    lookup_field = 'slug'
 
     def perform_create(self, serializer):
         serializer.save()

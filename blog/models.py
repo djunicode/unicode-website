@@ -1,11 +1,16 @@
+from django.db import models
 from multiselectfield import MultiSelectField
 # from django.contrib.auth import get_user_model
+from django.conf import settings
 from django.urls import reverse
-from django.db.models.signals import pre_save
+from django.db.models.signals import pre_save, post_save
+from django.core.mail import EmailMessage
+from django.template.loader import get_template
+from django.template import Context
 from django.utils import timezone
 from django.utils.text import slugify
-from django.db import models
 from profiles.models import UserProfile
+from newsletter.models import Newsletter
 
 # User = get_user_model()
 
@@ -56,12 +61,36 @@ def pre_save_post_receiver(sender, instance, *args, **kwargs):
     slug = slugify(instance.title)
     qs = Post.objects.filter(slug=slug).order_by("-id")
     if qs.exists():
-        new_slug = "{}-{}" .format(slug, qs.count())
+        new_slug = f"{slug}-{qs.count()}"
         slug = new_slug
     instance.slug = slug
 
 
 pre_save.connect(pre_save_post_receiver, sender=Post)
+
+"""
+def post_save_event_receiver(sender, instance, *args, **kwargs):
+    subscribers = Newsletter.objects.all()
+    subject = 'Unicode Blog Notification'
+    from_email = settings.EMAIL_HOST_USER
+    from_email = settings.EMAIL_HOST_USER
+    to_list = [subscribers.email for subscriber in subscribers]
+    to_list.append(from_email)
+    context = {
+        'title': instance.title,
+        'url': 'http://localhost:8000/api/posts/detail/' + instance.slug,
+        'message': "Check out the new blog"
+    }
+    message = get_template(
+        'email.html').render(context)
+    msg = EmailMessage(subject, message, to=to_list,
+                       from_email=from_email)
+    msg.content_subtype = 'html'
+    msg.send()
+
+
+post_save.connect(post_save_event_receiver, sender=Post)
+"""
 
 
 class CommentManager(models.Manager):

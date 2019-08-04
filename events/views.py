@@ -9,8 +9,6 @@ from django.core.paginator import Paginator
 
 def event_list(request):
     events = Event.objects.all()
-    # page = request.GET.get.
-
     context = {
         "events": events
     }
@@ -36,7 +34,7 @@ def event_create(request):
     return render(request, "events/event_form.html", context)
 
 
-def event_update(request):
+def event_update(request, slug=None):
     if not request.user.is_superuser:
         raise Http404
     # obj = get_object_or_404(Event, slug = slug)
@@ -52,8 +50,8 @@ def event_update(request):
     return render(request, "events/event_form.html", context)
 
 
-def event_detail(request, id):
-    event = Event.objects.filter(id=id)
+def event_detail(request, slug=None):
+    event = get_object_or_404(Event, slug=slug)
     participant = Participant.objects.all()
     form = ParticipantForm(request.POST or None)
     if form.is_valid():

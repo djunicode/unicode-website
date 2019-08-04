@@ -7,8 +7,7 @@ from events.models import Event, Participant
 class EventListSerializer(serializers.ModelSerializer):
     title = serializers.SerializerMethodField()
     technology = serializers.SerializerMethodField()
-
-    url = serializers.HyperlinkedIdentityField(view_name='events-api:detail')
+    url = serializers.HyperlinkedIdentityField(view_name='events-api:detail', lookup_field='slug')
 
     class Meta:
         model = Event
@@ -26,13 +25,13 @@ class EventListSerializer(serializers.ModelSerializer):
         return obj.title
 
     def get_technology(self, obj):
-        data = []
-        for i in obj.technologies:
-            data.append(i.capitalize())
+        data = [i for i in obj.technologies]
+        return data
 
 
 class EventDetailSerializer(serializers.ModelSerializer):
-    url = serializers.HyperlinkedIdentityField(view_name='events-api:participant')
+    url = serializers.HyperlinkedIdentityField(view_name='events-api:participant', lookup_field='slug')
+    participants = serializers.SerializerMethodField()
 
     class Meta:
         model = Event
@@ -43,8 +42,12 @@ class EventDetailSerializer(serializers.ModelSerializer):
             'technologies',
             'date',
             'event_amount',
-            'user'
+            'user',
+            'participants'
         ]
+
+    def get_participants(self, obj):
+        return Participant.objects.all().filter(event=obj).count()
 
 
 class EventCreateSerializer(serializers.ModelSerializer):
