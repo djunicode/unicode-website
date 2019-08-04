@@ -29,8 +29,8 @@ class UserProfile(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.user.first_name + " " + self.user.last_name
+        return f"{self.user.first_name} {self.user.last_name}"
 
     @property
     def get_email(self):
-        return self.user.email
+        return f"{self.user.email}"

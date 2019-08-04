@@ -116,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -137,3 +137,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static_cdn")
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media_cdn")
+
+# Email Config
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'EMAIL'
+EMAIL_HOST_PASSWORD = 'PASSWORD'
+EMAIL_USE_TLS = True
