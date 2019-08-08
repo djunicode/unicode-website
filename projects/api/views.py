@@ -36,9 +36,11 @@ class ProjectListAPIView(ListAPIView):
         qs = Project.objects.all()
         search = self.request.GET.get("s", None)
         year = self.request.GET.get("year", None)
+        tech = self.request.GET.get("tech", None)
         if search:
-            qs = qs.filter(Q(title__icontains=search) | Q(description__icontains=search) | Q(
-                technologies__icontains=search)).distinct()
+            qs = qs.filter(Q(title__icontains=search) | Q(description__icontains=search)).distinct()
         if year:
             qs = qs.filter(year__year=year)
+        if tech:
+            qs = qs.filter(technologies__icontains=tech)
         return qs
