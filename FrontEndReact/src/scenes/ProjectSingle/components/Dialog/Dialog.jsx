@@ -40,7 +40,7 @@ class DialogBox extends Component {
          },
          lorem:{
             textAlign: "center",
-            padding: "10px 0px",
+            padding: "30px 0px",
             fontFamily: "'Open Sans', sans-serif",
             fontWeight: "400",
             fontSize: 18
@@ -152,10 +152,10 @@ class DialogBox extends Component {
                                     </Grid>
                                 </Grid>
                             </Grid>
-                            <Grid item xs={12} style={this.styles.git} >
+                            {/* <Grid item xs={12} style={this.styles.git} >
                                 <div onClick={this.handleExpand} >Get In Touch</div>
-                            </Grid>
-                            <Collapse in={this.state.expand}>
+                            </Grid> */}
+                            {/* <Collapse in={this.state.expand}>
                                 <Grid
                                 container
                                 direction="row"
@@ -196,7 +196,7 @@ class DialogBox extends Component {
                                         </Grid>
                                     </Grid>
                                 </Grid>
-                            </Collapse>           
+                            </Collapse>            */}
                         </Grid>
                     </Paper>
                 </Dialog>

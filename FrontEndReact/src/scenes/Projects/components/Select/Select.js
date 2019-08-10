@@ -87,7 +87,7 @@ class SelectOption extends Component {
                         />
                     }
                     >
-                    <option value="All" />
+                    <option value="" />
                     {/* <option value={10}>Java</option> */}
                     <option value={'Web'}>Web Development</option>
                     <option value={'App'}>App Development</option>

@@ -12,11 +12,11 @@ class CardGrid extends Component {
     getData=(p)=>{
         // axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${p||this.state.page}`)
         // /?limit=2&offset=${p*2-2}
-        axios.get(`http://localhost:8000/api/postreview/`)
+        axios.get(`http://localhost:8000/api/postreview/?&offset=${(p-1)*this.getNumberOfCards()}`)
         .then((response)=>{
             console.log(response.data.results)
             this.setState({
-                postReview: this.setColor(response.data)
+                postReview: this.setColor(response.data.results)
             })
         })
         .catch(e=>console.log(e))
@@ -34,6 +34,7 @@ class CardGrid extends Component {
         }
     }
     setColor=(array)=>{
+        console.log(array.results)
         var color=undefined
         var counter=0
         array.forEach(e=>{
@@ -68,6 +69,7 @@ class CardGrid extends Component {
          this.getData()
      }
     render() { 
+        console.log(this.state)
         return ( 
             <Grid
             container
@@ -76,7 +78,7 @@ class CardGrid extends Component {
             spacing={40}
             style={{width: "100%",margin: 0}}
             >
-                <PaginationCards data={this.state.postReview} no={this.getNumberOfCards()} />
+                <PaginationCards getData={this.getData} data={this.state.postReview} no={this.getNumberOfCards()} />
             </Grid>
          );
     }

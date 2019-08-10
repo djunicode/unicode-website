@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ object.first_name }}</h1>
+<p>{{ object.last_name }}</p>
+<p><img src="{{ object.photograph.url }}" width="300px" alt="broken" /></p> <br/>
+<p>{{ object.designation }}</p>
+<p>{{ object.company }}</p>
+<p>{{ object.last_name }}</p>
+<p>{{ object.department }}</p>
+<p>{{ object.comments }}</p>
+<p> Click the button below to update or delete your review</p>
+  <button type="button" name="update"><a href=" {% url 'postreview:product-update' object.id %}"> Update</a></button>
+    <p>OR</p>
+  <button type="button" name="delete"><a href=" {% url 'postreview:product-delete' object.id %}"> Delete</a></button>
+{% endblock %}

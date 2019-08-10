@@ -5,9 +5,14 @@ import MessageIcon from '@material-ui/icons/Message';
 import SendIcon from '@material-ui/icons/Send';
 import MediaQuery from 'react-responsive';
 import axios from 'axios';
+import DialogInp from '../../../../components/DialogInp/DialogInp';
+import MessageDialog from '../../../../components/MessageDialog/MessageDialog';
 
 class Responses extends Component {
     state = { 
+        name: '',
+        showMessage: false,
+        open: false,
         title: '',
         comment: '',
         responseCard: []
@@ -43,30 +48,38 @@ class Responses extends Component {
         var text=e.target.value
         this.setState({comment: text})
     }
-    send=async()=>{
+    send=async(name)=>{
         if(this.state.comment!==''){
             var params={
                 post: this.props.id,
-                author: this.askName(),
+                author: name,
                 text: this.state.comment
             }
             console.log(params)
             var res=await axios.post(`${this.props.link}`,params)
             console.log(res.statusText)
             if(res.statusText==='Created')
-            alert("Submitted")
-            this.setState({comment: ''})
+            // alert("Comment submitted")
+            this.setState({showMessage: true,comment: '',open: false})
         }
         else{
             alert("Please fill all the fields with valid information")
         }
     }
+    giveName=(name)=>{
+        this.setState({name: name})
+        this.send(name)
+    }
     handlePost=()=>{
-        this.send()
+        this.setState({open: true})
     }
     askName=()=>{
-        var person = prompt("Please enter your name:", "Anonymous");
-        return person
+        // var person = prompt("Please enter your name:", "Anonymous");
+        // return person
+        this.setState({open: true})
+    }
+    reset=()=>{
+        this.setState({showMessage: false})
     }
     componentDidUpdate=(prevProps,prevState)=>{
         if(prevProps!=this.props){
@@ -89,6 +102,15 @@ class Responses extends Component {
         }
         return ( 
             <React.Fragment>
+                <MessageDialog
+                reset={this.reset}
+                open={this.state.showMessage}
+                message="The comment has been submitted successfully. It will be live as soon as it get approved."
+                agree="OK"
+                disagree="none"
+                title="Successful"
+                />
+                <DialogInp giveName={this.giveName} open={this.state.open} />
                 <div  style={this.style.heading}>Responses</div>
                 <Paper style={this.style.paper} >
 

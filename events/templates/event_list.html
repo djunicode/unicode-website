@@ -1,0 +1,10 @@
+<h3><center>Basic Template to display List of Events</center></h3>
+{% block content %}
+  {% for event in events %}
+  <ul>
+    <li><h3>
+      {{ event.date|date:"d-m-Y"}} {{event.title}}
+    <a href="{% url 'events:detail' event.id %}"</a></h3></li>
+  </ul>
+    {% endfor %}
+{% endblock %}

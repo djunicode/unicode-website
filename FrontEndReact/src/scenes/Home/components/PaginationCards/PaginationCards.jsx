@@ -43,6 +43,7 @@ class PaginationCards extends Component {
       }
       handlePrev=(event)=>{
         // console.log(event.target.parentElement.childNodes[6].childNodes)
+        // this.props.getData(this.state.currentPage-1)
         if(this.state.currentPage!==1)
         this.setState({currentPage: this.state.currentPage-1})
       }
@@ -50,13 +51,19 @@ class PaginationCards extends Component {
         // console.log(event.target.parentElement.childNodes[6].childNodes)
         console.log(pageNumbers.length)
         // console.log(event)
+        // this.props.getData(this.state.currentPage+1)
         const indexOfLastTodo = this.state.currentPage * this.state.todosPerPage;
         if(this.state.currentPage!==pageNumbers.length)
             this.setState({currentPage: this.state.currentPage+1})
       }
       componentDidUpdate=(prevProps,prevState)=>{
           if(prevProps!==this.props){
-              this.setState({todos: this.props.data})
+            //   console.log(this.props.no)
+              this.setState({todos: this.props.data,todosPerPage: this.props.no})
+          }
+          if(prevState.currentPage!==this.state.currentPage){
+            console.log(this.state.currentPage)
+            this.props.getData(this.state.currentPage)
           }
       }
       alterContent=(content)=>{
@@ -80,6 +87,7 @@ class PaginationCards extends Component {
         const indexOfLastTodo = currentPage * todosPerPage;
         const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
         var currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
+        console.log(todos)
 
         const renderTodos = currentTodos.map((todo, index) => {
             console.log(todo.color)
@@ -101,7 +109,7 @@ class PaginationCards extends Component {
         });
 
         const pageNumbers = [];
-        for (let i = 1; i <= Math.ceil(todos.length / todosPerPage); i++) {
+        for (let i = 1; i <= Math.ceil(4 / todosPerPage); i++) {
             pageNumbers.push(i);
         }
 
