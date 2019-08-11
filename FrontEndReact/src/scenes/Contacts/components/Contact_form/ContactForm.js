@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Paper,TextField, Grid,createMuiTheme ,MuiThemeProvider } from '@material-ui/core';
 import {styles} from './styles/FormStyles.js'
 import axios from 'axios';
+import MessageDialog from '../../../../components/MessageDialog/MessageDialog.jsx';
 
 const theme=createMuiTheme({
     palette:{
@@ -35,6 +36,7 @@ const theme=createMuiTheme({
 class RegCard extends Component {
 
     state = { 
+        showMessage: false,
         name: '',
         email: '',
         message: ''
@@ -63,8 +65,9 @@ class RegCard extends Component {
             var res=await axios.post('http://127.0.0.1:8000/api/reach/contact/',params)
             console.log(res.statusText)
             if(res.statusText==='Created')
-            alert("Submitted")
+            // alert("Submitted")
             this.setState({
+                showMessage: true,
                 name: '',
                 email: '',
                 message: ''
@@ -90,12 +93,23 @@ class RegCard extends Component {
                 break
         }
     }
+
+    reset=()=>{
+        this.setState({showMessage: false})
+    }
     
     render() { 
 
         return ( 
-
-            
+            <React.Fragment>
+                <MessageDialog
+                reset={this.reset}
+                open={this.state.showMessage}
+                message="Thank you for your feedback. Your message has been submitted successfully. We'll get back to you as soon as possible."
+                agree="OK"
+                disagree="none"
+                title="Successful"
+                />
                 <Paper style={styles.paper}>
                 <MuiThemeProvider theme={theme}>
                 <form>
@@ -176,7 +190,7 @@ class RegCard extends Component {
 
                     </MuiThemeProvider>
                     </Paper>
-            
+            </React.Fragment>            
             );
 
     }

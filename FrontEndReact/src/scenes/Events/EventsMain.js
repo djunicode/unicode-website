@@ -27,6 +27,7 @@ class MyApp extends Component {
   }
 
   render() {
+    console.log(this.state)
     const renderCard=this.state.data.map(card=>{
       return(
         <Grid item xs={12} sm={12} md={6} lg={4} alignItems="center">

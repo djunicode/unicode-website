@@ -19,7 +19,7 @@ class BlogApp extends Component {
         filter: [],
         cards: [1,2,3,4,5,6,7,8],
         page: 1,
-        category: "All",
+        category: "",
         count: 0
     }
     styles={
@@ -35,22 +35,26 @@ class BlogApp extends Component {
     setCategory=(c)=>{
         var obj=[]
         if(c==="ALL"){
-            var f=this.filterNames("all")
-            this.setState({category: c,filter:f})
+            // var f=this.filterNames("all")
+            this.setState({category: c})
+            this.getData()
         }
         else if(c==="WEB DESIGN"){
-            var f=this.filterNames("design")
-            console.log(f)
-            this.setState({category: "design",filter:f})
+            // var f=this.filterNames("design")
+            // console.log(f)
+            this.setState({category: "design"})
+            this.getData("design",1)
         }
         else if(c==="WEB DEVELOPMENT"){
-            var f=this.filterNames("web")
-            console.log(f)
-            this.setState({category: "web",filter:f})
+            // var f=this.filterNames("web")
+            // console.log(f)
+            this.setState({category: "web"})
+            this.getData("web",1)
         }
         else if(c==="APP DEVELOPMENT"){
-            var f=this.filterNames("app")
-            this.setState({category: "app",filter:f})
+            // var f=this.filterNames("app")
+            this.setState({category: "app"})
+            this.getData("app",1)
         }
     }
 
@@ -66,11 +70,15 @@ class BlogApp extends Component {
         .catch(e=>console.log(e))
     }
 
-    getData=(p)=>{
+    getPagination=(p)=>{
+        this.getData(this.state.category,p)
+    }
+
+    getData=(cat,p)=>{
         // axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${p||this.state.page}`)
-        axios.get(`http://localhost:8000/api/posts/?limit=2&offset=${p*2-2}`)
+        axios.get(`http://localhost:8000/api/posts/?limit=2&offset=${p*2-2}&tech=${cat?cat:""}`)
         .then((response)=>{
-            // console.log("Response: "+response.data)
+            console.log(response.data.count)
             this.setState({
                 data: response.data.results,
                 filter: response.data.results,
@@ -225,7 +233,7 @@ class BlogApp extends Component {
                     </Grid>
                 </Grid>
                 <Grid item xs={12}>
-                    <Pagination width={this.state.count} getData={this.getData} setPage={this.setPage} />
+                    <Pagination width={this.state.count} getData={this.getPagination} setPage={this.setPage} />
                 </Grid>
                 {/* <P /> */}
             </Grid>

@@ -4,6 +4,7 @@ import '../../../../css/fonts.css';
 import {styles} from './styles/regCardStyles';
 import RegBtn from '../../../../components/buttons/registerButton/regButton';
 import axios from 'axios';
+import MessageDialog from '../../../../components/MessageDialog/MessageDialog';
 
 const theme=createMuiTheme({
     palette:{
@@ -18,6 +19,7 @@ const theme=createMuiTheme({
 
 class RegCard extends Component {
     state = { 
+        showMessage: false,
         fName: "",
         lName: "",
         contact: "",
@@ -37,12 +39,24 @@ class RegCard extends Component {
         console.log("Register");
         console.log(e.target.parentNode);
     }
+    ValidateEmail=(inputText)=>{
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if(inputText.match(mailformat))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+     }
     send=async()=>{
         if(this.state.fname!=='' &&
         this.state.lname!=='' &&
         this.state.sapId!=='' &&
         this.state.email!=='' &&
-        this.state.contact!==''
+        this.state.contact!==''&&
+        this.ValidateEmail(this.state.email)
         ){
             var params={
                 event: parseInt(this.props.id,10),
@@ -55,8 +69,9 @@ class RegCard extends Component {
             console.log(params)
             var res=await axios.post(`${this.props.postUrl}`,params)
             if(res.statusText==='Created')
-            alert("Submitted")
+            // alert("Submitted")
             this.setState({
+                showMessage: true,
                 fName: "",
                 lName: "",
                 contact: "",
@@ -79,6 +94,10 @@ class RegCard extends Component {
         });
       };
 
+    reset=()=>{
+        this.setState({showMessage: false})
+    }
+
     render() { 
         console.log(this.state)
         let myStyle={
@@ -93,97 +112,107 @@ class RegCard extends Component {
             }
         }
         return ( 
-            <div
-            onMouseEnter={this.handleMouse}
-            onMouseLeave={this.handleMouse}
-            >
-            <Grid container>
-            <Grid item xs={12}>
-                <Paper style={myStyle.paper}>
-                <MuiThemeProvider theme={theme}>
-                <div>
-                <form onSubmit={this.handleSubmit} >
-                    <Grid 
-                        container
-                        justify="center"
-                        spacing={24}
-                        >
-                        <Grid item xs={12} sm={12} md={6}>
-                        <TextField
-                        id="name"
-                        label="First Name"
-                        value={this.state.fName}
-                        required
-                        onChange={this.handleChange('fName')}
-                        margin="normal"
-                        variant="outlined"
-                        fullWidth
-                        style={styles.inpSmall}
-                        />
+            <React.Fragment>
+                <MessageDialog
+                reset={this.reset}
+                open={this.state.showMessage}
+                message={`You have been successfully registered for ${this.props.tName}.`}
+                agree="OK"
+                disagree="none"
+                title="Registration Successful"
+                />
+                <div
+                onMouseEnter={this.handleMouse}
+                onMouseLeave={this.handleMouse}
+                >
+                <Grid container>
+                <Grid item xs={12}>
+                    <Paper style={myStyle.paper}>
+                    <MuiThemeProvider theme={theme}>
+                    <div>
+                    <form onSubmit={this.handleSubmit} >
+                        <Grid 
+                            container
+                            justify="center"
+                            spacing={24}
+                            >
+                            <Grid item xs={12} sm={12} md={6}>
+                            <TextField
+                            id="name"
+                            label="First Name"
+                            value={this.state.fName}
+                            required
+                            onChange={this.handleChange('fName')}
+                            margin="normal"
+                            variant="outlined"
+                            fullWidth
+                            style={styles.inpSmall}
+                            />
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={6}>
+                            <TextField
+                            id="outlined-name"
+                            label="Last Name"
+                            value={this.state.lName}
+                            required
+                            onChange={this.handleChange('lName')}
+                            margin="normal"
+                            variant="outlined"
+                            fullWidth
+                            style={styles.inpSmall}
+                            />
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={6}>
+                            <TextField
+                            id="outlined-name"
+                            label="Sap Id"
+                            value={this.state.sapId}
+                            required
+                            onChange={this.handleChange('sapId')}
+                            margin="normal"
+                            variant="outlined"
+                            fullWidth
+                            style={styles.inpSmall}
+                            />
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={6}>
+                            <TextField
+                            id="outlined-name"
+                            label="Contact No."
+                            value={this.state.contact}
+                            required
+                            onChange={this.handleChange('contact')}
+                            margin="normal"
+                            variant="outlined"
+                            fullWidth
+                            style={styles.inpSmall}
+                            />
+                            </Grid>
+                            <Grid item xs={12}>
+                            <TextField
+                            id="outlined-name"
+                            label="Email"
+                            value={this.state.email}
+                            required
+                            onChange={this.handleChange('email')}
+                            margin="normal"
+                            variant="outlined"
+                            fullWidth
+                            style={styles.inpLarge}
+                            />
+                            </Grid>
+                            <Grid item>
+                                <RegBtn/>
+                            </Grid>
                         </Grid>
-                        <Grid item xs={12} sm={12} md={6}>
-                        <TextField
-                        id="outlined-name"
-                        label="Last Name"
-                        value={this.state.lName}
-                        required
-                        onChange={this.handleChange('lName')}
-                        margin="normal"
-                        variant="outlined"
-                        fullWidth
-                        style={styles.inpSmall}
-                        />
-                        </Grid>
-                        <Grid item xs={12} sm={12} md={6}>
-                        <TextField
-                        id="outlined-name"
-                        label="Sap Id"
-                        value={this.state.sapId}
-                        required
-                        onChange={this.handleChange('sapId')}
-                        margin="normal"
-                        variant="outlined"
-                        fullWidth
-                        style={styles.inpSmall}
-                        />
-                        </Grid>
-                        <Grid item xs={12} sm={12} md={6}>
-                        <TextField
-                        id="outlined-name"
-                        label="Contact No."
-                        value={this.state.contact}
-                        required
-                        onChange={this.handleChange('contact')}
-                        margin="normal"
-                        variant="outlined"
-                        fullWidth
-                        style={styles.inpSmall}
-                        />
-                        </Grid>
-                        <Grid item xs={12}>
-                        <TextField
-                        id="outlined-name"
-                        label="Email"
-                        value={this.state.email}
-                        required
-                        onChange={this.handleChange('email')}
-                        margin="normal"
-                        variant="outlined"
-                        fullWidth
-                        style={styles.inpLarge}
-                        />
-                        </Grid>
-                        <Grid item>
-                            <RegBtn/>
-                        </Grid>
+                        </form>
+                    </div>
+                    </MuiThemeProvider>
+                    </Paper>
                     </Grid>
-                    </form>
-                </div>
-                </MuiThemeProvider>
-                </Paper>
                 </Grid>
-            </Grid>
-            </div>
+                </div>
+            </React.Fragment>
          );
     }
 }

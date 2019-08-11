@@ -21,6 +21,9 @@ class EventListSerializer(serializers.ModelSerializer):
             'user'
         ]
 
+    def get_id(self, obj):
+        return obj.id
+
     def get_title(self, obj):
         return obj.title
 
@@ -36,6 +39,7 @@ class EventDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = [
+            'id',
             'url',
             'title',
             'description',

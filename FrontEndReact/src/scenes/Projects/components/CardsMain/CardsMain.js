@@ -16,9 +16,11 @@ class CardsMain extends Component{
     getData=(p)=>{
         // axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${p||this.state.page}`)
         // /?limit=2&offset=${p*2-2}
-        axios.get(`http://localhost:8000/api/projects/?limit=2&offset=${p*2-2}`)
+        axios.get(`http://localhost:8000/api/projects/?limit=2&offset=${p*2-2}&tech=${this.props.tech.toLowerCase()}&year=${this.props.year}`)
         .then((response)=>{
+            console.log(response.data.count)
             // console.log("Response: "+response.data)
+            this.props.updateCount(response.data.count)
             this.setState({
                 data: response.data.results,
                 filter: response.data.results,
@@ -47,61 +49,16 @@ class CardsMain extends Component{
                 )
         })
         const renderCard=this.state.data.map((data)=>{
-            this.count=0
-            if(this.props.tech!==''&&this.props.year!==''){
-                if(data.technology===this.props.tech&&data.year===this.props.year){
-                    return(
-                        <Cards
-                        detail={data.detail}
-                        title={data.title}
-                        content={data.description}
-                        cover={data.cover}
-                        tech={data.technology}
-                        repo={data.repo_link}
-                        />
-                        )
-                }
-            }
-            else if(this.props.tech!==''&&this.props.year===''){
-                if(data.technology===this.props.tech){
-                    return(
-                        <Cards
-                        detail={data.detail}
-                        title={data.title}
-                        content={data.description}
-                        cover={data.cover}
-                        tech={data.technology}
-                        repo={data.repo_link}
-                        />
-                        )
-                }
-            }
-            else if(this.props.tech===''&&this.props.year!==''){
-                if(data.year===this.props.year){
-                    return(
-                        <Cards
-                        detail={data.detail}
-                        title={data.title}
-                        content={data.description}
-                        cover={data.cover}
-                        tech={data.technology}
-                        repo={data.repo_link}
-                        />
-                        )
-                }
-            }
-            else{
-                return(
-                    <Cards
-                    detail={data.detail}
-                    title={data.title}
-                    content={data.description}
-                    cover={data.cover}
-                    tech={data.technology}
-                    repo={data.repo_link}
-                    />
-                    )
-            }
+            return(
+                <Cards
+                detail={data.detail}
+                title={data.title}
+                content={data.description}
+                cover={data.cover}
+                tech={data.technology}
+                repo={data.repo_link}
+                />
+                )
         }
         )
         console.log(this.count)
@@ -111,7 +68,7 @@ class CardsMain extends Component{
                 {/* The Grid item tag has been moved inside <Cards /> component */}
 
                 {/* ---- This will call the <Cards /> component 8 times ---- */}
-                    {renderCard}
+                    {this.state.data.length!==0?renderCard:error}
                 {/* -------- */}
                 {/* 6699 */}
                 </Grid>

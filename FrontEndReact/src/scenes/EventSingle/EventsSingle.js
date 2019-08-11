@@ -35,6 +35,7 @@ class App extends Component {
     return slug
     }
     else{
+      console.log(slug)
         return ""
     }
 }
@@ -149,7 +150,8 @@ getDate=(date)=>{
 
                 <Grid item xs={12} sm={11} md={9} lg={5} xl={4} >
                   <Reg
-                  id={this.getSlug(this.props.location.pathname)}
+                  tName={this.state.data.title?this.state.data.title:""}
+                  id={this.state.data.id?this.state.data.id:""}
                   postUrl={this.state.data.url?this.state.data.url:""}
                   />
                 </Grid>
