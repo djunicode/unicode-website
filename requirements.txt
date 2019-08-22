@@ -1,5 +1,5 @@
 autopep8==1.4.3
-Django==2.1.4
+Django==2.2.4
 django-filter==2.0.0
 django-multiselectfield==0.1.8
 djangorestframework==3.9.0
@@ -10,3 +10,4 @@ Pillow==5.4.1
 pycodestyle==2.4.0
 pyflakes==2.0.0
 pytz==2018.9
+sqlparse==0.3.0

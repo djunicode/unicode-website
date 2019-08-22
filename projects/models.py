@@ -41,6 +41,7 @@ class Project(models.Model):
     description = models.TextField()
     slug = models.SlugField(blank=True)
     technologies = MultiSelectField(choices=TECHNOLOGIES_CHOICES)
+    stack = models.CharField(max_length=255)
     year = models.DateField()
     repo_link = models.CharField(max_length=255)
 

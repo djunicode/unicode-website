@@ -26,6 +26,7 @@ class ProjectDetailSerializer(serializers.ModelSerializer):
             'img4',
             'img5',
             'technology',
+            'stack',
             'year',
             'repo_link'
         ]
@@ -77,6 +78,7 @@ class ProjectListSerializer(serializers.ModelSerializer):
             'description',
             'cover',
             'technology',
+            'stack',
             'year',
             'repo_link'
         ]
