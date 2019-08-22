@@ -16,6 +16,7 @@ class EventListSerializer(serializers.ModelSerializer):
             'title',
             'description',
             'technology',
+            'stack',
             'date',
             'event_amount',
             'user'
@@ -44,6 +45,7 @@ class EventDetailSerializer(serializers.ModelSerializer):
             'title',
             'description',
             'technologies',
+            'stack',
             'date',
             'event_amount',
             'user',
