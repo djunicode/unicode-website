@@ -18,6 +18,7 @@ class Event(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     technologies = MultiSelectField(choices=TECHNOLOGIES_CHOICES)
+    stack = models.CharField(max_length=255)
     slug = models.SlugField(blank=True)
     date = models.DateTimeField()
     event_amount = models.PositiveSmallIntegerField(default=0)
