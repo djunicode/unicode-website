@@ -1,0 +1,24 @@
+language: python
+
+python:
+  - 3.6
+
+env:
+  - DJANGO=2.1.4
+
+before_install:
+  - export DJANGO_SETTINGS_MODULE=website.settings
+
+install:
+  - pip install -r requirements.txt
+
+before_script:
+  - python manage.py makemigrations
+  - python manage.py migrate
+
+script:
+  - flake8
+  - python3 manage.py test
+  
+notifications:
+    slack: djunicode:bbtEGXV6lLMmnhhvTeMu6l5B
