@@ -74,9 +74,9 @@ class Info extends Component {
             </Grid> */}
           {/* </div> */}
           {/* </Grid>  */}
-          <Typography style={styles.name}>John Doe</Typography>
-          <Typography style={styles.profession}>Frontend Mentor</Typography>
-          <Typography style={styles.project}>at Project Finder</Typography>
+          <Typography style={styles.name}>{this.props.name}</Typography>
+          <Typography style={styles.profession}>{this.props.position}</Typography>
+          {/* <Typography style={styles.project}>{this.props.project}</Typography> */}
           <Typography style={styles.icons}>
             <i class=" fab fa-twitter" />
             <i class=" fab fa-linkedin" />

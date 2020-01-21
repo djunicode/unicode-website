@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Avatar } from '@material-ui/core';
 import {styles} from './styles/styles';
-import avatar from './image/avatar.jpg';
 import DialogBox from '../Dialog/Dialog';
 
 
@@ -40,7 +39,7 @@ class Mentors extends Component{
         const renderMentor=this.state.mentors.map((data)=>{
             return(
                 <Grid item xs={5} sm={4} md={3} lg={1} xl={1}>
-                    <Avatar imgProps={{id: data.id}} onClick={this.showModal} alt={data.username} src={`http://127.0.0.1:8000${data.profile_pic}`} style={styles.avatar} />
+                    <Avatar imgProps={{id: data.id}} onClick={this.showModal} alt={data.username} src={`http://bagwesagar6699.pythonanywhere.com/${data.profile_pic}`} style={styles.avatar} />
                 </Grid>
                 )
         }
