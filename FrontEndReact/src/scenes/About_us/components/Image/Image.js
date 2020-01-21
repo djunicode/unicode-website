@@ -6,16 +6,21 @@ class Image extends Component {
   
   
   render() {
+    console.log(this.props.src)
     return (
       <div>
         <div className="responsive4">
           <div className="gallery4">
             <div className="container4">
-              <img src={this.props.src} alt="" />
+              <img src={this.props.src} alt={this.props.username} />
               <div className="overlay4">
                 {/* <div className="text"> */}
                 <div>
-                  <Info />
+                  <Info
+                  name={this.props.username}
+                  project={this.props.project}
+                  position={this.props.position}
+                  />
                 </div>
               </div>
             </div>

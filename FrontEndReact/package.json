@@ -3,26 +3,40 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/runtime": "^7.6.0",
     "@material-ui/core": "^3.7.1",
     "@material-ui/icons": "^3.0.1",
     "axios": "^0.18.0",
+    "material-ui-superselectfield": "^1.10.0",
     "rc-pagination": "^1.17.8",
     "react": "^16.7.0",
     "react-auto-scale": "^1.0.4",
     "react-dom": "^16.7.0",
     "react-js-pagination": "^3.0.2",
+    "react-markdown": "^4.2.2",
     "react-media": "^1.9.2",
     "react-responsive": "^6.0.1",
     "react-reveal": "^1.2.2",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.2",
-    "react-scroll-parallax": "^2.0.4"
+    "react-scroll-parallax": "^2.0.4",
+    "react-select-material-ui": "^6.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "collect": "react-scripts build && npm run build-rename && npm run copy-buildfiles && npm run collectstatic",
+    "build-rename": "npm run build-rename-js && npm run build-rename-css && npm run build-rename-logo",
+    "build-rename-logo": "renamer --regex --find '([^\\.])\\.[^\\.]+\\.(\\w+)' --replace '$1.$2' build/static/media/*",
+    "build-rename-js": "renamer --regex --find 'main\\.[^\\.]+\\.js' --replace 'reactify-django.ui.js' build/static/js/*.js",
+    "build-rename-css": "renamer --regex --find 'main\\.[^\\.]+\\.css' --replace 'reactify-django.ui.css' build/static/css/*.css",
+    "copy-buildfiles": "npm run copy-build-js && npm run copy-build-css && npm run copy-build-logo",
+    "copy-build-logo": "copyfiles -f 'build/static/media/*' '../static/img/'",
+    "copy-build-js": "copyfiles -f 'build/static/js/*.js' '../static/js/'",
+    "copy-build-css": "copyfiles -f 'build/static/css/*.css' '../static/css/'",
+    "collectstatic": "python ../manage.py collectstatic --no-input"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -32,5 +46,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.6.0"
+  }
 }

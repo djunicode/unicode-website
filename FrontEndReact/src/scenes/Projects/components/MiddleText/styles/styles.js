@@ -1,12 +1,13 @@
 export const styles={
     text: {
-        fontSize: 16,
-        color: "#000000"
+        color: "rgba(112, 112, 112, 0.87)",
+        fontSize: 16
     },
     container: {
-        //height: 49,
-        //width: 778,
-        marginTop: 114.1,
-        marginBottom: 48.9
+        marginTop: '8%',
+        marginBottom: 48.9,
+        fontFamily: "'Open Sans', sans-serif",
+        fontWeight: 400,
+        textAlign: "center"
     }
 }

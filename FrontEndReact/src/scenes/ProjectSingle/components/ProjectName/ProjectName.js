@@ -75,7 +75,7 @@ class ProjectName extends Component {
                         justify="flex-end"
                         alignItems="flex-start"
                         >
-                            <Grid item >
+                            <Grid item style={{zoom: '0.8'}} >
                             <span style={this.styles.github} >Github</span>
                                 <IconButton color="primary" >
                                     <a href={this.props.link} style={styles.Nlink}>

@@ -4,22 +4,20 @@ class MyText extends Component {
   styles = {
     myFont: {
       fontSize: 16,
-      marginTop: 100,
+      marginTop: 40,
       marginBottom: 50,
       fontFamily: "'Open Sans', sans-serif",
       fontWeight: 400,
-      color: "rgba(0, 0, 0, 0.87)"
+      textAlign: "center",
+      color: "rgba(112, 112, 112, 0.87)"
     }
   };
   render() {
     return (
       <div style={this.styles.myFont}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia
+        Apart from really cool projects, we also host informative sessions and presentations. 
+        These sessions not only provide an insight to what we do, but also to the advancements in the field of technology. 
+        Do keep a lookout for our events
       </div>
     );
   }
