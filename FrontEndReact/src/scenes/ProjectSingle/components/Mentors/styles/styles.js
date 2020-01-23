@@ -9,7 +9,7 @@ export const styles={
     avatar:{
         width: "100%",
         height: "100%",
-        boxShadow: "0 0 0 4px #fff,0 0 0 6px #888",
-        cursor: 'pointer'
+        boxShadow: "0 0 0 4px #fff,0 0 0 6px #888"
+        
     }
 };

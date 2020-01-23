@@ -3,7 +3,7 @@ export const styles={
     paper:{
 
          borderRadius: 10,
-         marginBottom: 80,
+         marginBottom: 120,
          boxShadow: "4px 4px 16px #d6d6d6"
     
 
@@ -45,7 +45,7 @@ export const styles={
           fontFamily: "Open Sans, sans-serif",
           paddingBottom: 9,
           paddingTop: 9,
-          marginTop: '4vh',
+          marginTop: 91.27,
           minWidth: 73,
           maxWidth: 161
           

@@ -4,7 +4,6 @@ import {styles} from '../../components/MainCard/styles/styles';
 import { Grid } from '@material-ui/core';
 import '../../../../css/fonts.css';
 import ImageGrid from '../ImageGrid/ImageGrid';
-import ReactMarkdown from 'react-markdown';
 
 class MainCard extends Component{
     styles={
@@ -30,17 +29,17 @@ class MainCard extends Component{
                     style={styles.description} 
                     className="openSans-18-400"
                     >
-                        <ReactMarkdown source={this.props.text}></ReactMarkdown>
+                        {this.props.text}
                     </Grid>
                     <Grid item xs={12} style={styles.appdev} className="roboto-18-400">
                         {`${this.props.tech}`.toUpperCase()} DEVELOPMENT
                     </Grid>
                     <Grid item xs={12}>
                     <Grid container>
-                    <Grid item xs={9} sm={7} md={6} lg={4} xl={4} style={styles.techno} className="openSans-18-400">
-                        Techonologies: {this.props.stack}
+                    <Grid item xs={9} sm={7} md={5} lg={4} xl={4} style={styles.techno} className="openSans-18-400">
+                        Techonologies: {this.props.tech}
                     </Grid>
-                    <Grid item xs={9} sm={6} md={6} lg={3} xl={3} style={styles.year} className="openSans-18-400">
+                    <Grid item xs={9} sm={6} md={4} lg={3} xl={3} style={styles.year} className="openSans-18-400">
                         Year : {this.getDate(this.props.date)}
                     </Grid>
                     </Grid>

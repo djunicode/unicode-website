@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Paper,TextField, Grid,createMuiTheme ,MuiThemeProvider } from '@material-ui/core';
 import {styles} from './styles/FormStyles.js'
 import axios from 'axios';
-import MessageDialog from '../../../../components/MessageDialog/MessageDialog';
+import MessageDialog from '../../../../components/MessageDialog/MessageDialog.jsx';
 
 const theme=createMuiTheme({
     palette:{
@@ -62,9 +62,10 @@ class RegCard extends Component {
                 message: this.state.message
             }
             console.log(params)
-            var res=await axios.post('http://bagwesagar6699.pythonanywhere.com//api/reach/contact/',params)
+            var res=await axios.post('http://127.0.0.1:8000/api/reach/contact/',params)
             console.log(res.statusText)
             if(res.statusText==='Created')
+            // alert("Submitted")
             this.setState({
                 showMessage: true,
                 name: '',
@@ -121,7 +122,7 @@ class RegCard extends Component {
 
                     >
 
-                    <Grid item xs={10} sm={8} md={8} >
+                    <Grid item xs={10} sm={8} md={7} >
                     <TextField
 
                             id="name"
@@ -138,7 +139,7 @@ class RegCard extends Component {
 
                             />
                     </Grid>
-                    <Grid item xs={10} sm={8} md={8} >
+                    <Grid item xs={10} sm={8} md={7} >
                     <TextField
 
                             id="email"
@@ -154,7 +155,7 @@ class RegCard extends Component {
                             style={styles.inpLarge}
                             />
                     </Grid>
-                    <Grid item xs={10} sm={8} md={8} >
+                    <Grid item xs={10} sm={8} md={7} >
                             
                     <TextField
 

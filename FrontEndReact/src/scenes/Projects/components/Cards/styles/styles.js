@@ -6,8 +6,8 @@ export const styles= {
     boxShadow: "12px 12px 16px #d6d6d6",
     borderRadius: 10,
     transition: "linear 0.2s",
-    zoom: '0.6',
-    margin: 'auto'
+
+
     },
     container: {
         position: "relative"

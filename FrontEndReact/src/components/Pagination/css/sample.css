@@ -51,8 +51,8 @@ ul li::before{
   }
 
 .rc-pagination-item-active {
-    background-color: transparent;
-    border-color: #a9aeca;
+    background-color: #445DFF;
+    border-color: #445DFF;
 }
 .rc-pagination-prev, .rc-pagination-next, .rc-pagination-jump-prev, .rc-pagination-jump-next{
     min-width: 50px;
@@ -90,10 +90,7 @@ ul li::before{
         width: 50%;
     }
   }
-    .rc-pagination-item:hover {
-        background-color: #445DFF;
-        border-color: #2db7f5;
-    }
+
 /* @media screen and (max-width: 700px) {
     .position2{
         margin-left: 34%;

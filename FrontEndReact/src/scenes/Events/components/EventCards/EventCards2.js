@@ -149,8 +149,6 @@ class EventCards2 extends Component {
           case "12":
               month="Dec"
               break
-          default:
-            break
       }
       return `${month} ${day}, ${year}`
   }
