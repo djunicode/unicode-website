@@ -1,0 +1,26 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 30%;
+    transform: translateX(-30%);
+  }
+
+li {
+    float: left;   
+    margin-right: 5%;
+  }
+ul li::before {
+    content: "\25A0";
+    color: "#FF7171";
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+    margin-right: 10px;
+  }
+
+  .navWrapper{
+      margin-top: 130px;
+  }
+  
