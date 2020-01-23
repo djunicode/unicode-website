@@ -1,0 +1,14 @@
+.pinkBar{
+    border-radius: 10px 0px 0px 10px;
+    background: #FF7171;
+    height: 60px;
+    width: 10px;
+    }
+    @media screen and (max-width: 500px) {
+        .pinkBar{
+            border-radius: 10px 0px 0px 10px;
+            background: #FF7171;
+            height: 48px;
+            width: 10;
+            }
+      }
