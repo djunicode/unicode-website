@@ -63,7 +63,7 @@
   width: 100%;
   opacity: 0;
   transition: 0.5s ease;
-  background-color: #c75800;
+  background-color: #445dff;
   border-color: #707070;
   border: 1px;
 }
@@ -74,5 +74,5 @@
 }
 
 .container4:hover .overlay4 {
-  opacity: 0.9;
+  opacity: 1;
 }

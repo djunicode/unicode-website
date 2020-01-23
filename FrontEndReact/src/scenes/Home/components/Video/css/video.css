@@ -57,12 +57,12 @@
   }
   
   .header-content h1{
-    font-size:4vw;
+    font-size:50px;
     margin-bottom:0;
   }
   
   .header-content p{
-    font-size:2vw;
+    font-size:1.5rem;
     display:block;
     padding-bottom:2rem;
   }
@@ -88,22 +88,5 @@
     .container{
       padding-right:3rem;
       padding-left:3rem;
-    }
-  }
-
-  .newAlignment{
-    width: 100%
-  }
-
-  @media(max-width:800px){
-    .header-content h1{
-      font-size:6vw;
-      margin-bottom:0;
-    }
-    
-    .header-content p{
-      font-size:4vw;
-      display:block;
-      padding-bottom:2rem;
     }
   }

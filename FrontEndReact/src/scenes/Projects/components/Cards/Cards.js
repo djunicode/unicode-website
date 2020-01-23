@@ -3,6 +3,7 @@ import {Paper, Grid, MuiThemeProvider, createMuiTheme} from '@material-ui/core';
 import '../../../../css/fonts.css';
 import {styles} from './styles/styles';
 import {NavLink} from 'react-router-dom';
+import Image from './CardImage.PNG';
 
 const theme = createMuiTheme({
     breakpoints: {
@@ -41,14 +42,14 @@ class Card extends Component {
     }
     render() {
         return (
-            <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+            <Grid item xs={12} sm={12} md={11} lg={7} xl={6}>
             <NavLink
             to={`/ProjectSingle/${this.getSlug(this.props.detail)}`}
             onClick={this.handleUpdate}
             style={{textDecoration: "none"}}>
                 <MuiThemeProvider theme={theme} >
                 <Paper style={styles.paper}>
-                    <Grid container spacing={32} justify="center" alignItems="center" style={{minHeight: 270}} >
+                    <Grid container spacing={32} justify="center" alignItems="center">
                         <Grid item xs={12} sm={11} md={4} lg={4} xl={4}>
                             <img src={this.props.cover} alt="ProjectImage" style={styles.image} />
                         </Grid>
