@@ -45,7 +45,7 @@ class tabView extends Component {
                         <MenuIcon />
                     </IconButton> */}
 
-                    <img src="/static/frontend/55dddef0a88a68002e8b6ee957ee02c2.PNG" alt="logo" width="150px" style={{marginLeft: "8%"}} />
+                    <img src="https://storage.googleapis.com/unicode-data/static/frontend/55dddef0a88a68002e8b6ee957ee02c2.PNG" alt="logo" width="150px" style={{marginLeft: "8%"}} />
                     <div style={{flex: 1}} ></div>
                     <IconButton style={{marginLeft: 12}} onClick={this.handleToggle} >
                         <MenuIcon />

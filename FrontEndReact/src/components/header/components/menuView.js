@@ -13,7 +13,7 @@ class tabView extends Component {
                 <IconButton style={{marginLeft: 12}} >
                     <MenuIcon />
                 </IconButton>
-                <img src="/static/frontend/55dddef0a88a68002e8b6ee957ee02c2.PNG" alt="logo" width="210px" style={{marginLeft: "8%"}} />
+                <img src="https://storage.googleapis.com/unicode-data/static/frontend/55dddef0a88a68002e8b6ee957ee02c2.PNG" alt="logo" width="210px" style={{marginLeft: "8%"}} />
             </Toolbar>
          );
     }

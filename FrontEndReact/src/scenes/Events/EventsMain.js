@@ -48,14 +48,14 @@ class MyApp extends Component {
             <div style={{display: 'flex',justifyContent: 'center', background: '#c1d37f'}} >
             <MediaQuery maxWidth={768} >
               <img
-                  src="/static/frontend/568640b8bf2f641847ef3258546e2ea0.png"
+                  src="https://storage.googleapis.com/unicode-data/static/frontend/568640b8bf2f641847ef3258546e2ea0.png"
                   alt={""}
                   style={{padding: '14% 0%', width: "100%", height: "auto" }}
                 />
             </MediaQuery>
             <MediaQuery minWidth={769} >
               <img
-                src="/static/frontend/568640b8bf2f641847ef3258546e2ea0.png"
+                src="https://storage.googleapis.com/unicode-data/static/frontend/568640b8bf2f641847ef3258546e2ea0.png"
                 alt={""}
                 style={{ width: "60%", height: "auto" }}
               />

@@ -15,10 +15,10 @@ class BlogImg extends Component {
             >
                 <Grid item xs={12}>
                     {/* <Grid item xs={12} style={{background: "#FF7171",height: "100vh"}} > */}
-                        <img src="/static/frontend/df93e6888c2728363b230e54cbf669d1.png" alt="#" width="20%"
+                        <img src="https://storage.googleapis.com/unicode-data/static/frontend/df93e6888c2728363b230e54cbf669d1.png" alt="#" width="20%"
                         style={{marginLeft: "50%",transform: "translateX(-50%)"}}
                         />
-                        <img src="/static/frontend/ff16c0bc909f1c00a88c6ddd9bc05524.png" alt="BlogImage" width="16%" 
+                        <img src="https://storage.googleapis.com/unicode-data/static/frontend/ff16c0bc909f1c00a88c6ddd9bc05524.png" alt="BlogImage" width="16%" 
                         style={{marginLeft: "50%",transform: "translateX(-50%)",marginBottom: "4%"}}
                         />
                     {/* </Grid> */}

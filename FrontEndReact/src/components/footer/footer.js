@@ -16,7 +16,7 @@ class Footer2 extends Component {
         },
         background:{
             background: "#445DFF",
-            backgroundImage: `url(/static/frontend/4fcbebf9778f17951a0373b228decce7.PNG)`,
+            backgroundImage: `url(https://storage.googleapis.com/unicode-data/static/frontend/4fcbebf9778f17951a0373b228decce7.PNG)`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "100% auto",
             backgroundPosition: "center bottom"

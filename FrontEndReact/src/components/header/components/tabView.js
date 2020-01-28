@@ -14,7 +14,7 @@ class tabView extends Component {
     render() { 
         return ( 
             <Toolbar >
-                <img src="/static/frontend/55dddef0a88a68002e8b6ee957ee02c2.PNG" alt="logo" width="237px" style={{marginLeft: "8%"}} />
+                <img src="https://storage.googleapis.com/unicode-data/static/frontend/55dddef0a88a68002e8b6ee957ee02c2.PNG" alt="logo" width="237px" style={{marginLeft: "8%"}} />
                 <div style={{flexGrow: "1"}} ></div>
                 <Tabs value={this.state.value} onChange={this.handleChange} >
                         <NavLink style={styles.Nlink} to="/">

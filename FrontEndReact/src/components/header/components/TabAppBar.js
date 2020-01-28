@@ -46,7 +46,7 @@ class tabView extends Component {
                 color="primary" >
                 <Toolbar >
 
-                    <a href="/"><img src="/static/frontend/55dddef0a88a68002e8b6ee957ee02c2.PNG" alt="logo" width="237px" style={{marginLeft: "8%"}} /></a>
+                    <a href="/"><img src="https://storage.googleapis.com/unicode-data/static/frontend/55dddef0a88a68002e8b6ee957ee02c2.PNG" alt="logo" width="237px" style={{marginLeft: "8%"}} /></a>
 
                     <div style={{flexGrow: "1"}} ></div>
 
