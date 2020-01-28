@@ -4,6 +4,7 @@ import {styles} from '../MainCard/styles/styles';
 import { Grid } from '@material-ui/core';
 import '../../../../css/fonts.css';
 import ImageGrid from '../ImageGrid/ImageGrid';
+import ReactMarkdown from 'react-markdown';
 
 class MainCardSmall extends Component{
     styles={
@@ -29,7 +30,7 @@ class MainCardSmall extends Component{
                     style={styles.description} 
                     className="openSans-18-400"
                     >
-                        {this.props.text}
+                        <ReactMarkdown source={this.props.text}></ReactMarkdown>
                     </Grid>
                     <Grid item xs={12} style={styles.appdev} className="roboto-18-400">
                         {`${this.props.tech}`.toUpperCase()} DEVELOPMENT
@@ -37,7 +38,7 @@ class MainCardSmall extends Component{
                     <Grid item xs={12}>
                     <Grid container>
                     <Grid item xs={9} sm={7} md={5} lg={4} xl={4} style={styles.techno} className="openSans-18-400">
-                        Techonologies: {this.props.tech}
+                        Techonologies: {this.props.stack}
                     </Grid>
                     <Grid item xs={9} sm={6} md={4} lg={3} xl={3} style={styles.year} className="openSans-18-400">
                         Year : {this.getDate(this.props.date)}

@@ -32,7 +32,7 @@ class ProjectSingle extends Component {
       }
       getData=(p)=>{
         // axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${p||this.state.page}`)
-        axios.get(`http://localhost:8000/api/projects/${this.getSlug(this.props.location.pathname)}`)
+        axios.get(`/api/projects/${this.getSlug(this.props.location.pathname)}`)
         .then((response)=>{
             console.log(response.data)
             this.setState({
@@ -81,6 +81,7 @@ class ProjectSingle extends Component {
                         text={this.state.data?this.state.data.description:""}
                         date={this.state.data?this.state.data.year:""}
                         tech={this.state.data?this.state.data.technology:""}
+                        stack={this.state.data?this.state.data.stack:""}
                         img1={this.state.data?this.state.data.img1:""}
                         img2={this.state.data?this.state.data.img2:""}
                         img3={this.state.data?this.state.data.img3:""}
@@ -97,6 +98,7 @@ class ProjectSingle extends Component {
                         text={this.state.data?this.state.data.description:""}
                         date={this.state.data?this.state.data.year:""}
                         tech={this.state.data?this.state.data.technology:""}
+                        stack={this.state.data?this.state.data.stack:""}
                         img1={this.state.data?this.state.data.img1:""}
                         img2={this.state.data?this.state.data.img2:""}
                         img3={this.state.data?this.state.data.img3:""}

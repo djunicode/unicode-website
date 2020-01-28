@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Grid } from '@material-ui/core';
-import Image1 from './image/image1.jpg';
-import Image2 from './image/image2.jpg';
 class ImageGrid extends Component{
     render() {
         return(
