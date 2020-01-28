@@ -55,6 +55,10 @@ class SelectOption extends Component {
         this.setState({ [name]: event.target.value });
       };
 
+      handleChange1 = (value) => {
+        console.log(value);
+      };
+
       componentDidUpdate=(prevProps,prevState)=>{
           if(prevState!==this.state){
               console.log('Filter Update')
@@ -64,6 +68,7 @@ class SelectOption extends Component {
     
 
     render() {
+        const options = ["Africa", "America", "Asia", "Europe"];
         const { classes } = this.props;
         console.log(this.state)
         return (
@@ -76,7 +81,7 @@ class SelectOption extends Component {
                         TECHNOLOGIES
                     </InputLabel>
                     <Select
-                    native
+                    
                     value={this.state.tech}
                     onChange={this.handleChange('tech')}
                     input={
@@ -103,7 +108,6 @@ class SelectOption extends Component {
                         YEAR
                     </InputLabel>
                     <Select
-                    native
                     value={this.state.year}
                     onChange={this.handleChange('year')}
                     input={

@@ -10,19 +10,21 @@ class image extends Component {
     style={
         centeringGIT:{
             marginLeft: "8%",
-            paddingTop: "6%"
+            paddingTop: "6%",
+            marginLeft: '16%'
+            // transform: 'translateX(-50%)'
         },
         centeringPHONE:{
             marginLeft: "50%",
             transform: "translateX(-50%)",
-            paddingTop: "6%"
+            paddingTop: "4%"
         },
         centeringTEXT:{
             width: "100%",
             marginLeft: "50%",
             transform: "translateX(-50%)",
             paddingTop: "6%",
-            paddingBottom: "10%"
+            paddingBottom: "4%"
         }
     }
     
@@ -30,11 +32,28 @@ class image extends Component {
         return (
             <React.Fragment>
                 <div style={{background: "#FFE99B"}} >
-                    <img src={GIT} alt="#" width="84%"
-                    style={this.style.centeringGIT}
-                    />
-                    <MediaQuery minWidth={769} >
-                        <img src={PHONE} alt="BlogImage" width="23%" 
+                    <MediaQuery maxWidth={770} >
+                        <img src="/static/frontend/88fe8459ed91563b7c22945ff151500d.png" alt="#" width="70%"
+                        style={this.style.centeringGIT}
+                        />
+                    </MediaQuery>
+                    <MediaQuery minWidth={771} >
+                        <img src="/static/frontend/88fe8459ed91563b7c22945ff151500d.png" alt="#" width="44%"
+                        style={{
+                            marginLeft: "8%",
+                            paddingTop: "6%",
+                            marginLeft: '28%'
+                            // transform: 'translateX(-50%)'
+                        }}
+                        />
+                    </MediaQuery>
+                    <MediaQuery maxWidth={770} >
+                        <img src="/static/frontend/6b5994e8d05a577d417834cfff387292.png" alt="BlogImage" width="33%" 
+                        style={this.style.centeringPHONE}
+                        />
+                    </MediaQuery>
+                    <MediaQuery minWidth={771} >
+                        <img src="/static/frontend/6b5994e8d05a577d417834cfff387292.png" alt="BlogImage" width="10%" 
                         style={this.style.centeringPHONE}
                         />
                     </MediaQuery>
@@ -46,20 +65,13 @@ class image extends Component {
                         direction="row"
                         justify="center"
                         >
-                            <Grid item xs={11} sm={10} md={6} style={{textAlign: "center"}} >
-                                lorem ipsumlorem ipsumlorem ipsumlorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsum lorem ipsum lorem ipsum
+                            <Grid item xs={11} sm={10} md={6} style={{textAlign: "center", fontFamily: "'Montserrat', sans-serif"}} >
+                                Want to get in touch? Give us a shout on our social media handles or drop in a mail and subscribe to our newsletter.
                             </Grid>
                         </Grid>
                     </div>
                 </div>
             </React.Fragment>
-            // <div style={styles.container}>
-            // <img src={telephone}  width="100%" />
-            // <div style={styles.centered}>
-            // lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-            // </div>
-            
-            // </div>
         );
     }
 }
