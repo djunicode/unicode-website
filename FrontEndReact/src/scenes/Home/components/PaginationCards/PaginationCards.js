@@ -164,7 +164,7 @@ class PaginationCards extends Component {
                     <img
                     width={50}
                     height={50}
-                    src="/static/frontend/d889b15b4b02eba297627c8b6cf7a00c.png"
+                    src="https://storage.googleapis.com/unicode-data/static/frontend/d889b15b4b02eba297627c8b6cf7a00c.png"
                     onClick={this.handlePrev}
                     style={{boxShadow: "#d6d6d6 4px 4px 8px",borderRadius: 100,marginRight: "10%"}}
                     >
@@ -177,7 +177,7 @@ class PaginationCards extends Component {
                     <img
                     width={50}
                     height={50}
-                    src="/static/frontend/13c2050b6b7c3138e682f1740d7a0673.png"
+                    src="https://storage.googleapis.com/unicode-data/static/frontend/13c2050b6b7c3138e682f1740d7a0673.png"
                     onClick={(e)=>this.handleNext(pageNumbers,e)}
                     style={{boxShadow: "#d6d6d6 4px 4px 8px",borderRadius: 100,marginLeft: "10%"}}
                     >

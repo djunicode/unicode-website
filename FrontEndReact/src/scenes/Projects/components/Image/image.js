@@ -9,10 +9,10 @@ class image extends Component {
         return (
             <div style={{background: '#7fd6d0', display: 'flex', justifyContent: 'center'}} >
                 <MediaQuery minWidth={769} >
-                    <img width='60%' src="/static/frontend/3ca05d11e41d2a735cc3cc92ba452ad1.PNG" alt="MainImage" />
+                    <img width='60%' src="https://storage.googleapis.com/unicode-data/static/frontend/3ca05d11e41d2a735cc3cc92ba452ad1.PNG" alt="MainImage" />
                 </MediaQuery>
                 <MediaQuery maxWidth={768} >
-                    <img style={{padding: '14% 0%'}} width='100%' src="/static/frontend/97d6eacf149d853e5812daa40199bc00.png" alt="MainImage" />
+                    <img style={{padding: '14% 0%'}} width='100%' src="https://storage.googleapis.com/unicode-data/static/frontend/97d6eacf149d853e5812daa40199bc00.png" alt="MainImage" />
                 </MediaQuery>
             </div>
         );

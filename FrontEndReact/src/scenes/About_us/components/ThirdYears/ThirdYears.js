@@ -21,7 +21,7 @@ export class ThirdYears extends Component {
   render() {
     const renderImage=this.state.imageData.map(e=>{
       return(
-        <Image position={e.position} project={e.project} username={e.name} src={`/static/frontend/profiles/`+e.img} />
+        <Image position={e.position} project={e.project} username={e.name} src={`https://storage.googleapis.com/unicode-data/static/frontend/profiles/`+e.img} />
       )
     })
     return (
