@@ -1,0 +1,17 @@
+<h2><center>Event Details and Registration form</center></h2>
+{% block content %}
+<h1>{{ title }}</h1>
+<ul>
+  <li>{{ event.description }}</li>
+  <li>{{ event.technologies }}</li>
+  <li>{{ event.date }}</li>
+  <li>{{ event.event_amount }}</li>
+  <li>{{ event.user }}</li>
+</ul>
+<h2>Registration For the same can be done below</h2>
+
+<form method="POST">
+  {% csrf_token %} {{ form.as_p }}<input type="submit" value="participate" />
+</form>
+
+{% endblock %}

@@ -1,5 +1,9 @@
 from django.urls import path
+<<<<<<< HEAD
 from .views import (
+=======
+from postreview.api.views import (
+>>>>>>> upstream/master
     ReviewListAPIView, ReviewUpdateAPIView,
     ReviewDetailAPIView, ReviewCreateAPIView,
     ReviewDeleteAPIView

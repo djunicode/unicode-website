@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'postreview',
     'newsletter',
     'frontend',
+    'postreview',
 ]
 
 MIDDLEWARE = [

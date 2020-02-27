@@ -13,7 +13,8 @@ from rest_framework.filters import (
 )
 from django.db.models import Q
 from .serializers import (
-    EventListSerializer, EventDetailSerializer, EventCreateSerializer, ParticipantCreateSerializer
+    EventListSerializer, EventDetailSerializer, EventCreateSerializer, ParticipantCreateSerializer,
+    EventUpdateSerializer
 )
 from events.models import Event, Participant
 # from .pagination import ProjectLimitOffsetPagination
@@ -42,9 +43,9 @@ class EventDetailAPIView(RetrieveAPIView):
         return  queryset_list"""
 
 
-class EventUpdateAPIView(UpdateAPIView):
+class EventUpdateAPIView(RetrieveUpdateAPIView):
     queryset = Event.objects.all()
-    serializer_class = EventCreateSerializer
+    serializer_class = EventUpdateSerializer
     permission_class = [IsAdminUser]
 
     def perform_update(self, serializer):

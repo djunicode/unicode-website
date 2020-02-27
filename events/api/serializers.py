@@ -71,6 +71,21 @@ class EventCreateSerializer(serializers.ModelSerializer):
         read_only_fields = ['user', ]
 
 
+class EventUpdateSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Event
+        fields = [
+            'title',
+            'description',
+            'technologies',
+            'date',
+            'event_amount',
+            'user'
+        ]
+        read_only_fields = ['user', ]
+
+
 class ParticipantCreateSerializer(serializers.ModelSerializer):
     # event = serializer.SerializerMethodField()
 

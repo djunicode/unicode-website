@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.db.models import Q
+=======
+# from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.shortcuts import render, get_object_or_404, redirect
+# from django.contrib.auth import get_user_model
+# from django.core.paginator import Paginator
+# from django.db.models import Q
+>>>>>>> upstream/master
 from .forms import reviewForm
 from .models import Review
 
@@ -28,6 +36,7 @@ def post_update_view(request, id=id):
 
 
 def list_reviews(request):
+<<<<<<< HEAD
     queryset_list = Review.objects.all()  # list of objects
     query = request.GET.get("q", None)
     if query:
@@ -39,6 +48,11 @@ def list_reviews(request):
     object_list = paginator.get_page(page)
     context = {
         "object_list": object_list
+=======
+    queryset = Review.objects.all()  # list of objects
+    context = {
+        "object_list": queryset
+>>>>>>> upstream/master
     }
     return render(request, "postreview/review_list.html", context)
 

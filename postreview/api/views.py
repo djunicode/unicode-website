@@ -16,14 +16,21 @@ from .serializers import (
     ReviewDeleteSerializer
 )
 from postreview.models import Review
+<<<<<<< HEAD
 from .pagination import PostReviewLimitOffsetPagination
+=======
+# from .pagination import ProjectLimitOffsetPagination
+>>>>>>> upstream/master
 
 
 class ReviewListAPIView(ListAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewListSerializer
     permission_class = [AllowAny]
+<<<<<<< HEAD
     pagination_class = PostReviewLimitOffsetPagination
+=======
+>>>>>>> upstream/master
     filter_backends = [SearchFilter, OrderingFilter]
     search_fields = ['first_name', 'last_name']
 

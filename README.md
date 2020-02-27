@@ -1,11 +1,12 @@
 # Unicode-Website
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/djunicode/unicode-website.svg?columns=all)](https://waffle.io/djunicode/unicode-website)
 
-#### The official DJ Unicode Website repository.
+#### The Official Unicode Website Repository.
 
 ## Prerequisites
 
 Python: 3.6.7 version\
-Django: 2.2.8 version
+Django: 2.1.4 version
 
 <hr>
 
@@ -15,21 +16,9 @@ Django: 2.2.8 version
 
 ## Features
 
-- [x] Projects Info
-- [x] Blogs
-- [x] Newsletter SignUp
-- [x] Events Registration
 - [ ] Resource Portal
+- [ ] Events Registration
 - [ ] Admin Dashboard
 - [ ] Chat Application
 - [ ] Contribution Statistics
-
-## Screenshots
-
-![1](https://github.com/djunicode/unicode-website/blob/master/screenshots/1.PNG)
-
-![2](https://github.com/djunicode/unicode-website/blob/master/screenshots/2.PNG)
-
-![3](https://github.com/djunicode/unicode-website/blob/master/screenshots/3.PNG)
-
-![4](https://github.com/djunicode/unicode-website/blob/master/screenshots/5.PNG)
+- [ ] Email Notifications

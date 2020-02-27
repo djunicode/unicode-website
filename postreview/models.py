@@ -12,6 +12,7 @@ class Review(models.Model):
     designation = models.CharField(max_length=128)
     company = models.CharField(max_length=128)
     department = models.CharField(max_length=120)
+<<<<<<< HEAD
     comments = models.TextField()
 
     def get_absolute_url(self):
@@ -19,3 +20,9 @@ class Review(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} - {self.company}"
+=======
+    comments = models.CharField(max_length=255)
+
+    def get_absolute_url(self):
+        return reverse("postreview:product-detail", kwargs={"id": self.id})
+>>>>>>> upstream/master
