@@ -7,12 +7,16 @@ import blogText from './components/BlogImg/images/blogText.png';
 import BlogCard from './components/BlogCard/BlogCard';
 import Pagination from '../../components/Pagination/Pagination';
 import BottomNav from './components/BottomNav/BottomNav';
+import EEImg from './sb.jpg';
+import * as EEInfo from './ee';
+import EE from '../ProjectSingle/components/Dialog/Dialog';
 import Footer from '../../components/footer/footer';
 import MediaQuery from 'react-responsive';
 import axios from 'axios';
 
 class BlogApp extends Component {
     state={
+        open: false,
         error:[1],
         data: [],
         allData:[],
@@ -24,7 +28,7 @@ class BlogApp extends Component {
     }
     styles={
         innerGridNav:{
-            marginTop:"10%"
+            marginTop:"4%"
         }
     }
 
@@ -33,7 +37,6 @@ class BlogApp extends Component {
     }
 
     setCategory=(c)=>{
-        var obj=[]
         if(c==="ALL"){
             // var f=this.filterNames("all")
             this.setState({category: c})
@@ -60,7 +63,7 @@ class BlogApp extends Component {
 
     getAllData=(p)=>{
         // axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${p||this.state.page}`)
-        axios.get(`http://localhost:8000/api/posts/`)
+        axios.get(`/api/posts/`)
         .then((response)=>{
             // console.log("Response: "+response.data)
             this.setState({
@@ -76,7 +79,7 @@ class BlogApp extends Component {
 
     getData=(cat,p)=>{
         // axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${p||this.state.page}`)
-        axios.get(`http://localhost:8000/api/posts/?limit=2&offset=${p*2-2}&tech=${cat?cat:""}`)
+        axios.get(`/api/posts/?limit=2&offset=${p*2-2}&tech=${cat?cat:""}`)
         .then((response)=>{
             console.log(response.data.count)
             this.setState({
@@ -103,10 +106,14 @@ class BlogApp extends Component {
         return this.state.data.filter(item => item.title.toLowerCase().includes(title.toLowerCase()))
       }
 
+    handleClose=()=>{
+        this.setState({open:false})
+    }
+
     getSearchData=(text)=>{
         // var results=this.filterTitles(text)
         // this.setState({filter: results})
-        axios.get(`http://localhost:8000/api/posts/?s=${text}`)
+        axios.get(`/api/posts/?s=${text}`)
         .then((response)=>{
             // console.log("Response: "+response.data)
             this.setState({
@@ -122,8 +129,23 @@ class BlogApp extends Component {
     componentDidMount=()=>{
         this.getData()
         this.getAllData()
+        document.getElementById("6699").addEventListener('click',()=>{
+            if(localStorage.getItem('countClick')){
+                localStorage.setItem('countClick',parseInt(localStorage.getItem('countClick'))+1)
+                if(parseInt(localStorage.getItem('countClick'))%7==0){
+                    localStorage.setItem("EasterEgg","You unlocked the uniocde website easter egg")
+                    this.setState({open: true})
+                }
+            }
+            else{
+                localStorage.setItem('countClick',1)
+            }
+        })
     }
-
+    // componentDidUpdate=(prevProps,prevState)=>{
+    //     if(prevState.open)
+    //     this.setState({open:false})
+    // }
   render() {
       console.log(this.state)
     //   this.getSearchData(1)
@@ -154,6 +176,17 @@ class BlogApp extends Component {
     console.log(this.state.data)
     return (
         <div>
+            <EE
+            onClose={this.handleClose}
+            open={this.state.open}
+            data={this.state.dialogData} 
+            name="Sagar Bagwe"
+            text={EEInfo.info.text}
+            gitHub="ABC"
+            pic={0}
+            eePic={EEImg}
+            linkedIn="CBA"
+            />
             <Grid
             container
             direction="row"
@@ -161,7 +194,7 @@ class BlogApp extends Component {
             style={{background: "#F8F8F8"}}
             >
                 {/* Shows redBackground AND image */}
-                <Grid item xs={12}>
+                <Grid id="6699" item xs={12}>
                     <MediaQuery minWidth={768} >
                         <BlogImage />
                     </MediaQuery>
@@ -175,7 +208,7 @@ class BlogApp extends Component {
                         >
                             <Grid item xs={12}>
                                 {/* <Grid item xs={12} style={{background: "#FF7171",height: "100vh"}} > */}
-                                    <img src={blogText} alt="#" width="30%"
+                                    <img src="https://storage.googleapis.com/unicode-data/static/frontend/df93e6888c2728363b230e54cbf669d1.png" alt="#" width="30%"
                                     style={{marginLeft: "50%",transform: "translateX(-50%)"}}
                                     />
                                 {/* </Grid> */}
@@ -190,10 +223,10 @@ class BlogApp extends Component {
 
 
                 {/* Shows navBar */}
-                <Grid item xs={10}>
-                    <Grid container direction="row" justify="center" style={this.styles.innerGridNav} >
+                <Grid item xs={10} md={11}>
+                    <Grid container direction="row" alignItems='flex-start' justify="center" style={this.styles.innerGridNav} >
                         <MediaQuery minWidth={961} >
-                            <Grid item xs={12} sm={10} md={9} lg={7} >
+                            <Grid item xs={12} sm={10} md={12} lg={8} >
                             <Grid container direction="column" justify="center" >
                                 <Grid item xs={12}>
                                     <Navbar setCategory={this.setCategory} />
@@ -201,7 +234,7 @@ class BlogApp extends Component {
                             </Grid>
                             </Grid>
                         </MediaQuery>
-                        <Grid item xs={12} md={9} lg={5} >
+                        <Grid item xs={12} md={6} lg={4} >
                             <SearchBar  getSearchData={this.getSearchData} />
                         </Grid>
                     </Grid>

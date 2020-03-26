@@ -4,9 +4,9 @@ import MyText from "./components/MyText/MyText";
 import EventCards2 from "./components/EventCards/EventCards2";
 import Home from "../Events/components/EventsImg/home.png";
 // import Home1 from "./components/EventsImg/small.png";
-import MediaQuery from 'react-responsive';
 import Footer from "../../components/footer/footer";
 import axios from 'axios';
+import MediaQuery from 'react-responsive';
 
 class MyApp extends Component {
   state = {
@@ -14,7 +14,7 @@ class MyApp extends Component {
   };
 
   getData=()=>{
-    axios.get("http://127.0.0.1:8000/api/events/")
+    axios.get("/api/events/")
     .then(response=>{
       console.log(response.data)
       this.setState({data: response.data})
@@ -45,21 +45,21 @@ class MyApp extends Component {
       <div>
         <Grid container direction="row" justify="center">
           <Grid item xs={12}>
-            <div>
-            {/* <MediaQuery maxWidth={768} >
+            <div style={{display: 'flex',justifyContent: 'center', background: '#c1d37f'}} >
+            <MediaQuery maxWidth={768} >
               <img
-                  src={Home1}
+                  src="https://storage.googleapis.com/unicode-data/static/frontend/568640b8bf2f641847ef3258546e2ea0.png"
                   alt={""}
-                  style={{ width: "100%", height: "auto" }}
+                  style={{padding: '14% 0%', width: "100%", height: "auto" }}
                 />
-            </MediaQuery> */}
-            {/* <MediaQuery minWidth={769} > */}
+            </MediaQuery>
+            <MediaQuery minWidth={769} >
               <img
-                src={Home}
+                src="https://storage.googleapis.com/unicode-data/static/frontend/568640b8bf2f641847ef3258546e2ea0.png"
                 alt={""}
-                style={{ width: "100%", height: "auto" }}
+                style={{ width: "60%", height: "auto" }}
               />
-            {/* </MediaQuery> */}
+            </MediaQuery>
             </div>
           </Grid>
           <Grid item xs={12}>

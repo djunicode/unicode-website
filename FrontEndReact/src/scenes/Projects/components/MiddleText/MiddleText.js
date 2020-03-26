@@ -10,7 +10,7 @@ class MiddleText extends Component{
             <div style={styles.container}>
         
             <div style={styles.text}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui accusamus repellat delectus eos veritatis nam necessitatibus architecto inventore officia esse.
+            Our members do amazing work, here is a lil sneak peek of our past  and upcoming projects
             </div>
             </div>
         );

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {styles} from '../Mentors/styles/styles';
 import { Grid, Avatar } from '@material-ui/core';
-import avatar from '../Mentors/image/avatar.jpg';
+import DialogBox from '../Dialog/Dialog';
 
 class Mentees extends Component{
     state={
@@ -13,7 +13,8 @@ class Mentees extends Component{
     showModal=(event)=>{
         console.log("modal")
         console.log(event.target.id)
-        this.setState({open: true,dialogData:[1]})
+        // this.setState({open: true,dialogData:[1]})
+        this.setState({open: true,dialogData:[this.state.mentors[event.target.id]]})
     }
     componentDidUpdate=(prevProps,prevState)=>{
         if(prevProps!=this.props){
@@ -33,7 +34,7 @@ class Mentees extends Component{
         const renderMentee=this.state.mentors.map((data)=>{
             return(
                 <Grid item xs={5} sm={4} md={3} lg={1} xl={1}>
-                    <Avatar imgProps={{id: data.id}} onClick={this.showModal} alt={data.username} src={`http://127.0.0.1:8000${data.profile_pic}`} style={styles.avatar} />
+                    <Avatar imgProps={{id: data.id}} onClick={this.showModal} alt={data.username} src={`${data.profile_pic}`} style={styles.avatar} />
                 </Grid>
                 )
         }
@@ -48,6 +49,15 @@ class Mentees extends Component{
                 </Grid>
                 <Grid item xs={12}>
                 </Grid>
+                <DialogBox 
+                open={this.state.open}
+                data={this.state.dialogData} 
+                name={this.state.dialogData[0]?this.state.dialogData[0].username:""}
+                text={this.state.dialogData[0]?this.state.dialogData[0].bio:""}
+                gitHub={this.state.dialogData[0]?this.state.dialogData[0].github_link:""}
+                pic={this.state.dialogData[0]?this.state.dialogData[0].profile_pic:""}
+                linkedIn={this.state.dialogData[0]?this.state.dialogData[0].linkedin_link:""}
+                />
                 <Grid item xs={9} sm={6} md={7} lg={11} xl={11}>
                 <Grid container
                 direction="row"

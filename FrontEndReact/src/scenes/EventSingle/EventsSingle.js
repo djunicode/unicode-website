@@ -92,12 +92,14 @@ getDate=(date)=>{
       case "12":
           month="Dec"
           break
+      default:
+        break;
   }
   return `${month} ${day}, ${year}`
 }
 
   getData=()=>{
-      axios.get(`http://localhost:8000/api/events/detail/${this.getSlug(this.props.location.pathname)}`)
+      axios.get(`/api/events/detail/${this.getSlug(this.props.location.pathname)}`)
       .then(response=>{
         console.log(response.data)
         this.setState({
@@ -142,7 +144,7 @@ getDate=(date)=>{
                       title={this.state.data.title?this.state.data.title:""}
                       body={this.state.data.description?this.state.data.description:""}
                       category={this.state.data.technologies?this.state.data.technologies[0]:""}
-                      tech={this.state.data.technologies?this.state.data.technologies[0]:""}
+                      tech={this.state.data.stack?this.state.data.stack:""}
                       date={`Date : ${this.state.data.date?this.getDate(this.state.data.date):""}`}
                       price={this.state.data.event_amount?this.state.data.event_amount:""}
                     />

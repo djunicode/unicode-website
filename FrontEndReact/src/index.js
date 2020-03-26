@@ -4,6 +4,9 @@ import './css/index.css';
 import App from './scenes/Routing';
 import * as serviceWorker from './javascript/serviceWorker';
 import {BrowserRouter} from 'react-router-dom';
+import axios from 'axios';
+
+axios.defaults.baseURL='http://unicode-website-265912.appspot.com/'
 
 ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById('root'));
 
