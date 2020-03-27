@@ -95,7 +95,8 @@ post_save.connect(post_save_event_receiver, sender=Post)
 
 class CommentManager(models.Manager):
     def all(self, *args, **kwargs):
-        return Comment.objects.filter(approved_comment=True)
+        # For now display all the comments
+        return Comment.objects.filter(approved_comment=False)
 
 
 class Comment(models.Model):
