@@ -33,12 +33,12 @@ class image extends Component {
             <React.Fragment>
                 <div style={{background: "#FFE99B"}} >
                     <MediaQuery maxWidth={770} >
-                        <img src="https://storage.googleapis.com/unicode-data/static/frontend/88fe8459ed91563b7c22945ff151500d.png" alt="#" width="70%"
+                        <img src="/static/frontend/88fe8459ed91563b7c22945ff151500d.png" alt="#" width="70%"
                         style={this.style.centeringGIT}
                         />
                     </MediaQuery>
                     <MediaQuery minWidth={771} >
-                        <img src="https://storage.googleapis.com/unicode-data/static/frontend/88fe8459ed91563b7c22945ff151500d.png" alt="#" width="44%"
+                        <img src="/static/frontend/88fe8459ed91563b7c22945ff151500d.png" alt="#" width="44%"
                         style={{
                             marginLeft: "8%",
                             paddingTop: "6%",
@@ -48,12 +48,12 @@ class image extends Component {
                         />
                     </MediaQuery>
                     <MediaQuery maxWidth={770} >
-                        <img src="https://storage.googleapis.com/unicode-data/static/frontend/6b5994e8d05a577d417834cfff387292.png" alt="BlogImage" width="33%" 
+                        <img src="/static/frontend/6b5994e8d05a577d417834cfff387292.png" alt="BlogImage" width="33%" 
                         style={this.style.centeringPHONE}
                         />
                     </MediaQuery>
                     <MediaQuery minWidth={771} >
-                        <img src="https://storage.googleapis.com/unicode-data/static/frontend/6b5994e8d05a577d417834cfff387292.png" alt="BlogImage" width="10%" 
+                        <img src="/static/frontend/6b5994e8d05a577d417834cfff387292.png" alt="BlogImage" width="10%" 
                         style={this.style.centeringPHONE}
                         />
                     </MediaQuery>

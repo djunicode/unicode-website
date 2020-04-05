@@ -11,8 +11,8 @@ class Video extends Component {
             <header class="v-header containerVideo">
                 <div class="fullscreen-video-wrap">
                 {/* <video src="https://production.cdmycdn.com/assets/marketing-pages/intensives/bws/coding-scenes-9a2031e8142b40bdb5d936d5eef33dfa.mp4" autoplay="" loop=""> */}
-                {/* <img src="https://storage.googleapis.com/unicode-data/static/frontend/417f9c3f8b4915bb2c996ef1f82b48ca.png" alt="about_us" style={{objectFit: 'cover',height: '100%', width: '100%'}} /> */}
-                <img src='https://storage.googleapis.com/unicode-data/static/frontend/417f9c3f8b4915bb2c996ef1f82b48ca.png' alt="about_us" style={{objectFit: 'cover',height: '100%', width: '100%'}} />
+                {/* <img src="/static/frontend/417f9c3f8b4915bb2c996ef1f82b48ca.png" alt="about_us" style={{objectFit: 'cover',height: '100%', width: '100%'}} /> */}
+                <img src='/static/frontend/417f9c3f8b4915bb2c996ef1f82b48ca.png' alt="about_us" style={{objectFit: 'cover',height: '100%', width: '100%'}} />
                 </div>
                 <div class="header-overlay1"></div>
                 <div class="header-content newAlignment text-md-center">

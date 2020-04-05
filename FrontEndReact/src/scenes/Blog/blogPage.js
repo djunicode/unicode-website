@@ -88,7 +88,7 @@ class BlogApp extends Component {
                 page: p,
                 count: Math.ceil((response.data.count)/2)*10
             })
-        })
+        },err=>console.log(err))
         .catch(e=>console.log(e))
     }
 
@@ -208,7 +208,7 @@ class BlogApp extends Component {
                         >
                             <Grid item xs={12}>
                                 {/* <Grid item xs={12} style={{background: "#FF7171",height: "100vh"}} > */}
-                                    <img src="https://storage.googleapis.com/unicode-data/static/frontend/df93e6888c2728363b230e54cbf669d1.png" alt="#" width="30%"
+                                    <img src="/static/frontend/df93e6888c2728363b230e54cbf669d1.png" alt="#" width="30%"
                                     style={{marginLeft: "50%",transform: "translateX(-50%)"}}
                                     />
                                 {/* </Grid> */}

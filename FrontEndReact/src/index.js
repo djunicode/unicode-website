@@ -6,7 +6,7 @@ import * as serviceWorker from './javascript/serviceWorker';
 import {BrowserRouter} from 'react-router-dom';
 import axios from 'axios';
 
-axios.defaults.baseURL='http://unicode-website-265912.appspot.com/'
+axios.defaults.baseURL=''
 
 ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById('root'));
 
