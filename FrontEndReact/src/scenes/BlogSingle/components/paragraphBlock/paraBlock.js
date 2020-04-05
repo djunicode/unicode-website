@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactMarkdown from 'react-markdown';
+import './markdownCSS.css';
 
 class ParaBlock extends Component {
     state = {  }

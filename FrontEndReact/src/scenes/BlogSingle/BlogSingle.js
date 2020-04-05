@@ -69,7 +69,7 @@ class BlogSingle extends Component {
         // axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${p||this.state.page}`)
         axios.get(`/api/posts/${this.getSlug(this.props.location.pathname)}`)
         .then((response)=>{
-            // console.log("Response: "+response.data)
+            console.log(response.data)
             var paragraphs=this.getPara(response.data.content)
             this.setState({
                 data: response.data,
@@ -120,30 +120,30 @@ class BlogSingle extends Component {
     }
 
     render() {
-        const renderParaUpper=this.state.para.upperText.map((data)=>{
-            return(
-                <Grid item xs={10}>
-                    <Paragraph text={data} />
-                </Grid>
-                )
-        }
-        )
-        const renderQuote=this.state.para.quoteText.map((data)=>{
-            return(
-                <Quote 
-                text={data}
-                />
-                )
-        }
-        )
-        const renderParaLower=this.state.para.lowerText.map((data)=>{
-            return(
-                <Grid item xs={10}>
-                    <Paragraph text={data} />
-                </Grid>
-                )
-        }
-        )
+        // const renderParaUpper=this.state.data.upperText.map((data)=>{
+        //     return(
+        //         <Grid item xs={10}>
+        //             <Paragraph text={data} />
+        //         </Grid>
+        //         )
+        // }
+        // )
+        // const renderQuote=this.state.para.quoteText.map((data)=>{
+        //     return(
+        //         <Quote 
+        //         text={data}
+        //         />
+        //         )
+        // }
+        // )
+        // const renderParaLower=this.state.para.lowerText.map((data)=>{
+        //     return(
+        //         <Grid item xs={10}>
+        //             <Paragraph text={data} />
+        //         </Grid>
+        //         )
+        // }
+        // )
         console.log(this.getSlug(this.props.location.pathname))
         console.log(this.state)
         return ( 
@@ -191,11 +191,15 @@ class BlogSingle extends Component {
                         </Fade>
                         </Grid>
 
-                        {renderParaUpper}
+                        {/* {renderParaUpper}
 
                         {renderQuote}
 
-                        {renderParaUpper}
+                        {renderParaUpper} */}
+
+                        <Grid item xs={10}>
+                            <Paragraph text={this.state.data?this.state.data.content:''} />
+                        </Grid>
                         
                         {/* MixedText component */}
                         {/* <Grid item xs={10}>
@@ -206,9 +210,9 @@ class BlogSingle extends Component {
                             />
                         </Grid> */}
 
-                        <Grid item xs={10}>
+                        {/* <Grid item xs={10}>
                             <img style={this.style.img} src={Image2} width="100%" alt="#"/>
-                        </Grid>
+                        </Grid> */}
 
                     </Grid>
                 </Grid>

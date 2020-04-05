@@ -36,7 +36,7 @@ export const imageInfo = {
                 divider: true
             },
             {
-                name: "Sagar M Bagwe",
+                name: "Sagar Bagwe",
                 position: 'Frontend',
                 project: 'Unicode Website',
                 img: 'sagarbagwe6699.jpg',

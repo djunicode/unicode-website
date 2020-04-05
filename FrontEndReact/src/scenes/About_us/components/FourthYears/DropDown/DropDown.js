@@ -17,7 +17,7 @@ class DropDownAbout extends Component {
         const renderStudent = this.state.data.map(s=>{
             return(
                 <React.Fragment>
-                    <InnerItem divider={s.divider} position={s.position} project={s.project} name={s.name} img={`https://storage.googleapis.com/unicode-data/static/frontend/profiles/`+s.img} />
+                    <InnerItem divider={s.divider} position={s.position} project={s.project} name={s.name} img={`/static/frontend/profiles/`+s.img} />
                 </React.Fragment>
             )
         })
