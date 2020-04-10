@@ -14,6 +14,10 @@ TECHNOLOGIES_CHOICES = (
 )
 
 
+def upload_location(instance, filename):
+    return "events/{filename}".format(filename=filename)
+
+
 class Event(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
@@ -39,20 +43,22 @@ def pre_save_event_receiver(sender, instance, *args, **kwargs):
 
 pre_save.connect(pre_save_event_receiver, sender=Event)
 
-"""
+
 def post_save_event_receiver(sender, instance, *args, **kwargs):
     subscribers = Newsletter.objects.all()
     subject = 'Unicode Event Notification'
     from_email = settings.EMAIL_HOST_USER
-    to_list = [subscribers.email for subscriber in subscribers]
+    to_list = [subscriber.email for subscriber in subscribers]
     to_list.append(from_email)
+    excerpt_len = min(len(instance.description), 30)
     context = {
         'title': instance.title,
-        'url': 'http://localhost:8000/api/events/detail/' + instance.slug,
+        "excerpt": instance.description[:excerpt_len] + "...",
+        'url': settings.BASE_URL + '/BlogSingle/' + instance.slug,
         'message': "Check out the new event"
     }
     message = get_template(
-        'email.html').render(context)
+        'email_event.html').render(context)
     msg = EmailMessage(subject, message, to=to_list,
                        from_email=from_email)
     msg.content_subtype = 'html'
@@ -60,7 +66,6 @@ def post_save_event_receiver(sender, instance, *args, **kwargs):
 
 
 post_save.connect(post_save_event_receiver, sender=Event)
-"""
 
 
 class Participant(models.Model):
