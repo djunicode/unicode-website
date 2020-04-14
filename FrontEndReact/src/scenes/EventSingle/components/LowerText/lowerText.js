@@ -18,7 +18,7 @@ class LowerText extends Component {
             style={this.styles.container}
             className="openSans-18-400"
             >
-                {this.props.content}
+                
             </div>
          );
     }
