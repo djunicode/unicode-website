@@ -192,7 +192,7 @@ class EventCards2 extends Component {
           <CardActionArea>
             <CardMedia
               style={{ height: 275 }}
-              image={cardImg}
+              image={`/static/frontend/${cardImg}`}
               title="Blog image"
             />
             <CardContent style={{ padding: "4% 2% 8% 5%" }}>
@@ -203,7 +203,7 @@ class EventCards2 extends Component {
               </Typography>
 
               <Typography variant="subtitle2" style={this.styles.subFont}>
-                {this.props.desc}
+                 {this.alterContent(this.props.desc)}
               </Typography>
               <PriceBtn price={this.props.price} />
               <div style={this.styles.dateFont}>DATE:</div>

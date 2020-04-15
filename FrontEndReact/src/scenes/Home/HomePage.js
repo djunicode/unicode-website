@@ -44,7 +44,7 @@ class HomePage extends Component {
                 img: '/static/frontend/486f20358766b426e5bef4f452ae867f.jpg'
             },
             {
-                name: 'Gitika Dashwani',
+                name: 'Gitika Daswani',
                 exp: "Unicode for me was a means to bridge the communication gap that was developing between the successive batches. It's essential that students possess good networking skills and this was a platform for them to begin with. The long term goal was to get them ready to work in the industry by providing them with structured mentorship and technical experience through projects.",
                 position: '',
                 img: '/static/frontend/b9f0c5dfd072f4a11c8fef1fd3423d9f.jpeg'
@@ -173,7 +173,7 @@ class HomePage extends Component {
                                     /> */}
                                     <FounderCard
                                     onClick={()=>{this.open(4)}}
-                                    name={"Gitika Dashwani"}
+                                    name={"Gitika Daswani"}
                                     position={""}
                                     img="/static/frontend/b9f0c5dfd072f4a11c8fef1fd3423d9f.jpeg"
                                     exp={"Unicode for me was a means to bridge the communication gap that was developing between the successive batches. It's essential that students possess good networking skills and this was a platform for them to begin with. The long term goal was to get them ready to work in the industry by providing them with structured mentorship and technical experience through projects."}
