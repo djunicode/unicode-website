@@ -11,3 +11,4 @@ pycodestyle==2.4.0
 pyflakes==2.0.0
 pytz==2018.9
 sqlparse==0.3.0
+django-cors-headers
