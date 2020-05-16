@@ -25,7 +25,8 @@ const Blue=createMuiTheme(
 
 class Subscribe extends Component {
     state = { 
-        showMessage: false
+        showMessage: false,
+        email: ''
      }
     style={
         text:{

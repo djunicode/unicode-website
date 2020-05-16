@@ -78,7 +78,9 @@ class ProjTile extends Component {
                 >
                     
                     <Grid item xs={12} md={4} lg={4} >
-                        <img style={{borderRadius: "50%", marginLeft: '16%'}} src={this.props.cover||ProjImg} width="70%" ></img>
+                        <div style={{width: 200, margin: "auto"}} >
+                            <img style={{width: 200, height: 200, objectFit: "cover", overflow: "hidden", borderRadius: "50%"}} src={this.props.cover||ProjImg} width="70%" ></img>
+                        </div>
                     </Grid>
                     <Grid item xs={12} md={1}>
                         

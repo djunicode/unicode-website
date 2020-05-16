@@ -3,6 +3,7 @@ import {Paper, Grid, MuiThemeProvider, createMuiTheme} from '@material-ui/core';
 import '../../../../css/fonts.css';
 import {styles} from './styles/styles';
 import {NavLink} from 'react-router-dom';
+import markdownToTxt from 'markdown-to-txt';
 
 const theme = createMuiTheme({
     breakpoints: {
@@ -16,6 +17,7 @@ const theme = createMuiTheme({
 class Card extends Component {
     alterContent=(content)=>{
         var newContent=""
+        var newContentWOunderscore=""
         var count=0
         content.split(" ").forEach((word)=>{
             if(count!==20){
@@ -23,7 +25,9 @@ class Card extends Component {
                 count++;
             }
         })
-        return newContent
+        newContent.split('_').forEach(e=>newContentWOunderscore+=e+" ")
+        // return newContent
+        return markdownToTxt(newContentWOunderscore)
     }
     getSlug=(url)=>{
         if(url){
