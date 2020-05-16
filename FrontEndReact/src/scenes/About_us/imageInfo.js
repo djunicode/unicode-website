@@ -346,6 +346,27 @@ export const imageInfo = {
             project: 'Unicode Website',
             img: 'shahsaumya.jpg',
             divider: false
+        },
+        {
+            name: "Edward Gonsalves",
+            position: 'Mentor',
+            project: 'Unicode Website',
+            img: 'ed-word.jpeg',
+            divider: false
+        },
+        {
+            name: "Sarmishta Velury",
+            position: 'Mentor',
+            project: 'Unicode Website',
+            img: 'sarmishtaVelury.jpeg',
+            divider: false
+        },
+        {
+            name: "Shreya Naik",
+            position: 'Mentor',
+            project: 'Unicode Website',
+            img: 'Shreya027.jpeg',
+            divider: false
         }
     ]
 }

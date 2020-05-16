@@ -6,6 +6,9 @@ import MiddleText from './components/MiddleText/MiddleText';
 import SelectOption from './components/Select/Select';
 import Pagination from '../../components/Pagination/Pagination';
 import Footer from '../../components/footer/footer';
+import markdownToTxt from 'markdown-to-txt';
+// import PlainTextRenderer from 'marked-plaintext';
+// import marked from 'marked';
 import axios from 'axios';
 
 class Project extends Component {
@@ -90,6 +93,10 @@ class Project extends Component {
     //     }
     // }
     render() {
+        // console.log(markdownToTxt('_Teachers need to formulate multiple reports for events, and since most of it is paper work and there is no '))
+        // var renderer = new PlainTextRenderer;
+        // console.log(marked('_Teachers need to formulate multiple reports for events, and since most of it is paper work and there is no ', { renderer: renderer }));
+        // console.log(markdownToTxt('Some *quoted* `*code*`'))
         console.log(this.postCount)
         console.log(this.postCount===0?this.state.count:this.postCount)
         return (
