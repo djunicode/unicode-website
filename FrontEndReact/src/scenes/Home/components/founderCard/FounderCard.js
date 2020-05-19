@@ -66,7 +66,7 @@ class FounderCard extends Component {
                 count++;
             }
         })
-        return `${newContent}. . . .`
+        return `${newContent}. . .`
     }
     render() { 
         return ( 

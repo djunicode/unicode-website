@@ -87,7 +87,7 @@ class PaginationCards extends Component {
             }
         })
         if (count>=this.state.wordCount){
-            newContent+=". . ."
+            newContent+=" . . ."
         }
         return newContent
     }
