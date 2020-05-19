@@ -49,7 +49,7 @@ class ProjTile extends Component {
                 count++;
             }
         })
-        return `${newContent}. . . .`
+        return `${newContent}. . .`
     }
     render() { 
         // console.log(this.state)
@@ -63,7 +63,7 @@ class ProjTile extends Component {
             text:{
                 padding: "10% 2% 10% 0%",
                 fontFamily: "'Montserrat', sans-serif",
-                fontSize: this.state.Gwidth<960?(this.state.Gwidth<600?('3vw'):('2vw')):(this.state.Gwidth<1280?('1.5vw'):('1vw')),
+                fontSize: this.state.Gwidth<960?(this.state.Gwidth<600?('4vw'):(this.state.Gwidth<750?('2.8vw'):('2.2vw'))):(this.state.Gwidth<1280?('1.6vw'):('1.5vw')),
                 textAlign: this.state.Gwidth<960?"center":"left"
             }
         }

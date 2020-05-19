@@ -17,7 +17,7 @@ class ProjSection extends Component {
         font:{
             fontFamily: "'Montserrat', sans-serif",
             fontWeight: "400",
-            fontSize: `${this.props.Gwidth>960?('2.5vw'):('7vw')}`,
+            fontSize: `${this.state.Gwidth<960?(this.state.Gwidth<600?('3vw'):('2vw')):(this.state.Gwidth<1280?('1.5vw'):('1vw'))}`,
             color: "#FFFFFF",
             lineHeight: "49px",
             textAlign: "left",

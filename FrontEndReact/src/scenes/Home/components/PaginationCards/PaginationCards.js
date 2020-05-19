@@ -12,7 +12,8 @@ class PaginationCards extends Component {
         todos: [],
         currentPage: 1,
         todosPerPage: this.props.no,
-        checked: false
+        checked: false,
+        wordCount: 25
      }
      sModal=()=>{
          console.log("Hello World")
@@ -20,24 +21,28 @@ class PaginationCards extends Component {
      }
      resize = () =>{
         let Gwidth=document.body.clientWidth
-        if(Gwidth<600){
-            this.setState({todosPerPage: 1})
+        if(Gwidth<450){
+            this.setState({todosPerPage: 1, wordCount: 38})
+        }
+        else if(Gwidth<600){
+            this.setState({todosPerPage: 1, wordCount: 50})
         }
         else if(Gwidth<960){
-            this.setState({todosPerPage: 1})
+            this.setState({todosPerPage: 1, wordCount: 45})
         }
         else if(Gwidth<1280){
-            this.setState({todosPerPage: 2})
+            this.setState({todosPerPage: 2, wordCount: 35})
         }
         else if(Gwidth<1920){
-            this.setState({todosPerPage: 3})
+            this.setState({todosPerPage: 3, wordCount: 25})
         }
         else{
-            this.setState({todosPerPage: 4})
+            this.setState({todosPerPage: 4, wordCount: 20})
         }
      }
      componentDidMount() {
         window.addEventListener('resize', this.resize)
+        this.resize()
       }
      handleClick=(event)=>{
         console.log(event.target)
@@ -76,13 +81,13 @@ class PaginationCards extends Component {
         var count=0
         content=`${content}`
         content.split(" ").forEach((word)=>{
-            if(count!==15){
+            if(count!==this.state.wordCount){
                 newContent+=word+" "
                 count++;
             }
         })
-        if (count>14){
-            newContent+=". . . ."
+        if (count>=this.state.wordCount){
+            newContent+=". . ."
         }
         return newContent
     }
@@ -102,7 +107,8 @@ class PaginationCards extends Component {
                     onClick={this.sModal}
                     showModal={this.state.open}
                     color={todo.color}
-                    index={todo.id} 
+                    index={todo.id}
+                    wordCount={this.state.wordCount}
                     fullText={this.state.todos.length?this.state.todos[index].comments:""}
                     text={this.state.todos.length?this.alterContent(this.state.todos[index].comments):""}
                     pic={this.state.todos.length?this.state.todos[index].photograph:""}
