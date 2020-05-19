@@ -17,7 +17,8 @@ class FeedbackCard extends Component {
     state = { 
         checked: true,
         direction: "left",
-        modal:false
+        modal:false,
+        Gwidth: document.body.clientWidth
      }
      style={
         paper:{
@@ -32,11 +33,17 @@ class FeedbackCard extends Component {
         font:{
             fontFamily: "'Open Sans', sans-serif",
             fontWeight: "600",
-            fontSize: 24,
+            // fontSize: 24,
             color: "#FFFFFF",
             lineHeight: "33px",
             textAlign: "left"
         }
+    }
+    resize=()=>{
+        this.setState({Gwidth: document.body.clientWidth})
+    }
+    componentDidMount() {
+        window.addEventListener('resize', this.resize)
     }
     componentWillReceiveProps=()=>{
         setTimeout(()=>{
@@ -59,7 +66,7 @@ class FeedbackCard extends Component {
     closeModal = () =>{
         this.setState({modal: false})
     }
-    render() { 
+    render() {
         return ( 
             <React.Fragment>
                 <Dialog
@@ -85,7 +92,10 @@ class FeedbackCard extends Component {
                 </Dialog>
                 <Zoom in={this.state.checked} direction={this.state.direction} >
                 <Paper style={this.style.paper} onClick={this.showFeedbackModal} >
-                    <Typography variant="headline" style={this.style.font} >
+                    <Typography variant="headline" 
+                    style={{ 
+                        fontSize: `${this.state.Gwidth<960?(this.state.Gwidth<600?('4vw'):(this.state.Gwidth<750?('2.8vw'):('2.2vw'))):(this.state.Gwidth<1280?('1.6vw'):('1.5vw'))}`,
+                        ...this.style.font}} >
                         {/* <b>
                             {this.props.index}
                         </b> */}
@@ -94,7 +104,7 @@ class FeedbackCard extends Component {
                             {this.props.text}
                         </Flip>
                     </Typography>
-                    <div style={{position: "absolute",bottom: 30}} >
+                    <div style={{position: "absolute",bottom: 30, width: '82%'}} >
                         <Info
                         pic={this.props.pic}
                         fname={this.props.fname}

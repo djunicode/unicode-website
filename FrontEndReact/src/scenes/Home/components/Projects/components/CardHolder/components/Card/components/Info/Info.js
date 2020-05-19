@@ -21,7 +21,8 @@ class Info extends Component {
             fontSize: 20,
             fontFamily: "'Open Sans', sans-seri",
             fontWeight: 600,
-            letterHeight: 22
+            letterHeight: 22,
+            width: '100%'
         },
         avatar:{
             width: 50,

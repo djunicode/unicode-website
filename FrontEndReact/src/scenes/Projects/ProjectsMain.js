@@ -61,6 +61,12 @@ class Project extends Component {
     }
     setFilter=(tech,year)=>{
         console.log('Filter updated')
+        if(tech=='All'){
+            tech=''
+        }
+        if(year=='All'){
+            year=''
+        }
         this.setState({
             tech: tech,
             year: year

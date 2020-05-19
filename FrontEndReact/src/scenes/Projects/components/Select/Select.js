@@ -92,7 +92,7 @@ class SelectOption extends Component {
                         />
                     }
                     >
-                    <option value="" />
+                    <option value={'All'}>All</option>
                     {/* <option value={10}>Java</option> */}
                     <option value={'Web'}>Web Development</option>
                     <option value={'App'}>App Development</option>
@@ -118,7 +118,7 @@ class SelectOption extends Component {
                     />
                     }
                 >
-                    <option value="" />
+                    <option value={'All'}>All</option>
                     <option value={2018}>2018</option>
                     <option value={2019}>2019</option>
                 </Select>

@@ -60,6 +60,7 @@ class HomePage extends Component {
             width: '16vw',
             height: '16vw',
             marginLeft: '50%',
+            marginTop: 10,
             transform: 'translateX(-50%)',
             border: '4px solid #a1b3be',
             borderRadius: 200
