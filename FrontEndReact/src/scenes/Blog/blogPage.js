@@ -110,9 +110,25 @@ class BlogApp extends Component {
         this.setState({open:false})
     }
 
+    copyToClipboard=()=>{
+        var dummy = document.createElement("textarea")
+        // to avoid breaking orgain page when copying more words
+        // cant copy when adding below this code
+        // dummy.style.display = 'none'
+        document.body.appendChild(dummy)
+        //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
+        dummy.value = "https://www.flickr.com/photos/188632675@N04/shares/t7acbk"
+        dummy.select()
+        document.execCommand("copy")
+        document.body.removeChild(dummy)
+    }
+
     getSearchData=(text)=>{
         // var results=this.filterTitles(text)
         // this.setState({filter: results})
+        if(text=='6699'){
+            this.copyToClipboard()            
+        }
         axios.get(`/api/posts/?s=${text}`)
         .then((response)=>{
             // console.log("Response: "+response.data)
@@ -133,8 +149,8 @@ class BlogApp extends Component {
             if(localStorage.getItem('countClick')){
                 localStorage.setItem('countClick',parseInt(localStorage.getItem('countClick'))+1)
                 if(parseInt(localStorage.getItem('countClick'))%7==0){
-                    localStorage.setItem("EasterEgg","You unlocked the uniocde website easter egg")
-                    this.setState({open: true})
+                    localStorage.setItem("UnicodeEasterEgg","https://www.flickr.com/photos/188632675@N04/shares/t7acbk")
+                    // this.setState({open: true})
                 }
             }
             else{

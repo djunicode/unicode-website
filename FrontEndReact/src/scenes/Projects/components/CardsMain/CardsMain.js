@@ -16,7 +16,7 @@ class CardsMain extends Component{
     getData=(p)=>{
         // axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${p||this.state.page}`)
         // /?limit=2&offset=${p*2-2}
-        axios.get(`/api/projects/?limit=4&offset=${p*4-4}&tech=${this.props.tech.toLowerCase()}&year=${this.props.year}`)
+        axios.get(`/api/projects/?limit=8&offset=${p*8-8}&tech=${this.props.tech.toLowerCase()}&year=${this.props.year}`)
         .then((response)=>{
             console.log(response.data.count)
             // console.log("Response: "+response.data)
