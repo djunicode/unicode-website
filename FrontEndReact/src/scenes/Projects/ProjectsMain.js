@@ -37,23 +37,23 @@ class Project extends Component {
     getData=(p)=>{
         // axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${p||this.state.page}`)
         // /?limit=2&offset=${p*2-2}
-        axios.get(`/api/projects/?limit=4&offset=${p*4-4}&s=${this.state.tech}&year=${this.state.year}`)
+        axios.get(`/api/projects/?limit=8&offset=${p*8-8}&s=${this.state.tech}&year=${this.state.year}`)
         .then((response)=>{
             console.log(response.data)
             this.setState({
                 data: response.data.results,
                 filter: response.data.results,
                 page: p,
-                count: Math.ceil((response.data.count)/4)*10
+                count: Math.ceil((response.data.count)/8)*10
             })
         })
         .catch(e=>console.log(e))
     }
     upCnt=(count)=>{
         console.log("count: "+count)
-        console.log("Updating count "+ Math.ceil((count)/4)*10)
+        console.log("Updating count "+ Math.ceil((count)/8)*10)
         // this.setState({count: count})
-        this.postCount=Math.ceil((count)/4)*10
+        this.postCount=Math.ceil((count)/8)*10
         var c=this.postCount
         if(this.state.count!==c){
             this.setState({count: c,page: 1})

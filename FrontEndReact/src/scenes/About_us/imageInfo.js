@@ -215,6 +215,20 @@ export const imageInfo = {
                 position: 'Android',
                 project: 'Attendance App',
                 img: 'YashJaveri.jpg',
+                divider: true
+            },
+            {
+                name: "Parag Vaid",
+                position: 'Backend',
+                project: 'Project Finder',
+                img: 'parag1999.png',
+                divider: true
+            },
+            {
+                name: "Krisha Mehta",
+                position: 'Frontend',
+                project: 'Canten Web',
+                img: 'krishamehta.jpeg',
                 divider: false
             }
         ],
@@ -332,12 +346,34 @@ export const imageInfo = {
             divider: true
         },
         {
+            name: "Fenil Doshi",
+            position: 'Frontend',
+            project: 'BookX',
+            img: 'fenil25.jpg',
+            divider: true
+        },
+        {
+            name: "Kushal Doshi",
+            position: 'Frontend',
+            project: 'Students Portal',
+            img: 'Kushald2805.jpeg',
+            divider: true
+        },
+        {
+            name: "Aakash Shah",
+            position: 'Full Stack',
+            project: 'Student Portal',
+            img: 'akksshah.jpeg',
+            divider: true
+        },
+        {
             name: "Aamir Darukhanawala",
             position: 'Android',
             project: 'Attendance App',
             img: 'aamir21198.jpg',
             divider: false
-        },
+        }
+        
     ],
     fourthYear:[
         {
@@ -345,21 +381,21 @@ export const imageInfo = {
             position: 'Mentor',
             project: 'Unicode Website',
             img: 'shahsaumya.jpg',
-            divider: false
+            divider: true
         },
         {
             name: "Edward Gonsalves",
             position: 'Mentor',
             project: 'Unicode Website',
             img: 'ed-word.jpeg',
-            divider: false
+            divider: true
         },
         {
             name: "Sarmishta Velury",
             position: 'Mentor',
             project: 'Unicode Website',
             img: 'sarmishtaVelury.jpeg',
-            divider: false
+            divider: true
         },
         {
             name: "Shreya Naik",
