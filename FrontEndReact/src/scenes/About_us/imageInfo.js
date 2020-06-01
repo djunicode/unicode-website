@@ -222,13 +222,6 @@ export const imageInfo = {
                 position: 'Backend',
                 project: 'Project Finder',
                 img: 'parag1999.png',
-                divider: true
-            },
-            {
-                name: "Krisha Mehta",
-                position: 'Frontend',
-                project: 'Canten Web',
-                img: 'krishamehta.jpeg',
                 divider: false
             }
         ],
@@ -360,13 +353,6 @@ export const imageInfo = {
             divider: true
         },
         {
-            name: "Aakash Shah",
-            position: 'Full Stack',
-            project: 'Student Portal',
-            img: 'akksshah.jpeg',
-            divider: true
-        },
-        {
             name: "Aamir Darukhanawala",
             position: 'Android',
             project: 'Attendance App',
@@ -402,7 +388,21 @@ export const imageInfo = {
             position: 'Mentor',
             project: 'Unicode Website',
             img: 'Shreya027.jpeg',
+            divider: true
+        },
+        {
+            name: "Krisha Mehta",
+            position: 'Frontend',
+            project: 'Canten Web',
+            img: 'krishamehta.jpeg',
+            divider: true
+        },
+        {
+            name: "Aakash Shah",
+            position: 'Full Stack',
+            project: 'Student Portal',
+            img: 'akksshah.jpeg',
             divider: false
-        }
+        },
     ]
 }
